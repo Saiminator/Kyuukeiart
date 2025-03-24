@@ -5,25 +5,28 @@ body {
   padding: 20px;
   background: #f4f4f9;
 }
+
 h1, h2, h3, p {
   margin: 0;
   padding: 0;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Header and Footer */
+/* HEADER & FOOTER */
 header, footer {
   text-align: center;
   padding: 10px 0;
 }
 
-/* ----- MAIN GALLERY PAGE ----- */
+/* MAIN GALLERY PAGE */
 #gallery-page {
   text-align: center;
 }
+
 .character-card {
   display: inline-block;
   width: 220px;
@@ -35,16 +38,19 @@ header, footer {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin: 20px;
 }
+
 .character-card:hover {
   transform: scale(1.05);
   box-shadow: 0 3px 6px rgba(0,0,0,0.15);
 }
+
 .character-thumb {
   width: 100%;
   height: 220px;
   background-size: cover;
   background-position: center;
 }
+
 .character-name {
   padding: 10px;
   text-align: center;
@@ -52,11 +58,12 @@ header, footer {
   color: #333;
 }
 
-/* ----- CHARACTER DETAIL PAGE ----- */
+/* CHARACTER DETAIL PAGE (and Artwork Sidebar) */
 #detail-page {
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .back-btn {
   display: inline-block;
   margin-bottom: 20px;
@@ -67,36 +74,44 @@ header, footer {
   cursor: pointer;
   transition: background 0.3s ease;
 }
+
 .back-btn:hover {
   background: #e0a8b5;
 }
+
 .detail-container {
   display: flex;
   gap: 20px;
 }
+
 /* Left Content Area */
 .detail-content {
   flex: 2;
 }
+
 .detail-content h1 {
   margin-bottom: 15px;
   font-size: 2em;
   color: #333;
 }
+
 .detail-content p {
   margin-bottom: 15px;
   line-height: 1.6;
   color: #555;
 }
-/* Right Sidebar (Matching Character Page Style) */
+
+/* Right Sidebar (Same as Character Page) */
 .detail-sidebar {
   flex: 1;
 }
+
 .profile-pic {
   width: 100%;
   border-radius: 8px;
   margin-bottom: 20px;
 }
+
 .character-info {
   background: #fff;
   border: 1px solid #ddd;
@@ -104,58 +119,39 @@ header, footer {
   padding: 10px;
   margin-bottom: 20px;
 }
+
 .character-info p {
   margin: 5px 0;
   font-size: 0.95em;
   color: #333;
 }
-/* Preview Buttons (if needed elsewhere) */
-.preview-btn {
-  display: block;
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-.preview-btn:hover {
-  transform: translateY(-3px);
-}
-.preview-btn img {
-  width: 100%;
-  display: block;
-}
 
-/* ----- THUMBNAILS & MODAL FOR ARTWORK ----- */
-
-/* Thumbnail styling for artwork images */
+/* ARTWORK THUMBNAILS */
 .artwork-thumbnail {
   max-width: 150px;
   cursor: pointer;
   transition: transform 0.3s ease;
   margin: 5px;
 }
+
 .artwork-thumbnail:hover {
   transform: scale(1.05);
 }
 
-/* Modal overlay styling */
+/* MODAL STYLES */
 .modal {
-  display: none; /* Hidden by default */
+  display: none; /* Hidden initially */
   position: fixed;
   z-index: 10000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0,0,0,0.8);
   justify-content: center;
   align-items: center;
 }
+
 .modal-content {
   display: block;
   max-width: 95%;  /* Slightly bigger than before */
@@ -163,7 +159,7 @@ header, footer {
   margin: auto;
 }
 
-/* Next & Previous Buttons */
+/* MODAL NAVIGATION BUTTONS */
 .modal-prev,
 .modal-next {
   position: absolute;
@@ -178,14 +174,16 @@ header, footer {
   background: rgba(0,0,0,0.4);
   border-radius: 5px;
 }
+
 .modal-prev {
   left: 10px;
 }
+
 .modal-next {
   right: 10px;
 }
 
-/* Modal close button */
+/* MODAL CLOSE BUTTON */
 .modal-close {
   position: absolute;
   top: 20px;
