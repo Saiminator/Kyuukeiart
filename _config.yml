@@ -2,3 +2,11 @@ title: Kyuukei Art
 description: "Artwork hub for character images, references, and collections."
 baseurl: ""  # Set if your site is in a subdirectory
 url: "https://yourgithubusername.github.io"  # Replace with your GitHub Pages URL
+
+collections:
+  characters:
+    output: true
+    permalink: /characters/:name/
+  artworks:
+    output: true
+    permalink: /collection/:name/
