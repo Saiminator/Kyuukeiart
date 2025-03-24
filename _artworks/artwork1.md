@@ -1,12 +1,16 @@
 ---
-title: "Artwork 1"
-name: "artwork1"
 layout: artwork
-image: "https://i.imgur.com/CjWbN5Y.png"
-description: "A sample artwork description for Artwork 1."
-artist: "Artist Name"
+title: "Via Reference"
+name: "via-fia"
+preview: "https://i.imgur.com/zOOHPmU.png"
+images:
+  - "https://i.imgur.com/8B6QrxV.png"
+  - "https://i.imgur.com/CjWbN5Y.png"
+  - "https://i.imgur.com/9NuAnto.png"
+artist: "@if959u"
 characters:
   - "Via"
+description: "Via reference commission"
 ---
 
-More details or commentary about the artwork.
+Picture credit goes to @if959u.
