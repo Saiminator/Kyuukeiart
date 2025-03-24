@@ -1,124 +1,62 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Toggle between gallery and detail page (if applicable)
-  const galleryPage = document.getElementById('gallery-page');
-  const detailPage = document.getElementById('detail-page');
-  const characterCards = document.querySelectorAll('.character-card');
-  const backToGallery = document.getElementById('back-to-gallery');
-
-  characterCards.forEach(card => {
-    card.addEventListener('click', function() {
-      const name = card.getAttribute('data-name');
-      const detailTitle = document.getElementById('detail-title');
-      if(detailTitle) {
-        detailTitle.textContent = name;
-      }
-      if(galleryPage && detailPage) {
-        galleryPage.style.display = 'none';
-        detailPage.style.display = 'block';
-      }
-    });
-  });
-
-  if (backToGallery) {
-    backToGallery.addEventListener('click', function(e) {
-      e.preventDefault();
-      if(galleryPage && detailPage) {
-        detailPage.style.display = 'none';
-        galleryPage.style.display = 'block';
-      }
-    });
-  }
-
-  // Modal functionality for full-screen image gallery
+document.addEventListener('DOMContentLoaded', function() {
   const modal = document.getElementById('modal');
-  const modalMainImage = document.getElementById('modal-main-image');
-  const modalThumbnails = document.getElementById('modal-thumbnails');
+  const modalImg = document.getElementById('modal-img');
   const modalClose = document.getElementById('modal-close');
+  const modalPrev = document.getElementById('modal-prev');
+  const modalNext = document.getElementById('modal-next');
+  const thumbnails = document.querySelectorAll('.artwork-thumbnail');
+  let currentIndex = 0;
+  let images = [];
 
-  // Example image arrays for References and Collection
-  const refImages = [
-    'https://i.imgur.com/9NuAnto.png',
-    'https://i.imgur.com/9NuAnto.png',
-    'https://i.imgur.com/9NuAnto.png',
-    'https://i.imgur.com/9NuAnto.png'
-  ];
-  const colImages = [
-    'https://i.imgur.com/CjWbN5Y.png',
-    'https://i.imgur.com/CjWbN5Y.png',
-    'https://i.imgur.com/CjWbN5Y.png',
-    'https://i.imgur.com/CjWbN5Y.png'
-  ];
-
-  function openModal(imageArray) {
-    modalThumbnails.innerHTML = '';
-    modalMainImage.src = imageArray[0];
-    imageArray.forEach(src => {
-      const thumb = document.createElement('img');
-      thumb.src = src;
-      thumb.addEventListener('click', () => {
-        modalMainImage.src = src;
-      });
-      modalThumbnails.appendChild(thumb);
-    });
-    modal.style.display = 'flex';
-  }
-
-  const refPreview = document.getElementById('ref-preview');
-  const colPreview = document.getElementById('col-preview');
-
-  if (refPreview) {
-    refPreview.addEventListener('click', function() {
-      openModal(refImages);
-    });
-  }
-  if (colPreview) {
-    colPreview.addEventListener('click', function() {
-      openModal(colImages);
-    });
-  }
-
-  if (modalClose) {
-    modalClose.addEventListener('click', function() {
-      modal.style.display = 'none';
-    });
-  }
-
-  window.addEventListener('click', function(e) {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
-
-  window.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      modal.style.display = 'none';
-    }
-  });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById("modal");
-  const modalImg = document.getElementById("modal-img");
-  const modalClose = document.getElementById("modal-close");
-
-  // Attach click listeners to all thumbnails
-  document.querySelectorAll('.artwork-thumbnail').forEach(img => {
-    img.addEventListener('click', function() {
-      modal.style.display = "flex"; // Using flex to center content
-      modalImg.src = this.src;
+  // Build an array of image URLs from the thumbnails
+  thumbnails.forEach((thumb, index) => {
+    images.push(thumb.src);
+    thumb.addEventListener('click', function() {
+      currentIndex = index;
+      openModal();
     });
   });
 
-  // Close modal on close button click
-  modalClose.addEventListener('click', function() {
-    modal.style.display = "none";
-  });
+  function openModal() {
+    modal.style.display = 'flex'; // Using flex to center content
+    modalImg.src = images[currentIndex];
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    modalImg.src = images[currentIndex];
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
+    modalImg.src = images[currentIndex];
+  }
+
+  modalClose.addEventListener('click', closeModal);
+  modalPrev.addEventListener('click', showPrev);
+  modalNext.addEventListener('click', showNext);
 
   // Close modal if clicking outside the image
   window.addEventListener('click', function(event) {
     if (event.target === modal) {
-      modal.style.display = "none";
+      closeModal();
+    }
+  });
+
+  // Arrow key support for navigation and closing modal
+  window.addEventListener('keydown', function(event) {
+    if (modal.style.display === 'flex') {
+      if (event.key === 'ArrowLeft') {
+        showPrev();
+      } else if (event.key === 'ArrowRight') {
+        showNext();
+      } else if (event.key === 'Escape') {
+        closeModal();
+      }
     }
   });
 });
-
