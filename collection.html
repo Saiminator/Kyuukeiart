@@ -4,9 +4,12 @@ title: Collection
 ---
 <section id="collection-page">
   <h1>Collection Gallery</h1>
-  <div class="character-card" data-name="Collection Item 1">
-    <div class="character-thumb" style="background-image: url('https://i.imgur.com/CjWbN5Y.png');"></div>
-    <div class="character-name">Collection Item 1</div>
-  </div>
-  <!-- Add more collection items as needed -->
+  {% for artwork in site.artworks %}
+    <div class="character-card">
+      <a href="{{ artwork.url }}">
+        <div class="character-thumb" style="background-image: url('{{ artwork.image }}');"></div>
+        <div class="character-name">{{ artwork.title }}</div>
+      </a>
+    </div>
+  {% endfor %}
 </section>
