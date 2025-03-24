@@ -7,7 +7,9 @@ title: Collection
   {% for artwork in site.artworks %}
     <div class="character-card">
       <a href="{{ artwork.url }}">
-        <div class="character-thumb" style="background-image: url('{{ artwork.image }}');"></div>
+        <div class="character-thumb">
+          <img src="{{ artwork.preview }}" alt="{{ artwork.title }} Preview">
+        </div>
         <div class="character-name">{{ artwork.title }}</div>
       </a>
     </div>
