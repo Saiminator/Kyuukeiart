@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<section id="detail-page">
+  <div class="back-btn"><a href="{{ site.baseurl }}/characters.html">← Back to Gallery</a></div>
+  <div class="detail-container">
+    <!-- Left: Content/Description -->
+    <div class="detail-content">
+      <h1 id="detail-title">{{ page.title }}</h1>
+      <p>{{ page.description }}</p>
+      {{ content }}
+    </div>
+    <!-- Right: Sidebar -->
+    <div class="detail-sidebar">
+      <img src="{{ page.image }}" alt="{{ page.title }} Profile Picture" class="profile-pic">
+      <div class="character-info">
+        <p><strong>Height:</strong> {{ page.height }}</p>
+        <p><strong>Weight:</strong> {{ page.weight }}</p>
+        <p><strong>Cup Size:</strong> {{ page.cup_size }}</p>
+        <p><strong>Hair Color:</strong> {{ page.hair_color }}</p>
+        <p><strong>Eye Color:</strong> {{ page.eye_color }}</p>
+      </div>
+      <!-- You can include buttons for References or Collection previews here -->
+    </div>
+  </div>
+</section>
+
+<!-- Optionally include modal code here -->
