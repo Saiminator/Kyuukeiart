@@ -1,32 +1,80 @@
-/* GLOBAL STYLES */
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 20px;
-  background: #f4f4f9;
-}
-
-h1, h2, h3, p {
+/* RESET & GLOBAL STYLES */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  background: #f4f4f9;
+  color: #333;
+  padding: 20px;
+  text-align: center;
 }
 
 /* HEADER & FOOTER */
 header, footer {
-  text-align: center;
-  padding: 10px 0;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+  margin-bottom: 20px;
 }
 
-/* MAIN GALLERY PAGE */
-#gallery-page {
-  text-align: center;
+header nav a,
+footer a {
+  margin: 0 10px;
+  color: #333;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
+header nav a:hover,
+footer a:hover {
+  color: #007BFF;
+}
+
+/* MAIN CONTENT */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* BUTTONS */
+button, .preview-btn {
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover, .preview-btn:hover {
+  background: #0056b3;
+}
+
+/* BACK BUTTON */
+.back-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background: #f7cdd5;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.back-btn:hover {
+  background: #e0a8b5;
+}
+
+/* GALLERY CARD STYLES (for characters and collections) */
 .character-card {
   display: inline-block;
   width: 220px;
@@ -37,6 +85,7 @@ header, footer {
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin: 20px;
+  text-align: center;
 }
 
 .character-card:hover {
@@ -53,40 +102,28 @@ header, footer {
 
 .character-name {
   padding: 10px;
-  text-align: center;
   font-size: 1.2em;
   color: #333;
 }
 
-/* CHARACTER DETAIL PAGE (and Artwork Sidebar) */
-#detail-page {
+/* DETAIL PAGES & SIDEBAR */
+#detail-page, #artwork-detail-page {
   max-width: 1200px;
   margin: 0 auto;
-}
-
-.back-btn {
-  display: inline-block;
-  margin-bottom: 20px;
-  padding: 10px 15px;
-  background: #f7cdd5;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.back-btn:hover {
-  background: #e0a8b5;
+  text-align: left;
 }
 
 .detail-container {
   display: flex;
   gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
 }
 
-/* Left Content Area */
 .detail-content {
   flex: 2;
+  padding: 20px;
 }
 
 .detail-content h1 {
@@ -101,9 +138,10 @@ header, footer {
   color: #555;
 }
 
-/* Right Sidebar (Same as Character Page) */
 .detail-sidebar {
   flex: 1;
+  padding: 20px;
+  text-align: center;
 }
 
 .profile-pic {
@@ -118,12 +156,12 @@ header, footer {
   border-radius: 8px;
   padding: 10px;
   margin-bottom: 20px;
+  text-align: left;
 }
 
 .character-info p {
   margin: 5px 0;
   font-size: 0.95em;
-  color: #333;
 }
 
 /* ARTWORK THUMBNAILS */
@@ -154,7 +192,7 @@ header, footer {
 
 .modal-content {
   display: block;
-  max-width: 95%;  /* Slightly bigger than before */
+  max-width: 95%;  /* Enlarged modal image */
   max-height: 95%;
   margin: auto;
 }
