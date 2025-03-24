@@ -20,7 +20,7 @@ layout: default
     <!-- Right: Sidebar -->
     <div class="detail-sidebar">
       <img src="{{ page.preview }}" alt="{{ page.title }} Preview" class="profile-pic">
-      <div class="artwork-info">
+      <div class="character-info">
         <p><strong>Artist:</strong> {{ page.artist }}</p>
         <p><strong>Characters:</strong>
           {% for char in page.characters %}
@@ -34,6 +34,8 @@ layout: default
 
 <!-- Modal overlay for enlarged image -->
 <div id="modal" class="modal">
+  <span class="modal-prev" id="modal-prev">&#10094;</span>
+  <span class="modal-next" id="modal-next">&#10095;</span>
   <span class="modal-close" id="modal-close">&times;</span>
   <img class="modal-content" id="modal-img" src="" alt="Enlarged Artwork">
 </div>
