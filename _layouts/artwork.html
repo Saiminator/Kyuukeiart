@@ -13,7 +13,7 @@ layout: default
       {{ content }}
       <div class="artwork-images">
         {% for img in page.images %}
-          <img src="{{ img }}" alt="Artwork Image">
+          <img src="{{ img }}" alt="Artwork Image" class="artwork-thumbnail">
         {% endfor %}
       </div>
     </div>
@@ -31,3 +31,9 @@ layout: default
     </div>
   </div>
 </section>
+
+<!-- Modal overlay for enlarged image -->
+<div id="modal" class="modal">
+  <span class="modal-close" id="modal-close">&times;</span>
+  <img class="modal-content" id="modal-img" src="" alt="Enlarged Artwork">
+</div>
