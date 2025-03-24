@@ -88,7 +88,7 @@ header, footer {
   line-height: 1.6;
   color: #555;
 }
-/* Right Sidebar */
+/* Right Sidebar (Matching Character Page Style) */
 .detail-sidebar {
   flex: 1;
 }
@@ -109,7 +109,7 @@ header, footer {
   font-size: 0.95em;
   color: #333;
 }
-/* Preview Buttons */
+/* Preview Buttons (if needed elsewhere) */
 .preview-btn {
   display: block;
   width: 100%;
@@ -129,7 +129,7 @@ header, footer {
   display: block;
 }
 
-/* ----- THUMBNAILS & MODAL ----- */
+/* ----- THUMBNAILS & MODAL FOR ARTWORK ----- */
 
 /* Thumbnail styling for artwork images */
 .artwork-thumbnail {
@@ -144,7 +144,7 @@ header, footer {
 
 /* Modal overlay styling */
 .modal {
-  display: none;
+  display: none; /* Hidden by default */
   position: fixed;
   z-index: 10000;
   left: 0;
@@ -158,10 +158,34 @@ header, footer {
 }
 .modal-content {
   display: block;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 95%;  /* Slightly bigger than before */
+  max-height: 95%;
   margin: auto;
 }
+
+/* Next & Previous Buttons */
+.modal-prev,
+.modal-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  padding: 20px;
+  background: rgba(0,0,0,0.4);
+  border-radius: 5px;
+}
+.modal-prev {
+  left: 10px;
+}
+.modal-next {
+  right: 10px;
+}
+
+/* Modal close button */
 .modal-close {
   position: absolute;
   top: 20px;
