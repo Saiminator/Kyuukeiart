@@ -27,30 +27,24 @@ layout: default
         {% if page.hair_color %}<p><strong>Hair Color:</strong> {{ page.hair_color }}</p>{% endif %}
         {% if page.eye_color %}<p><strong>Eye Color:</strong> {{ page.eye_color }}</p>{% endif %}
       </div>
-      <!-- Action Buttons -->
-      <div class="action-buttons">
-        <button id="ref-preview" class="preview-btn">References</button>
-        <button id="col-preview" class="preview-btn">Collection</button>
-      </div>
+      <!-- Reference Images Button -->
+      <button id="ref-preview" class="preview-btn">References</button>
     </div>
   </div>
 </section>
 
-<!-- Modal for full-screen gallery -->
-<div id="modal">
-  <div id="modal-content">
-    <button id="modal-close">X</button>
-    <div id="modal-main-image-container">
-      <img id="modal-main-image" src="" alt="Main Gallery Image">
-    </div>
-    <div id="modal-thumbnails"></div>
-  </div>
+<!-- Modal overlay (shared with artwork) -->
+<div id="modal" class="modal">
+  <span class="modal-prev" id="modal-prev">&#10094;</span>
+  <span class="modal-next" id="modal-next">&#10095;</span>
+  <span class="modal-close" id="modal-close">&times;</span>
+  <img class="modal-content" id="modal-img" src="" alt="Enlarged Image">
 </div>
 
-<!-- Pass the reference images to JavaScript -->
+<!--
+Pass the reference images from front matter as a JavaScript variable.
+Make sure your character markdown includes a "references" key in its front matter.
+-->
 <script>
   var refImages = {{ page.references | jsonify | default: "[]" }};
-  // For collections, you can later implement logic that pulls artwork items
-  // from your _artworks collection matching this character's title.
-  var currentCharacter = "{{ page.title }}";
 </script>
