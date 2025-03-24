@@ -2,17 +2,24 @@
 layout: default
 ---
 <section id="artwork-detail-page">
-  <div class="back-btn"><a href="{{ site.baseurl }}/collection.html">← Back to Collection Gallery</a></div>
+  <div class="back-btn">
+    <a href="{{ site.baseurl }}/collection.html">← Back to Collection Gallery</a>
+  </div>
   <div class="detail-container">
     <!-- Left: Content/Description -->
     <div class="detail-content">
       <h1 id="artwork-title">{{ page.title }}</h1>
       <p>{{ page.description }}</p>
       {{ content }}
+      <div class="artwork-images">
+        {% for img in page.images %}
+          <img src="{{ img }}" alt="Artwork Image">
+        {% endfor %}
+      </div>
     </div>
     <!-- Right: Sidebar -->
     <div class="detail-sidebar">
-      <img src="{{ page.image }}" alt="{{ page.title }} Image" class="profile-pic">
+      <img src="{{ page.preview }}" alt="{{ page.title }} Preview" class="profile-pic">
       <div class="artwork-info">
         <p><strong>Artist:</strong> {{ page.artist }}</p>
         <p><strong>Characters:</strong>
@@ -21,7 +28,6 @@ layout: default
           {% endfor %}
         </p>
       </div>
-      <!-- Additional artwork details can go here -->
     </div>
   </div>
 </section>
