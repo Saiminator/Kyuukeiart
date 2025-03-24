@@ -95,3 +95,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+  const modalClose = document.getElementById("modal-close");
+
+  // Attach click listeners to all thumbnails
+  document.querySelectorAll('.artwork-thumbnail').forEach(img => {
+    img.addEventListener('click', function() {
+      modal.style.display = "flex"; // Using flex to center content
+      modalImg.src = this.src;
+    });
+  });
+
+  // Close modal on close button click
+  modalClose.addEventListener('click', function() {
+    modal.style.display = "none";
+  });
+
+  // Close modal if clicking outside the image
+  window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+
