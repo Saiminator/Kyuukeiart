@@ -2,24 +2,55 @@
 layout: default
 ---
 <section id="detail-page">
-  <div class="back-btn"><a href="{{ site.baseurl }}/characters.html">← Back to Gallery</a></div>
+  <div class="back-btn">
+    <a href="{{ site.baseurl }}/characters.html">← Back to Gallery</a>
+  </div>
   <div class="detail-container">
     <!-- Left: Content/Description -->
     <div class="detail-content">
       <h1 id="detail-title">{{ page.title }}</h1>
-      <p>{{ page.description }}</p>
+      <p><strong>Description:</strong> {{ page.description }}</p>
       {{ content }}
     </div>
     <!-- Right: Sidebar -->
     <div class="detail-sidebar">
       <img src="{{ page.image }}" alt="{{ page.title }} Profile Picture" class="profile-pic">
       <div class="character-info">
-        <p><strong>Height:</strong> {{ page.height }}</p>
-        <p><strong>Weight:</strong> {{ page.weight }}</p>
-        <p><strong>Cup Size:</strong> {{ page.cup_size }}</p>
-        <p><strong>Hair Color:</strong> {{ page.hair_color }}</p>
-        <p><strong>Eye Color:</strong> {{ page.eye_color }}</p>
+        {% if page.age %}<p><strong>Age:</strong> {{ page.age }}</p>{% endif %}
+        {% if page.birthday %}<p><strong>Birthday:</strong> {{ page.birthday }}</p>{% endif %}
+        {% if page.species %}<p><strong>Species:</strong> {{ page.species }}</p>{% endif %}
+        {% if page.gender %}<p><strong>Gender:</strong> {{ page.gender }}</p>{% endif %}
+        {% if page.height %}<p><strong>Height:</strong> {{ page.height }}</p>{% endif %}
+        {% if page.weight %}<p><strong>Weight:</strong> {{ page.weight }}</p>{% endif %}
+        {% if page.cup_size %}<p><strong>Cup Size:</strong> {{ page.cup_size }}</p>{% endif %}
+        {% if page.mana_color %}<p><strong>Mana Color:</strong> {{ page.mana_color }}</p>{% endif %}
+        {% if page.hair_color %}<p><strong>Hair Color:</strong> {{ page.hair_color }}</p>{% endif %}
+        {% if page.eye_color %}<p><strong>Eye Color:</strong> {{ page.eye_color }}</p>{% endif %}
+      </div>
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button id="ref-preview" class="preview-btn">References</button>
+        <button id="col-preview" class="preview-btn">Collection</button>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Modal for full-screen gallery -->
+<div id="modal">
+  <div id="modal-content">
+    <button id="modal-close">X</button>
+    <div id="modal-main-image-container">
+      <img id="modal-main-image" src="" alt="Main Gallery Image">
+    </div>
+    <div id="modal-thumbnails"></div>
+  </div>
+</div>
+
+<!-- Pass the reference images to JavaScript -->
+<script>
+  var refImages = {{ page.references | jsonify | default: "[]" }};
+  // For collections, you can later implement logic that pulls artwork items
+  // from your _artworks collection matching this character's title.
+  var currentCharacter = "{{ page.title }}";
+</script>
