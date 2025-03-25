@@ -4,7 +4,8 @@ title: "Expressive Variations – Via Collection"
 name: "via-expressions"
 artist: "@if959u"
 characters:
-  - "Via"
+  - "Mika"
+  - "Shimi"
 description: "A collection showcasing multiple expressive variations on Via's artwork."
 sets:
   - preview: "https://i.imgur.com/zOOHPmU.png"
