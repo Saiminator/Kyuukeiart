@@ -11,16 +11,37 @@ layout: default
       <h1 id="artwork-title">{{ page.title }}</h1>
       <p>{{ page.description }}</p>
       {{ content }}
-      <div class="artwork-images">
-        {% for img in page.images %}
-          <img src="{{ img }}" alt="Artwork Image" class="artwork-thumbnail">
-        {% endfor %}
-      </div>
+      {% if page.sets %}
+        <div class="collection-sets">
+          {% for set in page.sets %}
+            <div class="collection-set" data-set-images='{{ set.images | jsonify }}'>
+              <div class="collection-set-preview character-card" onclick="openSetModal(this)">
+                <div class="character-thumb" style="background-image: url('{{ set.preview }}');">
+                  <div class="set-count-overlay">{{ set.images | size }} images</div>
+                </div>
+                <div class="character-name">{{ set.set_title }}</div>
+              </div>
+              <p>{{ set.set_description }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="artwork-images">
+          {% for img in page.images %}
+            <img src="{{ img }}" alt="Artwork Image" class="artwork-thumbnail">
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
     <!-- Right: Sidebar -->
     <div class="detail-sidebar">
-      <img src="{{ page.preview }}" alt="{{ page.title }} Preview" class="profile-pic">
-      <div class="character-info">
+      {% if page.sets %}
+        <!-- Use the first set's preview for an overall image -->
+        <img src="{{ page.sets[0].preview }}" alt="{{ page.title }} Preview" class="profile-pic">
+      {% else %}
+        <img src="{{ page.preview }}" alt="{{ page.title }} Preview" class="profile-pic">
+      {% endif %}
+      <div class="artwork-info">
         <p><strong>Artist:</strong> {{ page.artist }}</p>
         <p><strong>Characters:</strong>
           {% for char in page.characters %}
@@ -34,8 +55,65 @@ layout: default
 
 <!-- Modal overlay for enlarged image -->
 <div id="modal" class="modal">
-  <span class="modal-prev" id="modal-prev">&#10094;</span>
-  <span class="modal-next" id="modal-next">&#10095;</span>
-  <span class="modal-close" id="modal-close">&times;</span>
+  <span class="modal-prev" id="modal-prev" onclick="showPrevImage()">&#10094;</span>
+  <span class="modal-next" id="modal-next" onclick="showNextImage()">&#10095;</span>
+  <span class="modal-close" id="modal-close" onclick="closeModal()">&times;</span>
   <img class="modal-content" id="modal-img" src="" alt="Enlarged Artwork">
 </div>
+
+<script>
+  // Global variables for modal functionality when viewing a set
+  var modalImages = [];
+  var currentModalIndex = 0;
+
+  // Called when a set card is clicked.
+  function openSetModal(element) {
+    var data = element.parentElement.getAttribute('data-set-images');
+    if (data) {
+      modalImages = JSON.parse(data);
+      currentModalIndex = 0;
+      document.getElementById('modal-img').src = modalImages[currentModalIndex];
+      document.getElementById('modal').style.display = 'flex';
+    }
+  }
+
+  function showPrevImage() {
+    if (modalImages.length > 0) {
+      currentModalIndex = (currentModalIndex - 1 + modalImages.length) % modalImages.length;
+      document.getElementById('modal-img').src = modalImages[currentModalIndex];
+    }
+  }
+
+  function showNextImage() {
+    if (modalImages.length > 0) {
+      currentModalIndex = (currentModalIndex + 1) % modalImages.length;
+      document.getElementById('modal-img').src = modalImages[currentModalIndex];
+    }
+  }
+
+  function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+  }
+
+  // Close modal if clicking outside the image
+  window.addEventListener('click', function(event) {
+    var modal = document.getElementById('modal');
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Keyboard navigation for modal
+  window.addEventListener('keydown', function(event) {
+    var modal = document.getElementById('modal');
+    if (modal.style.display === 'flex') {
+      if (event.key === 'ArrowLeft') {
+        showPrevImage();
+      } else if (event.key === 'ArrowRight') {
+        showNextImage();
+      } else if (event.key === 'Escape') {
+        closeModal();
+      }
+    }
+  });
+</script>
