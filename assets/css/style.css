@@ -93,11 +93,13 @@ button:hover, .preview-btn:hover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.15);
 }
 
+/* Character thumbnail - used for both character and collection preview */
 .character-thumb {
   width: 100%;
   height: 220px;
   background-size: cover;
   background-position: center;
+  position: relative;  /* needed for overlay */
 }
 
 .character-name {
@@ -106,7 +108,7 @@ button:hover, .preview-btn:hover {
   color: #333;
 }
 
-/* COLLECTION LIST CONTAINER (for Character pages listing related collections) */
+/* Collection list container (for character pages listing related collections) */
 .collection-list {
   display: flex;
   flex-wrap: wrap;
@@ -114,6 +116,25 @@ button:hover, .preview-btn:hover {
   gap: 20px;
   margin: 0 auto;
   max-width: 1200px;
+}
+
+/* Collection sets container (for multiple sets per artwork) */
+.collection-sets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Individual collection set card */
+.collection-set {
+  margin: 20px;
+  text-align: center;
+}
+.collection-set p {
+  max-width: 220px;
+  margin: 5px auto;
+  font-size: 0.9em;
 }
 
 /* DETAIL PAGES & SIDEBAR */
@@ -242,4 +263,16 @@ button:hover, .preview-btn:hover {
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
+}
+
+/* SET OVERLAY (for artworks with sets) */
+.set-count-overlay {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 3px 6px;
+  border-radius: 3px;
+  font-size: 0.8em;
 }
