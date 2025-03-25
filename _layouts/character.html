@@ -9,15 +9,16 @@ layout: default
   <p>This character appears in the following collections:</p>
   <div class="collection-list">
     {% assign related_collections = site.artworks | where_exp:"artwork", "artwork.characters contains page.title" %}
-    {% for artwork in related_collections %}
-      <div class="collection-card">
-        <a href="{{ artwork.url }}">
-          <div class="character-thumb" style="background-image: url('{{ artwork.preview }}');"></div>
-          <div class="character-name">{{ artwork.title }}</div>
-        </a>
-      </div>
-    {% endfor %}
-    {% if related_collections == empty %}
+    {% if related_collections != empty %}
+      {% for artwork in related_collections %}
+        <div class="character-card">
+          <a href="{{ artwork.url }}">
+            <div class="character-thumb" style="background-image: url('{{ artwork.preview }}');"></div>
+            <div class="character-name">{{ artwork.title }}</div>
+          </a>
+        </div>
+      {% endfor %}
+    {% else %}
       <p>No collections found for {{ page.title }}.</p>
     {% endif %}
   </div>
