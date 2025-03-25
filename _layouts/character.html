@@ -1,50 +1,24 @@
 ---
 layout: default
 ---
-<section id="detail-page">
+<section id="character-collections">
   <div class="back-btn">
-    <a href="{{ site.baseurl }}/characters.html">← Back to Gallery</a>
+    <a href="{{ site.baseurl }}/characters.html">← Back to Characters Gallery</a>
   </div>
-  <div class="detail-container">
-    <!-- Left: Content/Description -->
-    <div class="detail-content">
-      <h1 id="detail-title">{{ page.title }}</h1>
-      <p>{{ page.description }}</p>
-      {{ content }}
-    </div>
-    <!-- Right: Sidebar -->
-    <div class="detail-sidebar">
-      <img src="{{ page.image }}" alt="{{ page.title }} Profile Picture" class="profile-pic">
-      <div class="character-info">
-        {% if page.age %}<p><strong>Age:</strong> {{ page.age }}</p>{% endif %}
-        {% if page.birthday %}<p><strong>Birthday:</strong> {{ page.birthday }}</p>{% endif %}
-        {% if page.species %}<p><strong>Species:</strong> {{ page.species }}</p>{% endif %}
-        {% if page.gender %}<p><strong>Gender:</strong> {{ page.gender }}</p>{% endif %}
-        {% if page.height %}<p><strong>Height:</strong> {{ page.height }}</p>{% endif %}
-        {% if page.weight %}<p><strong>Weight:</strong> {{ page.weight }}</p>{% endif %}
-        {% if page.cup_size %}<p><strong>Cup Size:</strong> {{ page.cup_size }}</p>{% endif %}
-        {% if page.mana_color %}<p><strong>Mana Color:</strong> {{ page.mana_color }}</p>{% endif %}
-        {% if page.hair_color %}<p><strong>Hair Color:</strong> {{ page.hair_color }}</p>{% endif %}
-        {% if page.eye_color %}<p><strong>Eye Color:</strong> {{ page.eye_color }}</p>{% endif %}
+  <h1>{{ page.title }}</h1>
+  <p>This character appears in the following collections:</p>
+  <div class="collection-list">
+    {% assign related_collections = site.artworks | where_exp:"artwork", "artwork.characters contains page.title" %}
+    {% for artwork in related_collections %}
+      <div class="collection-card">
+        <a href="{{ artwork.url }}">
+          <div class="character-thumb" style="background-image: url('{{ artwork.preview }}');"></div>
+          <div class="character-name">{{ artwork.title }}</div>
+        </a>
       </div>
-      <!-- Reference Images Button -->
-      <button id="ref-preview" class="preview-btn">References</button>
-    </div>
+    {% endfor %}
+    {% if related_collections == empty %}
+      <p>No collections found for {{ page.title }}.</p>
+    {% endif %}
   </div>
 </section>
-
-<!-- Modal overlay (shared with artwork) -->
-<div id="modal" class="modal">
-  <span class="modal-prev" id="modal-prev">&#10094;</span>
-  <span class="modal-next" id="modal-next">&#10095;</span>
-  <span class="modal-close" id="modal-close">&times;</span>
-  <img class="modal-content" id="modal-img" src="" alt="Enlarged Image">
-</div>
-
-<!--
-Pass the reference images from front matter as a JavaScript variable.
-Make sure your character markdown includes a "references" key in its front matter.
--->
-<script>
-  var refImages = {{ page.references | jsonify | default: "[]" }};
-</script>
