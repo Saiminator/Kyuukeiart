@@ -1,14 +1,21 @@
 ---
 layout: default
-title: Characters
+title: "Characters"
 ---
-<section id="gallery-page">
-  <h1>Character Gallery</h1>
+<section id="character-gallery">
+  <h1>Characters</h1>
   {% for character in site.characters %}
+    {% assign collection_count = 0 %}
+    {% for artwork in site.artworks %}
+      {% if artwork.characters contains character.title %}
+        {% assign collection_count = collection_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
     <div class="character-card">
       <a href="{{ character.url }}">
         <div class="character-thumb" style="background-image: url('{{ character.image }}');"></div>
         <div class="character-name">{{ character.title }}</div>
+        <div class="collection-count">{{ collection_count }} Collections</div>
       </a>
     </div>
   {% endfor %}
