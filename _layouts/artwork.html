@@ -2,7 +2,8 @@
 layout: default
 ---
 <section id="artwork-detail-page">
-  <div class="back-btn">
+  <!-- Centered Back Button -->
+  <div class="back-btn" style="text-align: center;">
     <a href="{{ site.baseurl }}/collection.html">← Back to Collection Gallery</a>
   </div>
   <div class="detail-container">
@@ -31,7 +32,6 @@ layout: default
           {% endfor %}
         </div>
       {% else %}
-        <!-- Fallback for non-set artwork -->
         <div class="artwork-images">
           {% for img in page.images %}
             <img src="{{ img }}" alt="Artwork Image" class="artwork-thumbnail {% if page.nsfw %}nsfw blurred{% endif %}">
@@ -40,12 +40,10 @@ layout: default
       {% endif %}
     </div>
 
-    <!-- Right: Sidebar -->
+    <!-- Right: Sidebar using the artwork preview -->
     <div class="detail-sidebar" style="text-align: center;">
-      <!-- Use the main preview image from front matter -->
       <img src="{{ page.preview }}" alt="{{ page.title }} Preview"
            class="profile-pic {% if page.nsfw %}nsfw blurred{% endif %}">
-
       <div class="artwork-info">
         <p><strong>Artist:</strong> {{ page.artist }}</p>
         <p><strong>Characters:</strong>
@@ -58,7 +56,7 @@ layout: default
   </div>
 </section>
 
-<!-- Modal overlay for enlarged image display -->
+<!-- Shared Modal for Enlarged Images -->
 <div id="modal" class="modal">
   <span class="modal-prev" id="modal-prev" onclick="showPrevImage()">&#10094;</span>
   <span class="modal-next" id="modal-next" onclick="showNextImage()">&#10095;</span>
