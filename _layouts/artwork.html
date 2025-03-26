@@ -2,23 +2,15 @@
 layout: default
 ---
 <section id="artwork-detail-page">
-  <!-- Back Button placed above the detail container -->
   <div class="back-btn">
     <a href="{{ site.baseurl }}/collection.html">← Back to Collection Gallery</a>
   </div>
-  
   <div class="detail-container">
-    <!-- Left: Main Content (title, reference heading, sets, etc.) -->
+    <!-- Left: Content/Description and Sets/Images -->
     <div class="detail-content">
       <h1 id="artwork-title">{{ page.title }}</h1>
-      
-      {% if page.reference_heading or page.reference_description %}
-      <div class="set-reference" style="text-align: center; margin: 20px 0;">
-        <h2>{{ page.reference_heading | default: "Via Reference" }}</h2>
-        <p>{{ page.reference_description }}</p>
-      </div>
-      {% endif %}
-      
+      <p>{{ page.description }}</p>
+      {{ content }}
       {% if page.sets %}
         <div class="collection-sets">
           {% for set in page.sets %}
@@ -29,7 +21,7 @@ layout: default
                 </div>
                 <div class="character-name">{{ set.set_title }}</div>
               </div>
-              <p style="max-width: 220px; margin: 5px auto; font-size: 0.9em;">{{ set.set_description }}</p>
+              <p>{{ set.set_description }}</p>
             </div>
           {% endfor %}
         </div>
@@ -41,10 +33,10 @@ layout: default
         </div>
       {% endif %}
     </div>
-    
-    <!-- Right: Sidebar with Preview Image and Artwork Info -->
+    <!-- Right: Sidebar -->
     <div class="detail-sidebar">
       {% if page.sets %}
+        <!-- Use the first set's preview as the overall collection preview -->
         <img src="{{ page.sets[0].preview }}" alt="{{ page.title }} Preview" class="profile-pic">
       {% else %}
         <img src="{{ page.preview }}" alt="{{ page.title }} Preview" class="profile-pic">
@@ -61,7 +53,7 @@ layout: default
   </div>
 </section>
 
-<!-- Modal overlay for enlarged image -->
+<!-- Modal overlay for enlarged image display -->
 <div id="modal" class="modal">
   <span class="modal-prev" id="modal-prev" onclick="showPrevImage()">&#10094;</span>
   <span class="modal-next" id="modal-next" onclick="showNextImage()">&#10095;</span>
