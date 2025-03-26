@@ -3,7 +3,7 @@ layout: default
 title: "Characters"
 ---
 
-<section id="character-gallery">
+<section id="character-gallery" style="text-align: center;">
   <h1>Characters</h1>
   <div class="collection-list">
     {% for character in site.characters %}
@@ -16,8 +16,8 @@ title: "Characters"
       <div class="character-card">
         <a href="{{ character.url }}">
           <div class="character-thumb">
-            <!-- Using an image element (with class preview-img) for proper scaling -->
-            <img src="{{ character.image }}" alt="{{ character.title }} Image" class="preview-img">
+            <!-- Use an img element with preview-img class; if NSFW, add both "nsfw" and "nsfw-blurred" -->
+            <img src="{{ character.image }}" alt="{{ character.title }} Image" class="preview-img {% if character.nsfw %}nsfw nsfw-blurred{% endif %}">
           </div>
           <div class="character-name">{{ character.title }}</div>
           <div class="collection-count">{{ collection_count }} Collections</div>
