@@ -7,12 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const nsfwYes = document.getElementById('nsfw-yes');
     const nsfwNo = document.getElementById('nsfw-no');
 
-    // Check localStorage on load
     const existingConsent = localStorage.getItem('nsfwConsent');
     if (existingConsent === null) {
       nsfwModal.style.display = 'flex';
     } else if (existingConsent === 'yes') {
-      // Remove nsfw-blurred class from all elements that have it
       document.querySelectorAll('.nsfw-blurred').forEach(function(el) {
         el.classList.remove('nsfw-blurred');
       });
@@ -22,9 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleBtn.classList.add('toggle-on');
       }
     } else {
-      // existingConsent === 'no'
       document.querySelectorAll('.nsfw').forEach(function(el) {
-        // Ensure they have nsfw-blurred class if they don't already
         if (!el.classList.contains('nsfw-blurred')) {
           el.classList.add('nsfw-blurred');
         }
@@ -140,25 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
     modalPrev.addEventListener('click', showPrevArtwork);
     modalNext.addEventListener('click', showNextArtwork);
     modalClose.addEventListener('click', closeArtworkModal);
-
-    window.addEventListener('keydown', function(event) {
-      if (modal.style.display === 'flex') {
-        if (event.key === 'ArrowLeft') {
-          showPrevArtwork();
-        } else if (event.key === 'ArrowRight') {
-          showNextArtwork();
-        } else if (event.key === 'Escape') {
-          closeArtworkModal();
-        }
-      }
-    });
   }
-
-  window.addEventListener('click', function(event) {
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
 
   /*-----------------------------------------------------
     CHARACTER PAGE REFERENCE MODAL
@@ -202,18 +180,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     modalClose.addEventListener('click', closeRefModal);
-
-    window.addEventListener('keydown', function(event) {
-      if (modal.style.display === 'flex' && refImages.includes(modalImg.src)) {
-        if (event.key === 'ArrowLeft') {
-          showPrevRef();
-        } else if (event.key === 'ArrowRight') {
-          showNextRef();
-        } else if (event.key === 'Escape') {
-          closeRefModal();
-        }
-      }
-    });
   }
 
   /*-----------------------------------------------------
@@ -222,7 +188,6 @@ document.addEventListener('DOMContentLoaded', function() {
   let setModalImages = [];
   let setCurrentIndex = 0;
 
-  // Called when a set card is clicked
   window.openSetModal = function(element) {
     var data = element.parentElement.getAttribute('data-set-images');
     if (data) {
@@ -246,4 +211,37 @@ document.addEventListener('DOMContentLoaded', function() {
       modalImg.src = setModalImages[setCurrentIndex];
     }
   };
+
+  /*-----------------------------------------------------
+    GLOBAL KEYDOWN HANDLER (for modal navigation)
+  -----------------------------------------------------*/
+  window.addEventListener('keydown', function(event) {
+    if (modal.style.display === 'flex') {
+      // Check if we're in set mode
+      if (setModalImages.length > 0 && setModalImages.includes(modalImg.src)) {
+        if (event.key === 'ArrowLeft') {
+          showPrevImage();
+        } else if (event.key === 'ArrowRight') {
+          showNextImage();
+        } else if (event.key === 'Escape') {
+          modal.style.display = 'none';
+        }
+      } else if (typeof artworkImages !== 'undefined' && artworkImages.length > 0 && artworkImages.includes(modalImg.src)) {
+        // Otherwise, assume we're in artwork thumbnail mode
+        if (event.key === 'ArrowLeft') {
+          showPrevArtwork();
+        } else if (event.key === 'ArrowRight') {
+          showNextArtwork();
+        } else if (event.key === 'Escape') {
+          modal.style.display = 'none';
+        }
+      }
+    }
+  });
+
+  window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
 });
