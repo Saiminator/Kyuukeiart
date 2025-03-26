@@ -5,8 +5,8 @@ layout: default
   <div class="back-btn" style="text-align: center;">
     <a href="{{ site.baseurl }}/characters.html">← Back to Characters Gallery</a>
   </div>
-  <h1>{{ page.title }}</h1>
-  <p>This character appears in the following collections:</p>
+  <h1 style="text-align: center;">{{ page.title }}</h1>
+  <p style="text-align: center;">This character appears in the following collections:</p>
   <div class="collection-list">
     {% assign related_collections = site.artworks | where_exp:"artwork", "artwork.characters contains page.title" %}
     {% if related_collections.size > 0 %}
@@ -14,7 +14,7 @@ layout: default
         <div class="character-card">
           <a href="{{ artwork.url }}">
             <div class="character-thumb">
-              <img src="{{ artwork.preview }}" alt="{{ artwork.title }} Preview" class="preview-img {% if artwork.nsfw %}nsfw-blurred{% endif %}">
+              <img src="{{ artwork.preview }}" alt="{{ artwork.title }} Preview" class="preview-img {% if artwork.nsfw %}nsfw nsfw-blurred{% endif %}">
               {% if artwork.nsfw %}
                 <div class="nsfw-indicator">NSFW</div>
               {% endif %}
@@ -24,7 +24,7 @@ layout: default
         </div>
       {% endfor %}
     {% else %}
-      <p>No collections found for {{ page.title }}.</p>
+      <p style="text-align: center;">No collections found for {{ page.title }}.</p>
     {% endif %}
   </div>
 </section>
