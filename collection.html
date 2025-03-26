@@ -1,15 +1,15 @@
 ---
 layout: default
-title: Collection Gallery
+title: "Collection Gallery"
 ---
-<section id="collection-page">
+<section id="collection-page" style="text-align: center;">
   <h1>Collection Gallery</h1>
   <div class="collection-list">
     {% for artwork in site.artworks %}
       <div class="character-card">
         <a href="{{ artwork.url }}">
           <div class="character-thumb">
-            <img src="{{ artwork.preview }}" alt="{{ artwork.title }} Preview" class="preview-img {% if artwork.nsfw %}nsfw-blurred{% endif %}">
+            <img src="{{ artwork.preview }}" alt="{{ artwork.title }} Preview" class="preview-img {% if artwork.nsfw %}nsfw nsfw-blurred{% endif %}">
             {% if artwork.nsfw %}
               <div class="nsfw-indicator">NSFW</div>
             {% endif %}
