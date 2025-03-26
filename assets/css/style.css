@@ -53,21 +53,21 @@ button, .preview-btn {
   transition: background 0.3s ease;
 }
 
-/* Toggle button: red when NSFW is OFF; grey when ON */
-.nsfw-toggle.toggle-off {
-  background: #d9534f; /* red */
-}
-.nsfw-toggle.toggle-on {
-  background: #6c757d; /* grey */
-}
-
 button:hover, .preview-btn:hover {
   background: #0056b3;
 }
 
+/* NSFW Toggle Button Styles */
+.nsfw-toggle.toggle-off {
+  background: #d9534f; /* Red when NSFW is OFF */
+}
+.nsfw-toggle.toggle-on {
+  background: #6c757d; /* Grey when NSFW is ON */
+}
+
 /* BACK BUTTON */
 .back-btn {
-  display: inline-block;
+  text-align: center;
   margin-bottom: 20px;
   padding: 10px 15px;
   background: #f7cdd5;
@@ -82,7 +82,7 @@ button:hover, .preview-btn:hover {
   background: #e0a8b5;
 }
 
-/* GALLERY CARD STYLES (for Characters & Collections) */
+/* GALLERY CARD STYLES (Characters & Collections) */
 .character-card {
   display: inline-block;
   width: 220px;
@@ -101,13 +101,13 @@ button:hover, .preview-btn:hover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.15);
 }
 
-/* Character thumbnail (used for both character and collection preview) */
+/* Character Thumbnail - used for both character and collection previews */
 .character-thumb {
   width: 100%;
   height: 220px;
   background-size: cover;
   background-position: center;
-  position: relative; /* needed for overlays */
+  position: relative; /* Needed for overlays */
 }
 
 .character-name {
@@ -116,7 +116,7 @@ button:hover, .preview-btn:hover {
   color: #333;
 }
 
-/* Collection list container */
+/* Collection List Container */
 .collection-list {
   display: flex;
   flex-wrap: wrap;
@@ -126,7 +126,7 @@ button:hover, .preview-btn:hover {
   max-width: 1200px;
 }
 
-/* Collection sets container (for multiple sets per artwork) */
+/* Collection Sets Container (for multiple sets per artwork) */
 .collection-sets {
   display: flex;
   flex-wrap: wrap;
@@ -134,7 +134,7 @@ button:hover, .preview-btn:hover {
   gap: 20px;
 }
 
-/* Individual collection set card */
+/* Individual Collection Set Card */
 .collection-set {
   margin: 20px;
   text-align: center;
@@ -165,6 +165,7 @@ button:hover, .preview-btn:hover {
 .detail-content {
   flex: 2;
   padding: 20px;
+  text-align: center; /* Center the content text */
 }
 
 .detail-content h1 {
@@ -273,9 +274,9 @@ button:hover, .preview-btn:hover {
   cursor: pointer;
 }
 
-/* NSFW Modal Styles */
+/* NSFW MODAL STYLES */
 .nsfw-modal {
-  display: none; /* Shown via JavaScript if no localStorage or no user choice */
+  display: none; /* Shown via JavaScript if user hasn't set a preference */
   position: fixed;
   z-index: 20000;
   left: 0;
@@ -315,13 +316,12 @@ button:hover, .preview-btn:hover {
   color: #fff;
 }
 
-/* Blurred NSFW Images */
+/* BLURRED NSFW IMAGES */
 .blurred {
   filter: blur(8px);
   position: relative;
 }
 
-/* Optional overlay label on blurred images */
 .blurred::after {
   content: "NSFW";
   position: absolute;
@@ -335,7 +335,7 @@ button:hover, .preview-btn:hover {
   border-radius: 5px;
 }
 
-/* NSFW indicator for sets (if needed) */
+/* NSFW INDICATOR (for sets, on preview) */
 .nsfw-indicator {
   position: absolute;
   bottom: 5px;
@@ -347,7 +347,7 @@ button:hover, .preview-btn:hover {
   border-radius: 3px;
 }
 
-/* Set count overlay (restored at top-right of set preview) */
+/* SET COUNT OVERLAY (top-right corner of set preview) */
 .set-count-overlay {
   position: absolute;
   top: 5px;
