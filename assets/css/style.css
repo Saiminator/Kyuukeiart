@@ -14,6 +14,11 @@ body {
   text-align: center;
 }
 
+/* Remove underline from all links */
+a {
+  text-decoration: none;
+}
+
 /* HEADER & FOOTER */
 header, footer {
   background: #ffffff;
@@ -28,6 +33,7 @@ footer a {
   color: #333;
   font-weight: bold;
   text-transform: uppercase;
+  text-decoration: underline; /* Only header/footer links underlined */
 }
 
 header nav a:hover,
@@ -57,24 +63,23 @@ button:hover, .preview-btn:hover {
   background: #0056b3;
 }
 
-/* BACK BUTTON */
+/* BACK BUTTON - Centered and no underline */
 .back-btn {
-  display: inline-block;
-  margin-bottom: 20px;
+  display: block;
+  width: fit-content;
+  margin: 0 auto 20px;
   padding: 10px 15px;
   background: #f7cdd5;
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease;
-  text-decoration: none;
 }
 
 .back-btn:hover {
   background: #e0a8b5;
 }
 
-/* GALLERY CARD STYLES (for Characters & Collections) */
+/* GALLERY CARD STYLES (Characters & Collections) */
 .character-card {
   display: inline-block;
   width: 220px;
@@ -93,13 +98,12 @@ button:hover, .preview-btn:hover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.15);
 }
 
-/* Character thumbnail - used for both character and collection preview */
 .character-thumb {
   width: 100%;
   height: 220px;
   background-size: cover;
   background-position: center;
-  position: relative;  /* needed for overlay */
+  position: relative;
 }
 
 .character-name {
@@ -108,8 +112,8 @@ button:hover, .preview-btn:hover {
   color: #333;
 }
 
-/* Collection list container (for character pages listing related collections) */
-.collection-list {
+/* COLLECTION LIST & SETS */
+.collection-list, .collection-sets {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -118,19 +122,11 @@ button:hover, .preview-btn:hover {
   max-width: 1200px;
 }
 
-/* Collection sets container (for multiple sets per artwork) */
-.collection-sets {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-/* Individual collection set card */
 .collection-set {
   margin: 20px;
   text-align: center;
 }
+
 .collection-set p {
   max-width: 220px;
   margin: 5px auto;
@@ -211,7 +207,7 @@ button:hover, .preview-btn:hover {
 
 /* MODAL STYLES */
 .modal {
-  display: none; /* Hidden initially */
+  display: none;
   position: fixed;
   z-index: 10000;
   left: 0;
@@ -225,7 +221,7 @@ button:hover, .preview-btn:hover {
 
 .modal-content {
   display: block;
-  max-width: 95%;  /* Enlarged modal image */
+  max-width: 95%;
   max-height: 95%;
   margin: auto;
 }
@@ -265,7 +261,7 @@ button:hover, .preview-btn:hover {
   cursor: pointer;
 }
 
-/* SET OVERLAY (for artworks with sets) */
+/* SET OVERLAY */
 .set-count-overlay {
   position: absolute;
   top: 5px;
