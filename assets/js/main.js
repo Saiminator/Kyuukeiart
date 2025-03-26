@@ -1,20 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Modal container elements (shared between pages)
+  // Shared Modal container elements (used for artwork thumbnails, reference images, and sets)
   const modal = document.getElementById('modal');
   const modalImg = document.getElementById('modal-img');
   const modalClose = document.getElementById('modal-close');
   const modalPrev = document.getElementById('modal-prev');
   const modalNext = document.getElementById('modal-next');
 
-  //
-  // ARTWORK PAGE MODAL FUNCTIONALITY
-  //
+  /*-----------------------------------------------------
+    ARTWORK PAGE MODAL FUNCTIONALITY (for thumbnails)
+  -----------------------------------------------------*/
   let artworkCurrentIndex = 0;
   let artworkImages = [];
   const artworkThumbnails = document.querySelectorAll('.artwork-thumbnail');
 
   if (artworkThumbnails.length > 0) {
-    // Build artwork images array from thumbnails and attach click events.
+    // Build an array of image URLs from artwork thumbnails and attach click events.
     artworkThumbnails.forEach((thumb, index) => {
       artworkImages.push(thumb.src);
       thumb.addEventListener('click', function() {
@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function openArtworkModal() {
       modal.style.display = 'flex'; // show modal using flex for centering
       modalImg.src = artworkImages[artworkCurrentIndex];
-      // (Optional) If your modal thumbnails for artwork are built dynamically, do it here.
     }
 
     function closeArtworkModal() {
@@ -43,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
       modalImg.src = artworkImages[artworkCurrentIndex];
     }
 
-    // Attach artwork modal button events
+    // Attach event listeners for artwork modal navigation
     modalPrev.addEventListener('click', showPrevArtwork);
     modalNext.addEventListener('click', showNextArtwork);
     modalClose.addEventListener('click', closeArtworkModal);
@@ -62,17 +61,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  //
-  // CHARACTER PAGE REFERENCE MODAL FUNCTIONALITY
-  //
-  // Assumes that in your character layout you output a JavaScript variable "refImages"
-  // containing an array of reference image URLs and a button with id "ref-preview".
+  /*-----------------------------------------------------
+    CHARACTER PAGE REFERENCE MODAL FUNCTIONALITY
+  -----------------------------------------------------*/
   let refCurrentIndex = 0;
   if (document.getElementById('ref-preview') && typeof refImages !== 'undefined' && Array.isArray(refImages) && refImages.length > 0) {
     const refButton = document.getElementById('ref-preview');
 
     refButton.addEventListener('click', function() {
-      // Open modal for references using the first image by default.
       refCurrentIndex = 0;
       openRefModal();
     });
@@ -96,23 +92,20 @@ document.addEventListener('DOMContentLoaded', function() {
       modalImg.src = refImages[refCurrentIndex];
     }
 
-    // We reuse the same modal buttons as artwork; add extra event listeners if needed.
+    // Attach reference modal button events (reusing modal buttons)
     modalPrev.addEventListener('click', function() {
-      // If the modal was opened for references, use reference navigation.
       if (modal.style.display === 'flex' && refImages.includes(modalImg.src)) {
         showPrevRef();
       }
     });
-
     modalNext.addEventListener('click', function() {
       if (modal.style.display === 'flex' && refImages.includes(modalImg.src)) {
         showNextRef();
       }
     });
-
     modalClose.addEventListener('click', closeRefModal);
 
-    // Keyboard navigation for reference modal (reuse same handler if modal is active)
+    // Keyboard navigation for reference modal
     window.addEventListener('keydown', function(event) {
       if (modal.style.display === 'flex' && refImages.includes(modalImg.src)) {
         if (event.key === 'ArrowLeft') {
@@ -126,7 +119,51 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Close modal if clicking outside the image for both pages.
+  /*-----------------------------------------------------
+    ARTWORK SET MODAL FUNCTIONALITY
+  -----------------------------------------------------*/
+  // Variables specifically for set modal (separate from artwork thumbnails)
+  let setModalImages = [];
+  let setCurrentIndex = 0;
+
+  // Called when a set card is clicked (invoked from the layout via onclick="openSetModal(this)")
+  window.openSetModal = function(element) {
+    var data = element.parentElement.getAttribute('data-set-images');
+    if (data) {
+      setModalImages = JSON.parse(data);
+      setCurrentIndex = 0;
+      modalImg.src = setModalImages[setCurrentIndex];
+      modal.style.display = 'flex';
+    }
+  };
+
+  window.showPrevSetImage = function() {
+    if (setModalImages.length > 0) {
+      setCurrentIndex = (setCurrentIndex - 1 + setModalImages.length) % setModalImages.length;
+      modalImg.src = setModalImages[setCurrentIndex];
+    }
+  };
+
+  window.showNextSetImage = function() {
+    if (setModalImages.length > 0) {
+      setCurrentIndex = (setCurrentIndex + 1) % setModalImages.length;
+      modalImg.src = setModalImages[setCurrentIndex];
+    }
+  };
+
+  // For set modal navigation, check if the current modal image is part of setModalImages.
+  modalPrev.addEventListener('click', function() {
+    if (setModalImages.length > 0 && setModalImages.includes(modalImg.src)) {
+      showPrevSetImage();
+    }
+  });
+  modalNext.addEventListener('click', function() {
+    if (setModalImages.length > 0 && setModalImages.includes(modalImg.src)) {
+      showNextSetImage();
+    }
+  });
+
+  // Close modal if clicking outside the modal content (works for all modal types)
   window.addEventListener('click', function(event) {
     if (event.target === modal) {
       modal.style.display = 'none';
