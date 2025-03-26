@@ -2,7 +2,7 @@
 layout: artwork
 title: "Testing"
 name: "via-expressions"
-preview: "https://i.imgur.com/zOOHPmU.png"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/0078/preview.jpg"
 artist: "@if959u"
 characters:
   - "Mika"
