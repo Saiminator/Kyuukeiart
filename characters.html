@@ -1,34 +1,15 @@
 ---
 layout: default
+title: Characters
 ---
-<section id="character-collections">
-  <!-- Centered back button -->
-  <div class="back-btn" style="text-align: center;">
-    <a href="{{ site.baseurl }}/characters.html">← Back to Characters Gallery</a>
-  </div>
-  <h1>{{ page.title }}</h1>
-  <p>This character appears in the following collections:</p>
-  <div class="collection-list">
-    {% assign related_collections = site.artworks | where_exp:"artwork", "artwork.characters contains page.title" %}
-    {% if related_collections.size > 0 %}
-      {% for artwork in related_collections %}
-        <div class="character-card">
-          <a href="{{ artwork.url }}">
-            <div class="character-thumb">
-              {% if artwork.nsfw %}
-                <!-- Use a separate inner div to apply blur only to the image -->
-                <div class="blurred-bg" style="background-image: url('{{ artwork.preview }}');"></div>
-                <div class="nsfw-indicator">NSFW</div>
-              {% else %}
-                <div style="background-image: url('{{ artwork.preview }}'); width: 100%; height: 100%;"></div>
-              {% endif %}
-            </div>
-            <div class="character-name">{{ artwork.title }}</div>
-          </a>
-        </div>
-      {% endfor %}
-    {% else %}
-      <p>No collections found for {{ page.title }}.</p>
-    {% endif %}
-  </div>
+<section id="gallery-page">
+  <h1>Character Gallery</h1>
+  {% for character in site.characters %}
+    <div class="character-card">
+      <a href="{{ character.url }}">
+        <div class="character-thumb" style="background-image: url('{{ character.image }}');"></div>
+        <div class="character-name">{{ character.title }}</div>
+      </a>
+    </div>
+  {% endfor %}
 </section>
