@@ -19,39 +19,14 @@
       <h2>NSFW Content Warning</h2>
       <p>This site contains NSFW artwork. Do you wish to view NSFW content?</p>
       <div class="nsfw-buttons">
-        <button id="nsfw-yes">Yes, show NSFW</button>
-        <button id="nsfw-no">No, hide NSFW</button>
+        <!-- Add extra margin or padding to avoid overlap -->
+        <button id="nsfw-yes" style="margin-right: 15px;">YES, SHOW NSFW</button>
+        <button id="nsfw-no">NO, HIDE NSFW</button>
       </div>
     </div>
   </div>
 
+  <!-- Load your main JS after everything else -->
   <script src="{{ site.baseurl }}/assets/js/main.js"></script>
-  <script>
-    // NSFW Consent Popup Logic
-    (function() {
-      var modal = document.getElementById('nsfw-modal');
-      // Check if the flag exists in localStorage
-      if (localStorage.getItem('nsfwConsent') === null) {
-        // Show modal if consent not recorded
-        modal.style.display = 'flex';
-      }
-      document.getElementById('nsfw-yes').addEventListener('click', function() {
-        localStorage.setItem('nsfwConsent', 'yes');
-        modal.style.display = 'none';
-        // Remove blur from all NSFW images
-        document.querySelectorAll('.nsfw').forEach(function(img) {
-          img.classList.remove('blurred');
-        });
-      });
-      document.getElementById('nsfw-no').addEventListener('click', function() {
-        localStorage.setItem('nsfwConsent', 'no');
-        modal.style.display = 'none';
-        // Add blurred class to all NSFW images
-        document.querySelectorAll('.nsfw').forEach(function(img) {
-          img.classList.add('blurred');
-        });
-      });
-    })();
-  </script>
 </body>
 </html>
