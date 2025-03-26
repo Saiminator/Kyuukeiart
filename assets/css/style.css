@@ -64,7 +64,7 @@ button:hover, .preview-btn:hover {
   background: #0056b3;
 }
 
-/* NSFW Toggle Button Styles: red (toggle-off) and grey (toggle-on) */
+/* NSFW Toggle Button Styles */
 .nsfw-toggle.toggle-off {
   background: #d9534f; /* Red when NSFW is OFF */
 }
@@ -73,7 +73,6 @@ button:hover, .preview-btn:hover {
 }
 
 /* BACK BUTTON */
-/* Remove the pink background/border */
 .back-btn {
   text-align: center;
   margin-bottom: 20px;
@@ -173,7 +172,7 @@ button:hover, .preview-btn:hover {
 .detail-content {
   flex: 2;
   padding: 20px;
-  text-align: center; /* Center the content text */
+  text-align: center; /* Center text on content */
 }
 
 .detail-content h1 {
@@ -284,7 +283,7 @@ button:hover, .preview-btn:hover {
 
 /* NSFW MODAL STYLES */
 .nsfw-modal {
-  display: none; /* Shown via JavaScript if user hasn't set a preference */
+  display: none; /* Shown via JavaScript if no preference is set */
   position: fixed;
   z-index: 20000;
   left: 0;
@@ -330,9 +329,10 @@ button:hover, .preview-btn:hover {
   position: relative;
 }
 
-/* Remove the pseudo-element blur overlay so that our overlays remain clear */
-.blurred::after {
-  content: none;
+/* Prevent overlays from being blurred */
+.nsfw-indicator,
+.set-count-overlay {
+  filter: none !important;
 }
 
 /* NSFW INDICATOR (for sets, on preview) */
@@ -345,7 +345,6 @@ button:hover, .preview-btn:hover {
   padding: 3px 6px;
   font-size: 0.8em;
   border-radius: 3px;
-  filter: none;
 }
 
 /* SET COUNT OVERLAY (top-right corner of set preview) */
@@ -358,5 +357,4 @@ button:hover, .preview-btn:hover {
   padding: 3px 6px;
   border-radius: 3px;
   font-size: 0.8em;
-  filter: none;
 }
