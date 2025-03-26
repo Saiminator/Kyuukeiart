@@ -99,7 +99,7 @@ button:hover, .preview-btn:hover {
   height: 220px;
   background-size: cover;
   background-position: center;
-  position: relative;  /* needed for overlays */
+  position: relative; /* needed for overlays */
 }
 
 .character-name {
@@ -267,7 +267,7 @@ button:hover, .preview-btn:hover {
 
 /* NSFW Modal Styles */
 .nsfw-modal {
-  display: none; /* Shown via JavaScript if consent not given */
+  display: none; /* Shown via JavaScript if no localStorage or user hasn't chosen */
   position: fixed;
   z-index: 20000;
   left: 0;
@@ -293,7 +293,7 @@ button:hover, .preview-btn:hover {
 }
 
 .nsfw-buttons button {
-  margin: 0 10px;
+  margin: 0 10px; /* Ensures spacing between Yes/No */
   padding: 10px 20px;
   font-weight: bold;
   border: none;
@@ -313,7 +313,7 @@ button:hover, .preview-btn:hover {
   position: relative;
 }
 
-/* Optionally, overlay an NSFW label on blurred images */
+/* Optional overlay label on blurred images */
 .blurred::after {
   content: "NSFW";
   position: absolute;
@@ -327,7 +327,7 @@ button:hover, .preview-btn:hover {
   border-radius: 5px;
 }
 
-/* (Optional) NSFW indicator overlay on set previews */
+/* NSFW indicator for sets (if needed) */
 .nsfw-indicator {
   position: absolute;
   bottom: 5px;
@@ -337,4 +337,16 @@ button:hover, .preview-btn:hover {
   padding: 3px 6px;
   font-size: 0.8em;
   border-radius: 3px;
+}
+
+/* RESTORE the top-right set overlay for "X images" */
+.set-count-overlay {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 3px 6px;
+  border-radius: 3px;
+  font-size: 0.8em;
 }
