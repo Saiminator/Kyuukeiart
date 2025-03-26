@@ -218,7 +218,7 @@ button:hover, .preview-btn:hover {
 .detail-content {
   flex: 2;
   padding: 20px;
-  text-align: center; /* Center the text */
+  text-align: center; /* Center content text */
 }
 
 .detail-content h1 {
@@ -273,7 +273,7 @@ button:hover, .preview-btn:hover {
 
 /* MODAL STYLES */
 .modal {
-  display: none;
+  display: none; /* Hidden initially */
   position: fixed;
   z-index: 10000;
   left: 0;
@@ -329,7 +329,7 @@ button:hover, .preview-btn:hover {
 
 /* NSFW MODAL STYLES */
 .nsfw-modal {
-  display: none;
+  display: none; /* Shown via JavaScript if no preference is set */
   position: fixed;
   z-index: 20000;
   left: 0;
@@ -355,7 +355,7 @@ button:hover, .preview-btn:hover {
 }
 
 .nsfw-buttons button {
-  margin: 0 10px;
+  margin: 10px; /* Increased margin for vertical spacing */
   padding: 10px 20px;
   font-weight: bold;
   border: none;
