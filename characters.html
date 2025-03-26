@@ -15,7 +15,10 @@ title: "Characters"
       {% endfor %}
       <div class="character-card">
         <a href="{{ character.url }}">
-          <div class="character-thumb" style="background-image: url('{{ character.image }}');"></div>
+          <div class="character-thumb">
+            <!-- Using an image element (with class preview-img) for proper scaling -->
+            <img src="{{ character.image }}" alt="{{ character.title }} Image" class="preview-img">
+          </div>
           <div class="character-name">{{ character.title }}</div>
           <div class="collection-count">{{ collection_count }} Collections</div>
         </a>
