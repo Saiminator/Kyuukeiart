@@ -10,22 +10,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check localStorage on load
     const existingConsent = localStorage.getItem('nsfwConsent');
     if (existingConsent === null) {
-      // Show modal if no preference is set
       nsfwModal.style.display = 'flex';
     } else if (existingConsent === 'yes') {
-      // Remove blur from all NSFW elements
       document.querySelectorAll('.nsfw').forEach(function(el) {
         el.classList.remove('blurred');
       });
+      // Set toggle button to grey (ON)
+      const toggleBtn = document.getElementById('nsfw-toggle');
+      if (toggleBtn) {
+        toggleBtn.classList.remove('toggle-off');
+        toggleBtn.classList.add('toggle-on');
+      }
     } else {
-      // existingConsent === 'no'
-      // Add blur to all NSFW elements
       document.querySelectorAll('.nsfw').forEach(function(el) {
         el.classList.add('blurred');
       });
+      // Set toggle button to red (OFF)
+      const toggleBtn = document.getElementById('nsfw-toggle');
+      if (toggleBtn) {
+        toggleBtn.classList.remove('toggle-on');
+        toggleBtn.classList.add('toggle-off');
+      }
     }
 
-    // If user clicks YES
     if (nsfwYes) {
       nsfwYes.addEventListener('click', function() {
         localStorage.setItem('nsfwConsent', 'yes');
@@ -33,10 +40,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.nsfw').forEach(function(el) {
           el.classList.remove('blurred');
         });
+        const toggleBtn = document.getElementById('nsfw-toggle');
+        if (toggleBtn) {
+          toggleBtn.classList.remove('toggle-off');
+          toggleBtn.classList.add('toggle-on');
+        }
       });
     }
 
-    // If user clicks NO
     if (nsfwNo) {
       nsfwNo.addEventListener('click', function() {
         localStorage.setItem('nsfwConsent', 'no');
@@ -44,11 +55,18 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.nsfw').forEach(function(el) {
           el.classList.add('blurred');
         });
+        const toggleBtn = document.getElementById('nsfw-toggle');
+        if (toggleBtn) {
+          toggleBtn.classList.remove('toggle-on');
+          toggleBtn.classList.add('toggle-off');
+        }
       });
     }
   })();
 
-  // Home Page Toggle Button (if it exists)
+  /*-----------------------------------------------------
+    NSFW TOGGLE BUTTON (Home Page)
+  -----------------------------------------------------*/
   const toggleBtn = document.getElementById('nsfw-toggle');
   if (toggleBtn) {
     toggleBtn.addEventListener('click', function() {
@@ -58,11 +76,15 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.nsfw').forEach(function(el) {
           el.classList.add('blurred');
         });
+        toggleBtn.classList.remove('toggle-on');
+        toggleBtn.classList.add('toggle-off');
       } else {
         localStorage.setItem('nsfwConsent', 'yes');
         document.querySelectorAll('.nsfw').forEach(function(el) {
           el.classList.remove('blurred');
         });
+        toggleBtn.classList.remove('toggle-off');
+        toggleBtn.classList.add('toggle-on');
       }
     });
   }
@@ -81,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const artworkThumbnails = document.querySelectorAll('.artwork-thumbnail');
 
   if (artworkThumbnails.length > 0) {
-    // Build an array from all .artwork-thumbnail elements
     artworkThumbnails.forEach((thumb, index) => {
       artworkImages.push(thumb.src);
       thumb.addEventListener('click', function() {
@@ -109,12 +130,10 @@ document.addEventListener('DOMContentLoaded', function() {
       modalImg.src = artworkImages[artworkCurrentIndex];
     }
 
-    // Attach button events
     modalPrev.addEventListener('click', showPrevArtwork);
     modalNext.addEventListener('click', showNextArtwork);
     modalClose.addEventListener('click', closeArtworkModal);
 
-    // Keyboard navigation
     window.addEventListener('keydown', function(event) {
       if (modal.style.display === 'flex') {
         if (event.key === 'ArrowLeft') {
@@ -128,7 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Close modal if clicking outside it
   window.addEventListener('click', function(event) {
     if (event.target === modal) {
       modal.style.display = 'none';
@@ -166,7 +184,6 @@ document.addEventListener('DOMContentLoaded', function() {
       modalImg.src = refImages[refCurrentIndex];
     }
 
-    // Reuse same modal buttons
     modalPrev.addEventListener('click', function() {
       if (modal.style.display === 'flex' && refImages.includes(modalImg.src)) {
         showPrevRef();
@@ -179,7 +196,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     modalClose.addEventListener('click', closeRefModal);
 
-    // Keyboard nav
     window.addEventListener('keydown', function(event) {
       if (modal.style.display === 'flex' && refImages.includes(modalImg.src)) {
         if (event.key === 'ArrowLeft') {
