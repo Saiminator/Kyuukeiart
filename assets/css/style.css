@@ -105,7 +105,7 @@ button:hover, .preview-btn:hover {
   height: 220px;
   background-size: cover;
   background-position: center;
-  position: relative;  /* For overlay positioning */
+  position: relative; /* For overlay positioning */
 }
 
 .character-name {
@@ -157,6 +157,7 @@ button:hover, .preview-btn:hover {
 .detail-content {
   flex: 2;
   padding: 20px;
+  text-align: center; /* Ensure content text is centered */
 }
 
 .detail-content h1 {
@@ -207,6 +208,18 @@ button:hover, .preview-btn:hover {
 
 .artwork-thumbnail:hover {
   transform: scale(1.05);
+}
+
+/* SET OVERLAY */
+.set-count-overlay {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 3px 6px;
+  border-radius: 3px;
+  font-size: 0.8em;
 }
 
 /* MODAL STYLES */
@@ -262,18 +275,6 @@ button:hover, .preview-btn:hover {
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
-}
-
-/* SET OVERLAY for artworks with sets */
-.set-count-overlay {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  padding: 3px 6px;
-  border-radius: 3px;
-  font-size: 0.8em;
 }
 
 /* RESPONSIVE ADJUSTMENTS */
