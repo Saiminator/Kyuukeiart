@@ -172,7 +172,7 @@ button:hover, .preview-btn:hover {
 .detail-content {
   flex: 2;
   padding: 20px;
-  text-align: center; /* Center text on content */
+  text-align: center; /* Center content text */
 }
 
 .detail-content h1 {
@@ -323,38 +323,15 @@ button:hover, .preview-btn:hover {
   color: #fff;
 }
 
-/* BLURRED NSFW IMAGES */
-.blurred {
+/* NEW: Blurred Background for NSFW images */
+.blurred-bg {
   filter: blur(8px);
-  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-/* Prevent overlays from being blurred */
+/* Ensure NSFW indicators and overlays are not blurred */
 .nsfw-indicator,
 .set-count-overlay {
   filter: none !important;
-}
-
-/* NSFW INDICATOR (for sets, on preview) */
-.nsfw-indicator {
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-  background: rgba(255,0,0,0.7);
-  color: #fff;
-  padding: 3px 6px;
-  font-size: 0.8em;
-  border-radius: 3px;
-}
-
-/* SET COUNT OVERLAY (top-right corner of set preview) */
-.set-count-overlay {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  padding: 3px 6px;
-  border-radius: 3px;
-  font-size: 0.8em;
 }
