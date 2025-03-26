@@ -219,7 +219,7 @@ button:hover, .preview-btn:hover {
 .detail-content {
   flex: 2;
   padding: 20px;
-  text-align: center;
+  text-align: center; /* Center content text */
 }
 
 .detail-content h1 {
@@ -293,7 +293,7 @@ button:hover, .preview-btn:hover {
   margin: auto;
 }
 
-/* MODAL NAVIGATION BUTTONS (positioned at the bottom) */
+/* Modal Navigation Buttons (positioned at the bottom) */
 .modal-prev,
 .modal-next {
   position: absolute;
@@ -302,9 +302,9 @@ button:hover, .preview-btn:hover {
   font-weight: bold;
   cursor: pointer;
   user-select: none;
-  padding: 20px 40px;  /* Increased horizontal padding */
-  background: #fff;     /* White background for the box */
-  color: #000;          /* Black arrows */
+  padding: 20px 40px;  /* Increased horizontal padding for wider buttons */
+  background: #f4f4f9;  /* Light grey matching site background */
+  color: #000;         /* Black arrows */
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -317,16 +317,7 @@ button:hover, .preview-btn:hover {
   right: 20px;
 }
 
-/* MODAL CLOSE BUTTON */
-.modal-close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-}
+/* (Modal Close Button removed) */
 
 /* NSFW MODAL STYLES */
 .nsfw-modal {
