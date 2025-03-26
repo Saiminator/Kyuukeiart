@@ -13,10 +13,9 @@ title: "Characters"
           {% assign collection_count = collection_count | plus: 1 %}
         {% endif %}
       {% endfor %}
-      <div class="character-card">
+      <div class="character-card" data-collection-count="{{ collection_count }}">
         <a href="{{ character.url }}">
           <div class="character-thumb">
-            <!-- Use an img element with preview-img class; if NSFW, add both "nsfw" and "nsfw-blurred" -->
             <img src="{{ character.image }}" alt="{{ character.title }} Image" class="preview-img {% if character.nsfw %}nsfw nsfw-blurred{% endif %}">
           </div>
           <div class="character-name">{{ character.title }}</div>
@@ -26,3 +25,18 @@ title: "Characters"
     {% endfor %}
   </div>
 </section>
+
+<script>
+// Sort the character cards by collection count (highest first)
+document.addEventListener("DOMContentLoaded", function(){
+  var container = document.querySelector(".collection-list");
+  var cards = Array.from(container.children);
+  cards.sort(function(a, b) {
+    return parseInt(b.getAttribute("data-collection-count")) - parseInt(a.getAttribute("data-collection-count"));
+  });
+  container.innerHTML = "";
+  cards.forEach(function(card) {
+    container.appendChild(card);
+  });
+});
+</script>
