@@ -2,13 +2,14 @@
 layout: default
 ---
 <section id="artwork-detail-page">
+  <!-- Back Button placed above the detail container -->
+  <div class="back-btn">
+    <a href="{{ site.baseurl }}/collection.html">← Back to Collection Gallery</a>
+  </div>
+  
   <div class="detail-container">
     <!-- Left: Main Content (title, reference heading, sets, etc.) -->
     <div class="detail-content">
-      <!-- Back Button centered within content on mobile; on desktop it remains above content -->
-      <div class="back-btn">
-        <a href="{{ site.baseurl }}/collection.html">← Back to Collection Gallery</a>
-      </div>
       <h1 id="artwork-title">{{ page.title }}</h1>
       
       {% if page.reference_heading or page.reference_description %}
@@ -40,6 +41,7 @@ layout: default
         </div>
       {% endif %}
     </div>
+    
     <!-- Right: Sidebar with Preview Image and Artwork Info -->
     <div class="detail-sidebar">
       {% if page.sets %}
