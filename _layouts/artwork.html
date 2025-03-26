@@ -18,6 +18,10 @@ layout: default
               <div class="collection-set-preview character-card" onclick="openSetModal(this)">
                 <div class="character-thumb" style="background-image: url('{{ set.preview }}');">
                   <div class="set-count-overlay">{{ set.images | size }} images</div>
+                  {% if set.nsfw or page.nsfw %}
+                    <!-- Add a nsfw indicator (you could also add a blurred class here if desired) -->
+                    <div class="nsfw-indicator">NSFW</div>
+                  {% endif %}
                 </div>
                 <div class="character-name">{{ set.set_title }}</div>
               </div>
@@ -28,7 +32,7 @@ layout: default
       {% else %}
         <div class="artwork-images">
           {% for img in page.images %}
-            <img src="{{ img }}" alt="Artwork Image" class="artwork-thumbnail">
+            <img src="{{ img }}" alt="Artwork Image" class="artwork-thumbnail {% if page.nsfw %}nsfw blurred{% endif %}">
           {% endfor %}
         </div>
       {% endif %}
@@ -36,10 +40,9 @@ layout: default
     <!-- Right: Sidebar -->
     <div class="detail-sidebar">
       {% if page.sets %}
-        <!-- Use the first set's preview as the overall collection preview -->
-        <img src="{{ page.sets[0].preview }}" alt="{{ page.title }} Preview" class="profile-pic">
+        <img src="{{ page.sets[0].preview }}" alt="{{ page.title }} Preview" class="profile-pic {% if page.nsfw %}nsfw blurred{% endif %}">
       {% else %}
-        <img src="{{ page.preview }}" alt="{{ page.title }} Preview" class="profile-pic">
+        <img src="{{ page.preview }}" alt="{{ page.title }} Preview" class="profile-pic {% if page.nsfw %}nsfw blurred{% endif %}">
       {% endif %}
       <div class="artwork-info">
         <p><strong>Artist:</strong> {{ page.artist }}</p>
