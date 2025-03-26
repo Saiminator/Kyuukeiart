@@ -1,26 +1,26 @@
 ---
 layout: artwork
-title: "Expressive Variations – Via Collection"
+title: "Testing"
 name: "via-expressions"
 preview: "https://i.imgur.com/zOOHPmU.png"
 artist: "@if959u"
 characters:
   - "Mika"
   - "Shimi"
-description: "A collection showcasing multiple expressive variations on Via's artwork."
+description: "A collection testin the multi set functionality"
 sets:
   - preview: "https://i.imgur.com/zOOHPmU.png"
     images:
       - "https://i.imgur.com/8B6QrxV.png"
       - "https://i.imgur.com/CjWbN5Y.png"
       - "https://i.imgur.com/9NuAnto.png"
-    set_title: "Emotional Expressions"
-    set_description: "Variations showing happy, sad, and crying expressions."
+    set_title: "Via Set"
+    set_description: "blah blah via more."
   - preview: "https://kyuukei.s3.us-east-2.amazonaws.com/0078/1.jpg"
     images:
       - "https://kyuukei.s3.us-east-2.amazonaws.com/0078/1.jpg"
       - "https://kyuukei.s3.us-east-2.amazonaws.com/0078/2.jpg"
-    set_title: "Alternate Angles"
-    set_description: "Different angles and perspectives on the artwork."
+    set_title: "Mika Shimi"
+    set_description: "More testing ignore."
 ---
-Additional details about this collection.
+blkah blah
