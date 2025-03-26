@@ -14,11 +14,6 @@ body {
   text-align: center;
 }
 
-/* Remove underline from all links by default */
-a {
-  text-decoration: none;
-}
-
 /* HEADER & FOOTER */
 header, footer {
   background: #ffffff;
@@ -27,14 +22,12 @@ header, footer {
   margin-bottom: 20px;
 }
 
-/* Only header/footer links get underlines */
 header nav a,
 footer a {
   margin: 0 10px;
   color: #333;
   font-weight: bold;
   text-transform: uppercase;
-  text-decoration: underline;
 }
 
 header nav a:hover,
@@ -64,16 +57,17 @@ button:hover, .preview-btn:hover {
   background: #0056b3;
 }
 
-/* BACK BUTTON - Centered and no underline */
+/* BACK BUTTON */
 .back-btn {
-  display: block;
-  width: fit-content;
-  margin: 0 auto 20px;
+  display: inline-block;
+  margin-bottom: 20px;
   padding: 10px 15px;
   background: #f7cdd5;
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
+  transition: background 0.3s ease;
+  text-decoration: none;
 }
 
 .back-btn:hover {
@@ -99,13 +93,13 @@ button:hover, .preview-btn:hover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.15);
 }
 
-/* Character thumbnail – used for both character and collection preview */
+/* Character thumbnail - used for both character and collection preview */
 .character-thumb {
   width: 100%;
   height: 220px;
   background-size: cover;
   background-position: center;
-  position: relative; /* For overlay positioning */
+  position: relative;  /* needed for overlays */
 }
 
 .character-name {
@@ -114,9 +108,8 @@ button:hover, .preview-btn:hover {
   color: #333;
 }
 
-/* COLLECTION LIST & SETS */
-.collection-list,
-.collection-sets {
+/* Collection list container (for character pages listing related collections) */
+.collection-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -125,12 +118,19 @@ button:hover, .preview-btn:hover {
   max-width: 1200px;
 }
 
+/* Collection sets container (for multiple sets per artwork) */
+.collection-sets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
 /* Individual collection set card */
 .collection-set {
   margin: 20px;
   text-align: center;
 }
-
 .collection-set p {
   max-width: 220px;
   margin: 5px auto;
@@ -157,7 +157,6 @@ button:hover, .preview-btn:hover {
 .detail-content {
   flex: 2;
   padding: 20px;
-  text-align: center; /* Ensure content text is centered */
 }
 
 .detail-content h1 {
@@ -210,18 +209,6 @@ button:hover, .preview-btn:hover {
   transform: scale(1.05);
 }
 
-/* SET OVERLAY */
-.set-count-overlay {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  padding: 3px 6px;
-  border-radius: 3px;
-  font-size: 0.8em;
-}
-
 /* MODAL STYLES */
 .modal {
   display: none; /* Hidden initially */
@@ -243,30 +230,31 @@ button:hover, .preview-btn:hover {
   margin: auto;
 }
 
-/* Modal arrows repositioned to the bottom */
+/* MODAL NAVIGATION BUTTONS */
 .modal-prev,
 .modal-next {
   position: absolute;
-  bottom: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   color: #fff;
   font-size: 50px;
   font-weight: bold;
   cursor: pointer;
   user-select: none;
-  padding: 10px 20px;
+  padding: 20px;
   background: rgba(0,0,0,0.4);
   border-radius: 5px;
 }
 
 .modal-prev {
-  left: 10%;
+  left: 10px;
 }
 
 .modal-next {
-  right: 10%;
+  right: 10px;
 }
 
-/* Modal close button remains at top right */
+/* MODAL CLOSE BUTTON */
 .modal-close {
   position: absolute;
   top: 20px;
@@ -277,25 +265,76 @@ button:hover, .preview-btn:hover {
   cursor: pointer;
 }
 
-/* RESPONSIVE ADJUSTMENTS */
-/* On mobile, stack sidebar above content */
-@media (max-width: 800px) {
-  .detail-container {
-    flex-direction: column;
-    text-align: center;
-  }
-  .detail-sidebar {
-    order: -1;
-  }
+/* NSFW Modal Styles */
+.nsfw-modal {
+  display: none; /* Shown via JavaScript if consent not given */
+  position: fixed;
+  z-index: 20000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
 }
 
-/* Optional: Adjust modal arrow sizes on very small screens */
-@media (max-width: 600px) {
-  .modal-prev,
-  .modal-next {
-    left: 20px;
-    right: 20px;
-    bottom: 10px;
-    font-size: 40px;
-  }
+.nsfw-modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 400px;
+  margin: auto;
+}
+
+.nsfw-buttons {
+  margin-top: 20px;
+}
+
+.nsfw-buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.nsfw-buttons button:hover {
+  background: #007BFF;
+  color: #fff;
+}
+
+/* Blurred NSFW Images */
+.blurred {
+  filter: blur(8px);
+  position: relative;
+}
+
+/* Optionally, overlay an NSFW label on blurred images */
+.blurred::after {
+  content: "NSFW";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2em;
+  color: #fff;
+  background: rgba(0,0,0,0.6);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* (Optional) NSFW indicator overlay on set previews */
+.nsfw-indicator {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  background: rgba(255,0,0,0.7);
+  color: #fff;
+  padding: 3px 6px;
+  font-size: 0.8em;
+  border-radius: 3px;
 }
