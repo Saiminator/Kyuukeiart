@@ -2,17 +2,33 @@
 layout: default
 ---
 <section id="artwork-detail-page">
-  <!-- Centered Back Button -->
+  <!-- Back Button -->
   <div class="back-btn" style="text-align: center;">
     <a href="{{ site.baseurl }}/collection.html">← Back to Collection Gallery</a>
   </div>
+  
+  <!-- For mobile: preview (sidebar) appears first, then content -->
   <div class="detail-container">
-    <!-- Left: Content/Description and Sets/Images -->
-    <div class="detail-content" style="text-align: center;">
+    <!-- Sidebar (Preview & Artwork Info) -->
+    <div class="detail-sidebar" style="text-align: center; order: 1;">
+      <img src="{{ page.preview }}" alt="{{ page.title }} Preview"
+           class="profile-pic {% if page.nsfw %}nsfw nsfw-blurred{% endif %}">
+      <div class="artwork-info">
+        <p><strong>Artist:</strong> {{ page.artist }}</p>
+        <p><strong>Characters:</strong>
+          {% for char in page.characters %}
+            {{ char }}{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </p>
+      </div>
+    </div>
+    
+    <!-- Main Content (Sets/Images & Description) -->
+    <div class="detail-content" style="text-align: center; order: 2;">
       <h1 id="artwork-title">{{ page.title }}</h1>
       <p>{{ page.description }}</p>
       {{ content }}
-
+      
       {% if page.sets %}
         <div class="collection-sets">
           {% for set in page.sets %}
@@ -39,23 +55,10 @@ layout: default
         </div>
       {% endif %}
     </div>
-
-    <!-- Right: Sidebar (uses the collection preview image) -->
-    <div class="detail-sidebar" style="text-align: center;">
-      <img src="{{ page.preview }}" alt="{{ page.title }} Preview" class="profile-pic {% if page.nsfw %}nsfw nsfw-blurred{% endif %}">
-      <div class="artwork-info">
-        <p><strong>Artist:</strong> {{ page.artist }}</p>
-        <p><strong>Characters:</strong>
-          {% for char in page.characters %}
-            {{ char }}{% unless forloop.last %}, {% endunless %}
-          {% endfor %}
-        </p>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- Modal overlay for enlarged image display (shared for sets, thumbnails, etc.) -->
+<!-- Modal overlay for enlarged image display -->
 <div id="modal" class="modal">
   <span class="modal-prev" id="modal-prev" onclick="showPrevImage()">&#10094;</span>
   <span class="modal-next" id="modal-next" onclick="showNextImage()">&#10095;</span>
