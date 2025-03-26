@@ -14,7 +14,7 @@ body {
   text-align: center;
 }
 
-/* Remove underlines from links */
+/* Remove underlines from all links */
 a {
   text-decoration: none;
   color: inherit;
@@ -114,14 +114,15 @@ button:hover, .preview-btn:hover {
   position: relative; /* Needed for overlays */
 }
 
-/* Preview Image inside thumbnail */
+/* Preview Image (used for characters, collections, sets, etc.) */
 .preview-img {
   width: 100%;
   height: 220px;
   object-fit: cover;
+  display: block;
 }
 
-/* Blurred NSFW Image (applied to the img element only) */
+/* NSFW Blurred Image: only applied to the image element */
 .nsfw-blurred {
   filter: blur(8px);
 }
@@ -137,6 +138,7 @@ button:hover, .preview-btn:hover {
   font-size: 0.8em;
   border-radius: 3px;
   z-index: 2;
+  filter: none !important;
 }
 
 /* Set Count Overlay (top-right corner) */
@@ -150,9 +152,10 @@ button:hover, .preview-btn:hover {
   border-radius: 3px;
   font-size: 0.8em;
   z-index: 2;
+  filter: none !important;
 }
 
-/* CHARACTER NAME */
+/* Character Name */
 .character-name {
   padding: 10px;
   font-size: 1.2em;
@@ -208,7 +211,7 @@ button:hover, .preview-btn:hover {
 .detail-content {
   flex: 2;
   padding: 20px;
-  text-align: center;
+  text-align: center; /* Center content text */
 }
 
 .detail-content h1 {
@@ -263,7 +266,7 @@ button:hover, .preview-btn:hover {
 
 /* MODAL STYLES */
 .modal {
-  display: none;
+  display: none; /* Hidden initially */
   position: fixed;
   z-index: 10000;
   left: 0;
@@ -319,7 +322,7 @@ button:hover, .preview-btn:hover {
 
 /* NSFW MODAL STYLES */
 .nsfw-modal {
-  display: none;
+  display: none; /* Shown via JavaScript if no preference is set */
   position: fixed;
   z-index: 20000;
   left: 0;
