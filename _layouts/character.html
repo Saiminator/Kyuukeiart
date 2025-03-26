@@ -1,20 +1,32 @@
 ---
 layout: default
 ---
-<section id="character-collections">
+<section id="character-collections" style="text-align: center;">
+  <!-- Centered Back Button -->
   <div class="back-btn">
     <a href="{{ site.baseurl }}/characters.html">← Back to Characters Gallery</a>
   </div>
+  
+  <!-- Character Name & Description -->
   <h1>{{ page.title }}</h1>
   <p>This character appears in the following collections:</p>
+  
+  <!-- Centered Collection List -->
   <div class="collection-list">
     {% assign related_collections = site.artworks | where_exp:"artwork", "artwork.characters contains page.title" %}
-    {% if related_collections != empty %}
+    {% if related_collections.size > 0 %}
       {% for artwork in related_collections %}
         <div class="character-card">
           <a href="{{ artwork.url }}">
-            <div class="character-thumb" style="background-image: url('{{ artwork.preview }}');"></div>
-            <div class="character-name">{{ artwork.title }}</div>
+            {% if artwork.sets %}
+              <div class="character-thumb" style="background-image: url('{{ artwork.sets[0].preview }}');">
+                <div class="set-count-overlay">{{ artwork.sets[0].images | size }} images</div>
+              </div>
+              <div class="character-name">{{ artwork.sets[0].set_title }}</div>
+            {% else %}
+              <div class="character-thumb" style="background-image: url('{{ artwork.preview }}');"></div>
+              <div class="character-name">{{ artwork.title }}</div>
+            {% endif %}
           </a>
         </div>
       {% endfor %}
