@@ -88,7 +88,7 @@ button:hover, .preview-btn:hover {
   text-decoration: underline;
 }
 
-/* GALLERY CARD STYLES (for Characters & Collections) */
+/* GALLERY CARD STYLES (Characters & Collections) */
 .character-card {
   display: inline-block;
   width: 220px;
@@ -218,7 +218,7 @@ button:hover, .preview-btn:hover {
 .detail-content {
   flex: 2;
   padding: 20px;
-  text-align: center; /* Center text in content */
+  text-align: center; /* Center the content text */
 }
 
 .detail-content h1 {
@@ -292,28 +292,26 @@ button:hover, .preview-btn:hover {
   margin: auto;
 }
 
-/* MODAL NAVIGATION BUTTONS */
+/* MODAL NAVIGATION BUTTONS (positioned at bottom) */
 .modal-prev,
 .modal-next {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #fff;
-  font-size: 50px;
+  bottom: 20px;
+  font-size: 40px;
   font-weight: bold;
   cursor: pointer;
   user-select: none;
-  padding: 20px;
+  padding: 10px;
   background: rgba(0,0,0,0.4);
   border-radius: 5px;
 }
 
 .modal-prev {
-  left: 10px;
+  left: 20px;
 }
 
 .modal-next {
-  right: 10px;
+  right: 20px;
 }
 
 /* MODAL CLOSE BUTTON */
@@ -369,14 +367,12 @@ button:hover, .preview-btn:hover {
   color: #fff;
 }
 
-/* MEDIA QUERIES FOR MOBILE (Detail Page: Stack Sidebar on top) */
+/* MEDIA QUERIES FOR MOBILE (Adjust modal arrows if needed) */
 @media screen and (max-width: 768px) {
-  .detail-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .detail-sidebar, .detail-content {
-    width: 100%;
+  .modal-prev,
+  .modal-next {
+    font-size: 30px;
+    padding: 8px;
+    bottom: 10px;
   }
 }
