@@ -7,7 +7,7 @@ layout: default
   </div>
   <div class="detail-container">
     <!-- Left: Content/Description and Sets/Images -->
-    <div class="detail-content">
+    <div class="detail-content" style="text-align: center;">
       <h1 id="artwork-title">{{ page.title }}</h1>
       <p>{{ page.description }}</p>
       {{ content }}
@@ -17,12 +17,9 @@ layout: default
           {% for set in page.sets %}
             <div class="collection-set" data-set-images='{{ set.images | jsonify }}'>
               <div class="collection-set-preview character-card" onclick="openSetModal(this)">
-                <div class="character-thumb" style="background-image: url('{{ set.preview }}');">
-                  <!-- Top-right overlay showing # of images in this set -->
+                <div class="character-thumb {% if set.nsfw or page.nsfw %}nsfw blurred{% endif %}" style="background-image: url('{{ set.preview }}');">
                   <div class="set-count-overlay">{{ set.images | size }} images</div>
-
                   {% if set.nsfw or page.nsfw %}
-                    <!-- Optional small NSFW indicator -->
                     <div class="nsfw-indicator">NSFW</div>
                   {% endif %}
                 </div>
@@ -33,7 +30,6 @@ layout: default
           {% endfor %}
         </div>
       {% else %}
-        <!-- Fallback if no sets: display a simple array of images -->
         <div class="artwork-images">
           {% for img in page.images %}
             <img src="{{ img }}" alt="Artwork Image" class="artwork-thumbnail {% if page.nsfw %}nsfw blurred{% endif %}">
@@ -44,10 +40,8 @@ layout: default
 
     <!-- Right: Sidebar -->
     <div class="detail-sidebar">
-      <!-- Use the main preview image from the front matter, not the first set -->
-      <img src="{{ page.preview }}" alt="{{ page.title }} Preview"
-           class="profile-pic {% if page.nsfw %}nsfw blurred{% endif %}">
-
+      <!-- Always use page.preview for sidebar image -->
+      <img src="{{ page.preview }}" alt="{{ page.title }} Preview" class="profile-pic {% if page.nsfw %}nsfw blurred{% endif %}">
       <div class="artwork-info">
         <p><strong>Artist:</strong> {{ page.artist }}</p>
         <p><strong>Characters:</strong>
@@ -60,7 +54,7 @@ layout: default
   </div>
 </section>
 
-<!-- Modal overlay for sets (and fallback) -->
+<!-- Modal overlay for enlarged images -->
 <div id="modal" class="modal">
   <span class="modal-prev" id="modal-prev" onclick="showPrevImage()">&#10094;</span>
   <span class="modal-next" id="modal-next" onclick="showNextImage()">&#10095;</span>
