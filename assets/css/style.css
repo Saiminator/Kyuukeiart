@@ -215,11 +215,11 @@ button:hover, .preview-btn:hover {
   text-align: left;
 }
 
-/* By default on desktop: detail-content first, detail-sidebar second */
+/* Desktop: Left column is content, right column is sidebar */
 .detail-content {
   flex: 2;
   padding: 20px;
-  text-align: center; /* Center the content text */
+  text-align: center;
 }
 
 .detail-content h1 {
@@ -273,7 +273,6 @@ button:hover, .preview-btn:hover {
 }
 
 /* MODAL STYLES */
-/* Position the modal arrows at the bottom */
 .modal {
   display: none; /* Hidden initially */
   position: fixed;
@@ -294,17 +293,17 @@ button:hover, .preview-btn:hover {
   margin: auto;
 }
 
-/* Modal Navigation Buttons positioned at the bottom */
+/* Modal Navigation Buttons (positioned at the bottom) */
 .modal-prev,
 .modal-next {
   position: absolute;
   bottom: 20px;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: bold;
   cursor: pointer;
   user-select: none;
-  padding: 10px;
-  background: rgba(0,0,0,0.4);
+  padding: 20px 40px;  /* Increased horizontal padding */
+  background: rgba(0,123,255,0.8);  /* Vibrant bright blue */
   border-radius: 5px;
 }
 
@@ -329,7 +328,7 @@ button:hover, .preview-btn:hover {
 
 /* NSFW MODAL STYLES */
 .nsfw-modal {
-  display: none; /* Shown via JavaScript if no preference is set */
+  display: none;
   position: fixed;
   z-index: 20000;
   left: 0;
@@ -355,7 +354,7 @@ button:hover, .preview-btn:hover {
 }
 
 .nsfw-buttons button {
-  margin: 10px; /* Increased margin for vertical spacing */
+  margin: 10px; /* Extra margin for vertical spacing */
   padding: 10px 20px;
   font-weight: bold;
   border: none;
@@ -370,7 +369,7 @@ button:hover, .preview-btn:hover {
 }
 
 /* MEDIA QUERIES FOR MOBILE */
-/* On mobile, stack sidebar above content */
+/* On mobile, stack the detail-sidebar above detail-content */
 @media screen and (max-width: 768px) {
   .detail-container {
     flex-direction: column;
@@ -380,11 +379,11 @@ button:hover, .preview-btn:hover {
   .detail-sidebar, .detail-content {
     width: 100%;
   }
-  /* Modal arrows: reduce size and ensure they remain separate at bottom */
+  /* Modal arrows: reduce size and ensure separation at bottom */
   .modal-prev,
   .modal-next {
     font-size: 30px;
-    padding: 8px;
+    padding: 10px 20px;
     bottom: 10px;
   }
 }
