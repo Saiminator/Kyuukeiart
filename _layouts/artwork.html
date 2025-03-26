@@ -2,36 +2,15 @@
 layout: default
 ---
 <section id="artwork-detail-page">
-  <!-- Centered Back Button -->
-  <div class="back-btn">
-    <a href="{{ site.baseurl }}/collection.html">← Back to Collection Gallery</a>
-  </div>
-  
-  <!-- Preview Image & Artist/Character Info at the Top -->
-  <div class="detail-sidebar" style="margin-bottom: 20px;">
-    {% if page.sets %}
-      <!-- If sets exist, use the first set's preview as overall preview -->
-      <img src="{{ page.sets[0].preview }}" alt="{{ page.title }} Preview" class="profile-pic">
-    {% else %}
-      <img src="{{ page.preview }}" alt="{{ page.title }} Preview" class="profile-pic">
-    {% endif %}
-    <div class="artwork-info">
-      <p><strong>Artist:</strong> {{ page.artist }}</p>
-      <p><strong>Characters:</strong>
-        {% for char in page.characters %}
-          {{ char }}{% unless forloop.last %}, {% endunless %}
-        {% endfor %}
-      </p>
-    </div>
-  </div>
-  
-  <!-- Main Content Area -->
-  <div class="detail-container" style="flex-direction: column; align-items: center;">
-    <div class="detail-content" style="max-width: 100%; text-align: center;">
-      <!-- Title of the Collection -->
+  <div class="detail-container">
+    <!-- Left: Main Content (title, reference heading, sets, etc.) -->
+    <div class="detail-content">
+      <!-- Back Button centered within content on mobile; on desktop it remains above content -->
+      <div class="back-btn">
+        <a href="{{ site.baseurl }}/collection.html">← Back to Collection Gallery</a>
+      </div>
       <h1 id="artwork-title">{{ page.title }}</h1>
       
-      <!-- Reference Heading and Description Centered Above the Sets -->
       {% if page.reference_heading or page.reference_description %}
       <div class="set-reference" style="text-align: center; margin: 20px 0;">
         <h2>{{ page.reference_heading | default: "Via Reference" }}</h2>
@@ -39,7 +18,6 @@ layout: default
       </div>
       {% endif %}
       
-      <!-- Display Sets if available -->
       {% if page.sets %}
         <div class="collection-sets">
           {% for set in page.sets %}
@@ -55,13 +33,28 @@ layout: default
           {% endfor %}
         </div>
       {% else %}
-        <!-- Fallback: Display single artwork images -->
         <div class="artwork-images">
           {% for img in page.images %}
             <img src="{{ img }}" alt="Artwork Image" class="artwork-thumbnail">
           {% endfor %}
         </div>
       {% endif %}
+    </div>
+    <!-- Right: Sidebar with Preview Image and Artwork Info -->
+    <div class="detail-sidebar">
+      {% if page.sets %}
+        <img src="{{ page.sets[0].preview }}" alt="{{ page.title }} Preview" class="profile-pic">
+      {% else %}
+        <img src="{{ page.preview }}" alt="{{ page.title }} Preview" class="profile-pic">
+      {% endif %}
+      <div class="artwork-info">
+        <p><strong>Artist:</strong> {{ page.artist }}</p>
+        <p><strong>Characters:</strong>
+          {% for char in page.characters %}
+            {{ char }}{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </p>
+      </div>
     </div>
   </div>
 </section>
