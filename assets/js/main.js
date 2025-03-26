@@ -12,20 +12,23 @@ document.addEventListener('DOMContentLoaded', function() {
     if (existingConsent === null) {
       nsfwModal.style.display = 'flex';
     } else if (existingConsent === 'yes') {
-      document.querySelectorAll('.nsfw').forEach(function(el) {
-        el.classList.remove('blurred');
+      // Remove nsfw-blurred class from all elements that have it
+      document.querySelectorAll('.nsfw-blurred').forEach(function(el) {
+        el.classList.remove('nsfw-blurred');
       });
-      // Set toggle button to grey (ON)
       const toggleBtn = document.getElementById('nsfw-toggle');
       if (toggleBtn) {
         toggleBtn.classList.remove('toggle-off');
         toggleBtn.classList.add('toggle-on');
       }
     } else {
+      // existingConsent === 'no'
       document.querySelectorAll('.nsfw').forEach(function(el) {
-        el.classList.add('blurred');
+        // Ensure they have nsfw-blurred class if they don't already
+        if (!el.classList.contains('nsfw-blurred')) {
+          el.classList.add('nsfw-blurred');
+        }
       });
-      // Set toggle button to red (OFF)
       const toggleBtn = document.getElementById('nsfw-toggle');
       if (toggleBtn) {
         toggleBtn.classList.remove('toggle-on');
@@ -37,8 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
       nsfwYes.addEventListener('click', function() {
         localStorage.setItem('nsfwConsent', 'yes');
         nsfwModal.style.display = 'none';
-        document.querySelectorAll('.nsfw').forEach(function(el) {
-          el.classList.remove('blurred');
+        document.querySelectorAll('.nsfw-blurred').forEach(function(el) {
+          el.classList.remove('nsfw-blurred');
         });
         const toggleBtn = document.getElementById('nsfw-toggle');
         if (toggleBtn) {
@@ -53,7 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('nsfwConsent', 'no');
         nsfwModal.style.display = 'none';
         document.querySelectorAll('.nsfw').forEach(function(el) {
-          el.classList.add('blurred');
+          if (!el.classList.contains('nsfw-blurred')) {
+            el.classList.add('nsfw-blurred');
+          }
         });
         const toggleBtn = document.getElementById('nsfw-toggle');
         if (toggleBtn) {
@@ -74,14 +79,16 @@ document.addEventListener('DOMContentLoaded', function() {
       if (current === 'yes') {
         localStorage.setItem('nsfwConsent', 'no');
         document.querySelectorAll('.nsfw').forEach(function(el) {
-          el.classList.add('blurred');
+          if (!el.classList.contains('nsfw-blurred')) {
+            el.classList.add('nsfw-blurred');
+          }
         });
         toggleBtn.classList.remove('toggle-on');
         toggleBtn.classList.add('toggle-off');
       } else {
         localStorage.setItem('nsfwConsent', 'yes');
-        document.querySelectorAll('.nsfw').forEach(function(el) {
-          el.classList.remove('blurred');
+        document.querySelectorAll('.nsfw-blurred').forEach(function(el) {
+          el.classList.remove('nsfw-blurred');
         });
         toggleBtn.classList.remove('toggle-off');
         toggleBtn.classList.add('toggle-on');
