@@ -2,6 +2,7 @@
 layout: artwork
 title: "Expressive Variations – Via Collection"
 name: "via-expressions"
+preview: "https://i.imgur.com/zOOHPmU.png"
 artist: "@if959u"
 characters:
   - "Mika"
