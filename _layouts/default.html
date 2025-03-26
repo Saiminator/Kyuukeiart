@@ -8,9 +8,11 @@
 </head>
 <body>
   {% include header.html %}
+
   <main>
     {{ content }}
   </main>
+
   {% include footer.html %}
 
   <!-- NSFW Consent Modal -->
@@ -19,14 +21,14 @@
       <h2>NSFW Content Warning</h2>
       <p>This site contains NSFW artwork. Do you wish to view NSFW content?</p>
       <div class="nsfw-buttons">
-        <!-- Add extra margin or padding to avoid overlap -->
+        <!-- Add spacing so the buttons don't overlap -->
         <button id="nsfw-yes" style="margin-right: 15px;">YES, SHOW NSFW</button>
         <button id="nsfw-no">NO, HIDE NSFW</button>
       </div>
     </div>
   </div>
 
-  <!-- Load your main JS after everything else -->
+  <!-- Main JavaScript -->
   <script src="{{ site.baseurl }}/assets/js/main.js"></script>
 </body>
 </html>
