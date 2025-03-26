@@ -53,6 +53,14 @@ button, .preview-btn {
   transition: background 0.3s ease;
 }
 
+/* Toggle button: red when NSFW is OFF; grey when ON */
+.nsfw-toggle.toggle-off {
+  background: #d9534f; /* red */
+}
+.nsfw-toggle.toggle-on {
+  background: #6c757d; /* grey */
+}
+
 button:hover, .preview-btn:hover {
   background: #0056b3;
 }
@@ -93,7 +101,7 @@ button:hover, .preview-btn:hover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.15);
 }
 
-/* Character thumbnail - used for both character and collection preview */
+/* Character thumbnail (used for both character and collection preview) */
 .character-thumb {
   width: 100%;
   height: 220px;
@@ -108,7 +116,7 @@ button:hover, .preview-btn:hover {
   color: #333;
 }
 
-/* Collection list container (for character pages listing related collections) */
+/* Collection list container */
 .collection-list {
   display: flex;
   flex-wrap: wrap;
@@ -267,7 +275,7 @@ button:hover, .preview-btn:hover {
 
 /* NSFW Modal Styles */
 .nsfw-modal {
-  display: none; /* Shown via JavaScript if no localStorage or user hasn't chosen */
+  display: none; /* Shown via JavaScript if no localStorage or no user choice */
   position: fixed;
   z-index: 20000;
   left: 0;
@@ -293,7 +301,7 @@ button:hover, .preview-btn:hover {
 }
 
 .nsfw-buttons button {
-  margin: 0 10px; /* Ensures spacing between Yes/No */
+  margin: 0 10px; /* Ensures spacing between YES and NO */
   padding: 10px 20px;
   font-weight: bold;
   border: none;
@@ -339,7 +347,7 @@ button:hover, .preview-btn:hover {
   border-radius: 3px;
 }
 
-/* RESTORE the top-right set overlay for "X images" */
+/* Set count overlay (restored at top-right of set preview) */
 .set-count-overlay {
   position: absolute;
   top: 5px;
