@@ -204,7 +204,6 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('keydown', function(event) {
     if (modal.style.display === 'flex') {
       if (event.key === 'ArrowLeft') {
-        // Prioritize set mode if active
         if (setModalImages.length > 0 && setModalImages.includes(modalImg.src)) {
           showPrevImage();
         } else if (artworkImages.length > 0 && artworkImages.includes(modalImg.src)) {
@@ -232,21 +231,48 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   /*-----------------------------------------------------
-    SECRET GROUP UNLOCK LOGIC (if applicable)
-    // Existing code for secret unlocking from previous implementation can go here.
+    SECRET GROUP UNLOCK LOGIC
+    (This example uses key sequences to unlock specific secret groups)
   -----------------------------------------------------*/
+  const secretCodes = {
+    "MEIMEI": "meimei",
+    "BUNNY": "bunny",
+    "RAGNA": "ragna"
+  };
   
-  // Example for multiple secret groups would be added below...
-  // (This section is separate from the NSFW logic and modal code)
-  const secretGroups = ["meimei", "bunny", "ragna"]; // Extend as needed
+  let secretInput = "";
+  document.addEventListener("keydown", function(e) {
+    secretInput += e.key.toUpperCase();
+    for (const code in secretCodes) {
+      if (secretInput.endsWith(code)) {
+        localStorage.setItem("secret-" + secretCodes[code], "true");
+        revealSecretGroup(secretCodes[code]);
+        secretInput = "";
+        break;
+      }
+    }
+    if (secretInput.length > 10) {
+      secretInput = secretInput.slice(-10);
+    }
+  });
+  
+  function revealSecretGroup(group) {
+    document.querySelectorAll('.secret').forEach(function(el) {
+      if (el.getAttribute("data-secret-group") === group) {
+        el.style.display = "";
+      }
+    });
+    updateSecretToggleButtons();
+  }
+  
   function updateSecretToggleButtons(){
     const container = document.getElementById("secret-toggle-container");
     if (!container) return;
     container.innerHTML = "";
-    secretGroups.forEach(function(group) {
+    Object.keys(secretCodes).forEach(function(code) {
+      const group = secretCodes[code];
       if(localStorage.getItem("secret-" + group) === "true"){
         const button = document.createElement("button");
-        // Capitalize group name
         button.textContent = "Turn off " + group.charAt(0).toUpperCase() + group.slice(1);
         button.addEventListener("click", function(){
           localStorage.setItem("secret-" + group, "false");
@@ -259,5 +285,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+  
   updateSecretToggleButtons();
 });
