@@ -247,6 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
     "WRATH": "wrath",
     "SHIHO": "shiho",
     "EXTREME": "extreme"
+    "TESTING": "testing"
   };
   
   const MASTER_SECRET = "ALLSECRETS";
