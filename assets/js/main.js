@@ -246,7 +246,6 @@ document.addEventListener('DOMContentLoaded', function() {
     "MEGUMIN": "megumin",
     "WRATH": "wrath",
     "SHIHO": "shiho",
-    "BISHIP": "bishop",
     "EXTREME": "extreme"
   };
   
