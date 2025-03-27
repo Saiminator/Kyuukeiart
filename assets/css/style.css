@@ -88,11 +88,6 @@ button:hover, .preview-btn:hover {
   text-decoration: underline;
 }
 
-/* SECRET ITEMS: hidden by default */
-.secret {
-  display: none;
-}
-
 /* GALLERY CARD STYLES (for Characters & Collections) */
 .character-card {
   display: inline-block;
@@ -146,7 +141,7 @@ button:hover, .preview-btn:hover {
   filter: none !important;
 }
 
-/* Set Count Overlay (always clear) */
+/* Set Count Overlay (top-right corner, always clear) */
 .set-count-overlay {
   position: absolute;
   top: 5px;
@@ -224,7 +219,7 @@ button:hover, .preview-btn:hover {
 .detail-content {
   flex: 2;
   padding: 20px;
-  text-align: center;
+  text-align: center; /* Center content text */
 }
 
 .detail-content h1 {
@@ -279,7 +274,7 @@ button:hover, .preview-btn:hover {
 
 /* MODAL STYLES */
 .modal {
-  display: none;
+  display: none; /* Hidden initially */
   position: fixed;
   z-index: 10000;
   left: 0;
@@ -309,7 +304,7 @@ button:hover, .preview-btn:hover {
   user-select: none;
   padding: 20px 40px;  /* Increased horizontal padding for wider buttons */
   background: #f4f4f9;  /* Light grey matching site background */
-  color: #000;         /* Black arrow icons */
+  color: #000;         /* Black arrows */
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -322,9 +317,11 @@ button:hover, .preview-btn:hover {
   right: 20px;
 }
 
+/* (Modal Close Button removed) */
+
 /* NSFW MODAL STYLES */
 .nsfw-modal {
-  display: none;
+  display: none; /* Shown via JavaScript if no preference is set */
   position: fixed;
   z-index: 20000;
   left: 0;
@@ -365,6 +362,7 @@ button:hover, .preview-btn:hover {
 }
 
 /* MEDIA QUERIES FOR MOBILE */
+/* On mobile, stack the detail-sidebar above detail-content */
 @media screen and (max-width: 768px) {
   .detail-container {
     flex-direction: column;
@@ -374,6 +372,7 @@ button:hover, .preview-btn:hover {
   .detail-sidebar, .detail-content {
     width: 100%;
   }
+  /* Modal arrows: reduce size and ensure separation at bottom */
   .modal-prev,
   .modal-next {
     font-size: 30px;
