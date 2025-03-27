@@ -1,0 +1,13 @@
+---
+layout: artwork
+nsfw: false
+title: "Bored Kyuu"
+name: "bored-kyuu"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0022/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0022/1.png"
+artist: "@po_pooch"
+characters:
+  - "kyuu"
+description: "Kyuu poking Orby"
+---
