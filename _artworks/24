@@ -11,7 +11,7 @@ description: "Kyuu gets captured and after having Orby encased, gets brainwashed
 sets:
   - set_title: "Comic"
     set_description: ""
-    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0078/1.jpg"
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0024/1.jpg"
     images:
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0024/1.jpg"
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0024/2.jpg"
