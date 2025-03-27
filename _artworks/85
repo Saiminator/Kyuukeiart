@@ -1,0 +1,16 @@
+---
+layout: artwork
+nsfw: false
+title: "Ragna Ultimatiam"
+name: "ragna-ultimatiam"
+secretGroup: "ragna,ultimatia"
+preview: "https://i.imgur.com/tzFJTp8.jpeg"
+images:
+  - "https://i.imgur.com/tzFJTp8.jpeg"
+artist: "@"
+characters:
+  - "ragna"
+  - "ultimatia"
+description: "description"
+---
+more info maybe
