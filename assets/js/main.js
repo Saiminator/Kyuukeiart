@@ -232,7 +232,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   /*-----------------------------------------------------
     SECRET GROUP UNLOCK LOGIC
-    Map secret codes to group names
+    Map secret codes to group names.
+    Now, items can have multiple secret groups (comma-separated).
+    Also, a master secret ("ALLSECRETS") unlocks all secret groups.
   -----------------------------------------------------*/
   const secretCodes = {
     "MEIMEI": "meimei",
@@ -240,9 +242,62 @@ document.addEventListener('DOMContentLoaded', function() {
     "RAGNA": "ragna"
   };
   
+  const MASTER_SECRET = "ALLSECRETS";
+  
+  // Helper: Check if an element's secret groups are all unlocked.
+  function isSecretUnlocked(el) {
+    let groups = el.getAttribute("data-secret-group");
+    if (!groups) return true;
+    groups = groups.split(",").map(g => g.trim());
+    return groups.every(g => localStorage.getItem("secret-" + g) === "true");
+  }
+  
+  // Hide secret items that aren't unlocked.
+  function hideAllSecretGroups() {
+    document.querySelectorAll('.secret').forEach(function(el) {
+      if (!isSecretUnlocked(el)) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "";
+      }
+    });
+  }
+  
+  // Reveal a specific secret group.
+  function revealSecretGroup(group) {
+    document.querySelectorAll('.secret').forEach(function(el) {
+      if (el.getAttribute("data-secret-group").split(",").map(g => g.trim()).includes(group)) {
+        if (isSecretUnlocked(el)) {
+          el.style.display = "";
+        }
+      }
+    });
+    updateSecretToggleButtons();
+  }
+  
+  // Master secret: unlock all groups found on the page.
+  function revealAllSecrets() {
+    const secretElements = document.querySelectorAll('[data-secret-group]');
+    let groupsSet = new Set();
+    secretElements.forEach(el => {
+      let groups = el.getAttribute("data-secret-group").split(",");
+      groups.forEach(g => groupsSet.add(g.trim()));
+    });
+    groupsSet.forEach(group => {
+      localStorage.setItem("secret-" + group, "true");
+    });
+    hideAllSecretGroups();
+    updateSecretToggleButtons();
+  }
+  
   let secretInput = "";
   document.addEventListener("keydown", function(e) {
     secretInput += e.key.toUpperCase();
+    if (secretInput.endsWith(MASTER_SECRET)) {
+      revealAllSecrets();
+      secretInput = "";
+      return;
+    }
     for (const code in secretCodes) {
       if (secretInput.endsWith(code)) {
         localStorage.setItem("secret-" + secretCodes[code], "true");
@@ -256,19 +311,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  function revealSecretGroup(group) {
-    document.querySelectorAll('.secret').forEach(function(el) {
-      if (el.getAttribute("data-secret-group") === group) {
-        el.style.display = ""; // Show secret element (default display)
-      }
-    });
-    updateSecretToggleButtons();
-  }
-  
   function updateSecretToggleButtons(){
     const container = document.getElementById("secret-toggle-container");
     if (!container) return;
     container.innerHTML = "";
+    // For each unique secret group present in secretCodes:
     Object.keys(secretCodes).forEach(function(code) {
       const group = secretCodes[code];
       if(localStorage.getItem("secret-" + group) === "true"){
@@ -276,8 +323,11 @@ document.addEventListener('DOMContentLoaded', function() {
         button.textContent = "Turn off " + group.charAt(0).toUpperCase() + group.slice(1);
         button.addEventListener("click", function(){
           localStorage.setItem("secret-" + group, "false");
-          document.querySelectorAll('.secret[data-secret-group="'+group+'"]').forEach(function(el){
-            el.style.display = "none";
+          document.querySelectorAll('.secret[data-secret-group]').forEach(function(el){
+            let groups = el.getAttribute("data-secret-group").split(",").map(g => g.trim());
+            if (groups.includes(group)) {
+              el.style.display = "none";
+            }
           });
           updateSecretToggleButtons();
         });
@@ -286,16 +336,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Ensure secret items are hidden by default on page load if not unlocked
-  function hideAllSecretGroups() {
-    document.querySelectorAll('.secret').forEach(function(el) {
-      const group = el.getAttribute("data-secret-group");
-      if (group && localStorage.getItem("secret-" + group) !== "true") {
-        el.style.display = "none";
-      }
-    });
-  }
   hideAllSecretGroups();
-  
   updateSecretToggleButtons();
 });
