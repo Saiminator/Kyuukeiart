@@ -4,7 +4,7 @@ title: "Collection Gallery"
 ---
 <section id="collection-page" style="text-align: center;">
   <h1>Collection Gallery</h1>
-  <div class="collection-list">
+  <div class="collection-list" style="display: none;">
     {% for artwork in site.artworks %}
       <div class="character-card {% if artwork.secretGroup %}secret{% endif %}" {% if artwork.secretGroup %}data-secret-group="{{ artwork.secretGroup }}"{% endif %}>
         <a href="{{ artwork.url }}">
@@ -20,3 +20,18 @@ title: "Collection Gallery"
     {% endfor %}
   </div>
 </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  var container = document.querySelector(".collection-list");
+  var cards = Array.from(container.children);
+  cards.sort(function(a, b) {
+    return 0; // If you want to sort, implement sorting logic here
+  });
+  container.innerHTML = "";
+  cards.forEach(function(card) {
+    container.appendChild(card);
+  });
+  container.style.display = "flex";
+});
+</script>
