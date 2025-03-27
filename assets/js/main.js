@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   /*-----------------------------------------------------
     SECRET GROUP UNLOCK LOGIC
-    Define secret codes for each group.
+    Map secret codes to group names
   -----------------------------------------------------*/
   const secretCodes = {
     "MEIMEI": "meimei",
