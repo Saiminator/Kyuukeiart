@@ -5,7 +5,8 @@ title: "Characters"
 
 <section id="character-gallery" style="text-align: center;">
   <h1>Characters</h1>
-  <div class="collection-list">
+  <!-- Initially hide the collection list -->
+  <div class="collection-list" style="display: none;">
     {% for character in site.characters %}
       {% assign collection_count = 0 %}
       {% for artwork in site.artworks %}
@@ -29,9 +30,7 @@ title: "Characters"
 <script>
 document.addEventListener("DOMContentLoaded", function(){
   var container = document.querySelector(".collection-list");
-  // Hide container until sorting is done to avoid flicker
-  container.style.visibility = "hidden";
-  
+  // Sort the cards as before:
   var cards = Array.from(container.children);
   cards.sort(function(a, b) {
     return parseInt(b.getAttribute("data-collection-count")) - parseInt(a.getAttribute("data-collection-count"));
@@ -40,9 +39,7 @@ document.addEventListener("DOMContentLoaded", function(){
   cards.forEach(function(card) {
     container.appendChild(card);
   });
-  
-  // Show the container after sorting
-  container.style.visibility = "visible";
+  // Now that sorting (and secret filtering) is complete, show the container.
+  container.style.display = "flex";
 });
 </script>
-
