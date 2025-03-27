@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
     "MEGUMIN": "megumin",
     "WRATH": "wrath",
     "SHIHO": "shiho",
-    "EXTREME": "extreme"
+    "EXTREME": "extreme",
     "TESTING": "testing"
   };
   
