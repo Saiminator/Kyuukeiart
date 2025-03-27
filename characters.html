@@ -27,9 +27,11 @@ title: "Characters"
 </section>
 
 <script>
-// Sort the character cards by collection count (highest first)
 document.addEventListener("DOMContentLoaded", function(){
   var container = document.querySelector(".collection-list");
+  // Hide container until sorting is done to avoid flicker
+  container.style.visibility = "hidden";
+  
   var cards = Array.from(container.children);
   cards.sort(function(a, b) {
     return parseInt(b.getAttribute("data-collection-count")) - parseInt(a.getAttribute("data-collection-count"));
@@ -38,5 +40,9 @@ document.addEventListener("DOMContentLoaded", function(){
   cards.forEach(function(card) {
     container.appendChild(card);
   });
+  
+  // Show the container after sorting
+  container.style.visibility = "visible";
 });
 </script>
+
