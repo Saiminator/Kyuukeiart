@@ -1,0 +1,15 @@
+---
+layout: artwork
+nsfw: true
+title: "enter name"
+name: "enter-name"
+secretGroup: "secret?,secret"
+preview: "https://i.imgur.com/tzFJTp8.jpeg"
+images:
+  - "https://i.imgur.com/tzFJTp8.jpeg"
+artist: "@"
+characters:
+  - "who"
+description: "description"
+---
+more info maybe
