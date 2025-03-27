@@ -13,7 +13,7 @@ title: "Characters"
           {% assign collection_count = collection_count | plus: 1 %}
         {% endif %}
       {% endfor %}
-      <div class="character-card" data-collection-count="{{ collection_count }}">
+      <div class="character-card {% if character.secretGroup %}secret{% endif %}" {% if character.secretGroup %}data-secret-group="{{ character.secretGroup }}"{% endif %} data-collection-count="{{ collection_count }}">
         <a href="{{ character.url }}">
           <div class="character-thumb">
             <img src="{{ character.image }}" alt="{{ character.title }} Image" class="preview-img {% if character.nsfw %}nsfw nsfw-blurred{% endif %}">
