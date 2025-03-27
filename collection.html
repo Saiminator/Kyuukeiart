@@ -6,7 +6,7 @@ title: "Collection Gallery"
   <h1>Collection Gallery</h1>
   <div class="collection-list">
     {% for artwork in site.artworks %}
-      <div class="character-card">
+      <div class="character-card {% if artwork.secretGroup %}secret{% endif %}" {% if artwork.secretGroup %}data-secret-group="{{ artwork.secretGroup }}"{% endif %}>
         <a href="{{ artwork.url }}">
           <div class="character-thumb">
             <img src="{{ artwork.preview }}" alt="{{ artwork.title }} Preview" class="preview-img {% if artwork.nsfw %}nsfw nsfw-blurred{% endif %}">
