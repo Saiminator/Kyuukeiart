@@ -2,15 +2,12 @@
 layout: default
 ---
 <section id="artwork-detail-page">
-  <!-- Back Button (centered) -->
-  <div class="back-btn">
+  <div class="back-btn" style="text-align: center;">
     <a href="{{ site.baseurl }}/collection.html">← Back to Collection Gallery</a>
   </div>
-  
-  <!-- Desktop: detail-content on left, detail-sidebar on right -->
   <div class="detail-container">
-    <!-- Left Column: Detail Content -->
-    <div class="detail-content">
+    <!-- Left: Detail Content (Description, Sets, etc.) -->
+    <div class="detail-content" style="text-align: center;">
       <h1 id="artwork-title">{{ page.title }}</h1>
       <p>{{ page.description }}</p>
       {{ content }}
@@ -40,9 +37,8 @@ layout: default
         </div>
       {% endif %}
     </div>
-    
-    <!-- Right Column: Detail Sidebar (Preview/Artist Info) -->
-    <div class="detail-sidebar">
+    <!-- Right: Detail Sidebar (Preview Image, Artist Info) -->
+    <div class="detail-sidebar" style="text-align: center;">
       <img src="{{ page.preview }}" alt="{{ page.title }} Preview" class="profile-pic {% if page.nsfw %}nsfw nsfw-blurred{% endif %}">
       <div class="artwork-info">
         <p><strong>Artist:</strong> {{ page.artist }}</p>
@@ -56,10 +52,9 @@ layout: default
   </div>
 </section>
 
-<!-- Modal for Enlarged Image Display -->
+<!-- Modal overlay for enlarged image display -->
 <div id="modal" class="modal">
   <span class="modal-prev" id="modal-prev" onclick="showPrevImage()">&#10094;</span>
   <span class="modal-next" id="modal-next" onclick="showNextImage()">&#10095;</span>
-  <span class="modal-close" id="modal-close" onclick="closeModal()">&times;</span>
   <img class="modal-content" id="modal-img" src="" alt="Enlarged Artwork">
 </div>
