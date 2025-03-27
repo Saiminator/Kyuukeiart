@@ -1,27 +1,31 @@
+
 ---
 layout: default
-title: "Characters"
 ---
-
-<section id="character-gallery" style="text-align: center;">
-  <h1>Characters</h1>
+<section id="character-collections">
+  <div class="back-btn" style="text-align: center;">
+    <a href="{{ site.baseurl }}/characters.html">← Back to Characters Gallery</a>
+  </div>
+  <h1 style="text-align: center;">{{ page.title }}</h1>
+  <p style="text-align: center;">This character appears in the following collections:</p>
   <div class="collection-list">
-    {% for character in site.characters %}
-      {% assign collection_count = 0 %}
-      {% for artwork in site.artworks %}
-        {% if artwork.characters contains character.title %}
-          {% assign collection_count = collection_count | plus: 1 %}
-        {% endif %}
+    {% assign related_collections = site.artworks | where_exp:"artwork", "artwork.characters contains page.title" %}
+    {% if related_collections.size > 0 %}
+      {% for artwork in related_collections %}
+        <div class="character-card">
+          <a href="{{ artwork.url }}">
+            <div class="character-thumb">
+              <img src="{{ artwork.preview }}" alt="{{ artwork.title }} Preview" class="preview-img {% if artwork.nsfw %}nsfw nsfw-blurred{% endif %}">
+              {% if artwork.nsfw %}
+                <div class="nsfw-indicator">NSFW</div>
+              {% endif %}
+            </div>
+            <div class="character-name">{{ artwork.title }}</div>
+          </a>
+        </div>
       {% endfor %}
-      <div class="character-card {% if character.secretGroup %}secret{% endif %}" {% if character.secretGroup %}data-secret-group="{{ character.secretGroup }}"{% endif %} data-collection-count="{{ collection_count }}">
-        <a href="{{ character.url }}">
-          <div class="character-thumb">
-            <img src="{{ character.image }}" alt="{{ character.title }} Image" class="preview-img {% if character.nsfw %}nsfw nsfw-blurred{% endif %}">
-          </div>
-          <div class="character-name">{{ character.title }}</div>
-          <div class="collection-count">{{ collection_count }} Collections</div>
-        </a>
-      </div>
-    {% endfor %}
+    {% else %}
+      <p style="text-align: center;">No collections found for {{ page.title }}.</p>
+    {% endif %}
   </div>
 </section>
