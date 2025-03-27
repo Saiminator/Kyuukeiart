@@ -230,4 +230,34 @@ document.addEventListener('DOMContentLoaded', function() {
       modal.style.display = 'none';
     }
   });
+  
+  /*-----------------------------------------------------
+    SECRET GROUP UNLOCK LOGIC (if applicable)
+    // Existing code for secret unlocking from previous implementation can go here.
+  -----------------------------------------------------*/
+  
+  // Example for multiple secret groups would be added below...
+  // (This section is separate from the NSFW logic and modal code)
+  const secretGroups = ["meimei", "bunny", "ragna"]; // Extend as needed
+  function updateSecretToggleButtons(){
+    const container = document.getElementById("secret-toggle-container");
+    if (!container) return;
+    container.innerHTML = "";
+    secretGroups.forEach(function(group) {
+      if(localStorage.getItem("secret-" + group) === "true"){
+        const button = document.createElement("button");
+        // Capitalize group name
+        button.textContent = "Turn off " + group.charAt(0).toUpperCase() + group.slice(1);
+        button.addEventListener("click", function(){
+          localStorage.setItem("secret-" + group, "false");
+          document.querySelectorAll('.secret[data-secret-group="'+group+'"]').forEach(function(el){
+            el.style.display = "none";
+          });
+          updateSecretToggleButtons();
+        });
+        container.appendChild(button);
+      }
+    });
+  }
+  updateSecretToggleButtons();
 });
