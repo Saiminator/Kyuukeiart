@@ -6,7 +6,7 @@ name: "Tire-Slip"
 secretGroup: "meimei"
 preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0001/preview.png"
 images:
-  - "https://gifrun.blob.core.windows.net/images/goewmpk.gif"
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0001/1.png"
 artist: "@aicila_ss"
 characters:
   - "Meimei"
