@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   /*-----------------------------------------------------
     SECRET GROUP UNLOCK LOGIC
-    Map secret codes to group names
+    Define secret codes for each group.
   -----------------------------------------------------*/
   const secretCodes = {
     "MEIMEI": "meimei",
@@ -285,6 +285,17 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+  
+  // Ensure secret items are hidden by default on page load if not unlocked
+  function hideAllSecretGroups() {
+    document.querySelectorAll('.secret').forEach(function(el) {
+      const group = el.getAttribute("data-secret-group");
+      if (group && localStorage.getItem("secret-" + group) !== "true") {
+        el.style.display = "none";
+      }
+    });
+  }
+  hideAllSecretGroups();
   
   updateSecretToggleButtons();
 });
