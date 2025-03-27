@@ -1,0 +1,19 @@
+---
+layout: artwork
+nsfw: true
+title: "name"
+name: "name"
+secretGroup: "secret?,secret"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0078/preview.jpg"
+artist: "@"
+characters:
+  - "who"
+description: "who"
+sets:
+  - set_title: "Comic"
+    set_description: "More testing ignore."
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0078/1.jpg"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0078/1.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0078/2.jpg"
+---
