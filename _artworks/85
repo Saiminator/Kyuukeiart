@@ -4,13 +4,12 @@ nsfw: false
 title: "Ragna Ultimatiam"
 name: "ragna-ultimatiam"
 secretGroup: "ragna,ultimatia"
-preview: "https://i.imgur.com/tzFJTp8.jpeg"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0085/preview.jpg"
 images:
-  - "https://i.imgur.com/tzFJTp8.jpeg"
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0085/1.jpg"
 artist: "@"
 characters:
   - "ragna"
   - "ultimatia"
-description: "description"
+description: "Ultimatia rewinding time to revive herself around Ragna's body"
 ---
-more info maybe
