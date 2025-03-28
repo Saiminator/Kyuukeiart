@@ -5,10 +5,14 @@ title: "Meimei + Tentacles"
 name: "tentacle-meimei"
 secretGroup: "meimei"
 preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0008/preview.png"
-images:
-  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0008/1.png"
-  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0008/2.png"
-  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0008/3.png"
+sets:
+  - set_title: "Comic"
+    set_description: "More testing ignore."
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0008/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0008/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0008/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0008/3.png"
 artist: "@akaichobi RIP privated and deleted everything"
 characters:
   - "Meimei"
