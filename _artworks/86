@@ -1,0 +1,15 @@
+---
+layout: artwork
+nsfw: false
+title: "Clownpiece takes over Kyuu"
+name: "clownpiece-kyuu"
+secretGroup: "clownpiece"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0086/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0086/1.png"
+artist: "@Fordgodzilla"
+characters:
+  - "Kyuu"
+  - "Clownpiece"
+description: "Slime Clownpiece takes Kyuu's body"
+---
