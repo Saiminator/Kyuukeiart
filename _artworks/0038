@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: false
+title: "Grocery Kyuu"
+name: "kyuu-shopping"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0038/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0038/1.png"
+artist: "@yousalbum"
+characters:
+  - "Kyuu"
+description: "Kyuu goes grocery shopping! First appearance of her iconic outfit, thank you yousalbum!"
+---
