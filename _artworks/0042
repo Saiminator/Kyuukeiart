@@ -1,0 +1,21 @@
+---
+layout: artwork
+nsfw: true
+title: "Dreymi's Bathtime"
+name: "dreymi-bathtime"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0042/preview.png"
+artist: "@Ytkano"
+characters:
+  - "Dreymi"
+  - "Kyuu"
+  - "Shimi"
+description: "Dreymi stalks Kyuu, but gets invited to join in"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0042/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0042/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0042/2.png"
+---
