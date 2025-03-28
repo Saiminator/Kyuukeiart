@@ -1,0 +1,15 @@
+---
+layout: artwork
+nsfw: false
+title: "Venom Megumin"
+name: "venom-megumin"
+secretGroup: "megumin"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0062/preview.jpg"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0062/1.jpg"
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0062/2.jpg"
+artist: "@maysomehowbe"
+characters:
+  - "Megumin"
+description: "Character idea suggestion with various ideas, Megumin venom was my suggestion"
+---
