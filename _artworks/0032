@@ -1,0 +1,19 @@
+---
+layout: artwork
+nsfw: false
+title: "Kyuu become cat?"
+name: "kyuu-cat"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0032/preview.png"
+artist: "@Bismaki"
+characters:
+  - "Kyuu"
+description: "Cat with cat virus infects Kyuu's orb which in turn, transforms her into a cat and gives her a nice collar :)"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0032/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0032/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0032/2.png"
+---
