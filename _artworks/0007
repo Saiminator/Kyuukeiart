@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: false
+title: "Cool Bunny!"
+name: "cool-bunny"
+secretGroup: "bunny"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0007/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0007/1.png"
+artist: "@naokimineta026"
+characters:
+  - "Bunny"
+description: "Bunny fighting the cat boss in an awesome scene!"
+---
