@@ -1,0 +1,15 @@
+---
+layout: artwork
+nsfw: true
+title: "Burnt Via"
+name: "burnt-via"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0098/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0098/1.png"
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0098/bonus.png"
+artist: "@wara_straw"
+characters:
+  - "Via"
+description: "Via can't cook without sleeping"
+---
