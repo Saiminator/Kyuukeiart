@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: false
+title: "Pon's Prep"
+name: "pon-prep"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0060/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0060/1.png"
+artist: "@if959u"
+characters:
+  - "Pon"
+description: "Reference for Pon, as well as brief lore"
+---
