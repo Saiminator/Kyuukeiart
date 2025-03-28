@@ -12,7 +12,7 @@ characters:
 description: "Meimei notices a slime molesting Shiho, and decides she wants it to play with her"
 sets:
   - set_title: "Comic"
-    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/preview.png"
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/1.png"
     images:
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/1.png"
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/2.png"
