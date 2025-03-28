@@ -1,0 +1,43 @@
+---
+layout: artwork
+nsfw: true
+title: "Via's Experiment"
+name: "via-experiment"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/preview.png"
+artist: "@nonmikan777"
+characters:
+  - "Via"
+  - "Pon"
+  - "Kaji"
+description: "Forgive the not great english translation, the original japanese and alternate versions can be found here https://nonmikan.fanbox.cc/"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/3.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/4.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/5.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/6.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/7.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/8.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/9.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/10.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/11.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/12.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/13.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/14.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/15.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/16.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/17.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/18.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/19.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/20.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/21.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/22.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/23.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0095/24.png"
+---
