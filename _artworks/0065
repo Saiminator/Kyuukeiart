@@ -1,0 +1,21 @@
+---
+layout: artwork
+nsfw: false
+title: "Kyuu vs Shimi"
+name: "kyuu-vs-shimi"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0065/preview.png"
+artist: "@tomaru_absp"
+characters:
+  - "Kyuu"
+  - "Shimi"
+description: "Kyuu vs a Shimi sneak attack with Shimi plot armor"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0065/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0065/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0065/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0065/3.png"
+---
