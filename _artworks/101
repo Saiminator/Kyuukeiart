@@ -1,0 +1,31 @@
+---
+layout: artwork
+nsfw: true
+title: "Slime vs Meimei"
+name: "slime-meimei"
+secretGroup: "meimei"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0078/preview.jpg"
+artist: "@Khear987"
+characters:
+  - "Meimei"
+  - "Shiho"
+description: "Meimei notices a slime molesting Shiho, and decides she wants it to play with her"
+sets:
+  - set_title: "Comic"
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/preview.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/3.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/4.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/5.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/6.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/7.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/8.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/9.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/10.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/11.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/12.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/13.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/14.png"
+---
