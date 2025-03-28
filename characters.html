@@ -30,14 +30,13 @@ title: "Characters"
 <script>
 document.addEventListener("DOMContentLoaded", function(){
   var container = document.querySelector(".collection-list");
-  // Hide container until sorting and secret filtering are complete
-  container.style.visibility = "hidden";
+  // Initially hide container by setting display to "none"
+  container.style.display = "none";
   
   var cards = Array.from(container.children);
   cards.sort(function(a, b) {
     return parseInt(b.getAttribute("data-collection-count")) - parseInt(a.getAttribute("data-collection-count"));
   });
-  
   container.innerHTML = "";
   cards.forEach(function(card) {
     container.appendChild(card);
@@ -48,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function(){
     hideAllSecretGroups();
   }
   
-  container.style.visibility = "visible";
+  // Now that sorting and filtering is done, show the container.
+  container.style.display = "flex";
 });
 </script>
