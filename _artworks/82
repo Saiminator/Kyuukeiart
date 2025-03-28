@@ -1,0 +1,15 @@
+---
+layout: artwork
+nsfw: false
+title: "Cirno becomes Shimi"
+name: "cirno-shimi"
+secretGroup: "cirno"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0082/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0082/1.png"
+artist: "@Fordgodzilla"
+characters:
+  - "Shimi"
+  - "Cirno"
+description: "Cirno transforms into Shimi after touching a ball of Shimi's sludge"
+---
