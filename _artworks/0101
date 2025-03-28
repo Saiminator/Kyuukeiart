@@ -4,7 +4,7 @@ nsfw: true
 title: "Slime vs Meimei"
 name: "slime-meimei"
 secretGroup: "meimei"
-preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/preview.jpg"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0101/preview.png"
 artist: "@Khear987"
 characters:
   - "Meimei"
