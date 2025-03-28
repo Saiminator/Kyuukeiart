@@ -1,0 +1,16 @@
+---
+layout: artwork
+nsfw: false
+title: "Dreymi dress-up"
+name: "dreymi-dress-up"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0092/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0092/1.png"
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0092/2.png"
+artist: "@Huge_Kawaii"
+characters:
+  - "Kyuu"
+  - "Dreymi"
+description: "Dreymi takes Kyuu out for dress up time!!!!"
+---
