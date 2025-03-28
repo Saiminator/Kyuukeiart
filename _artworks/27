@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: false
+title: "Bunny Kyuu!"
+name: "bunny-kyuu"
+secretGroup: "kyuu"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0027/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0027/1.png"
+artist: "@10komorimori"
+characters:
+  - "Kyuu"
+description: "Kyuu and Orby dressed up as bunnies!"
+---
