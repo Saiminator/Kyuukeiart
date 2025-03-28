@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: true
+title: "Slime Bunny"
+name: "slime-bunny"
+secretGroup: "bunny"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0026/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0026/1.png"
+artist: "@hayakubyoin"
+characters:
+  - "Bunny"
+description: "Bunny gets eaten by a slime"
+---
