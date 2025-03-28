@@ -7,7 +7,7 @@ secretGroup: "bunny"
 preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0020/preview.png"
 sets:
   - set_title: "Variation sequence"
-    set_description: "Versions."
+    set_description: ""
     preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0020/1.png"
     images:
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0020/1.png"
