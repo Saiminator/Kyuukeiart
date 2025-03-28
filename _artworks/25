@@ -1,0 +1,19 @@
+---
+layout: artwork
+nsfw: true
+title: "Bunny? No, Kitty!"
+name: "bunny-cat"
+secretGroup: "bunny"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0025/preview.png"
+artist: "@5beruku"
+characters:
+  - "Bunny"
+description: "Bunny gets transformed into one of the cat enemies in the game"
+sets:
+  - set_title: "Comic"
+    set_description: "More testing ignore."
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0025/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0025/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0025/2.png"
+---
