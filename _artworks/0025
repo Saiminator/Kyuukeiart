@@ -1,6 +1,6 @@
 ---
 layout: artwork
-nsfw: true
+nsfw: false
 title: "Bunny? No, Kitty!"
 name: "bunny-cat"
 secretGroup: "bunny"
