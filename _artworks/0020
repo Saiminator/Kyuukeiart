@@ -8,7 +8,7 @@ preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0020/preview.pn
 sets:
   - set_title: "Variation sequence"
     set_description: "Versions."
-    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0020/preview.png"
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0020/1.png"
     images:
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0020/1.png"
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0020/2.png"
