@@ -1,0 +1,20 @@
+---
+layout: artwork
+nsfw: false
+title: "Shadow's new Via"
+name: "via-shadow"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0093/preview.jpg"
+artist: "@bis_maki"
+characters:
+  - "Via"
+description: "Via stumbles across a shadow slime that eats her shadow and takes over her body"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0093/1.jpg"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0093/1.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0093/2.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0093/3.jpg"
+---
