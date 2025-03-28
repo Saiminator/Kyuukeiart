@@ -6,8 +6,8 @@ name: "tentacle-meimei"
 secretGroup: "meimei"
 preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0008/preview.png"
 sets:
-  - set_title: "Comic"
-    set_description: "More testing ignore."
+  - set_title: "Variation sequence"
+    set_description: ""
     preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0008/1.png"
     images:
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0008/1.png"
