@@ -1,6 +1,6 @@
 ---
 layout: character
-title: "megumin"
+title: "Megumin"
 image: "https://i.imgur.com/TtNVTnh.jpeg"
-secretGroup: "Megumin"
+secretGroup: "megumin"
 ---
