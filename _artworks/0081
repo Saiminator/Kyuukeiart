@@ -1,0 +1,21 @@
+---
+layout: artwork
+nsfw: false
+title: "Kaji Slime cat"
+name: "kaji-slime-cat"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0081/preview.png"
+artist: "@tsubasa9940"
+characters:
+  - "Kaji"
+description: "Kaji's slime cat experiment escapes and turns her into a slime cat"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0081/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0081/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0081/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0081/3.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0081/4.png"
+---
