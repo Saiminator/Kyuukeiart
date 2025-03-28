@@ -1,0 +1,16 @@
+---
+layout: artwork
+nsfw: false
+title: "Shizu Reference"
+name: "shizu-reference"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0076/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0076/1.png"
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0076/2.png"
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0076/bonus.jpg"
+artist: "@rokosanAlt"
+characters:
+  - "Shizu"
+description: "Reference for Shizu and Inky plus a fun bonus I made"
+---
