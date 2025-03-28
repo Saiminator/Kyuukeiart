@@ -1,0 +1,22 @@
+---
+layout: artwork
+nsfw: true
+title: "Shizu's Corruption"
+name: "shizu-corrupt"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0077/preview.png"
+artist: "@rokosanAlt"
+characters:
+  - "Shizu"
+description: "Shizu lets her guard down and Inky finally claims her for itself"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0077/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0077/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0077/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0077/3.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0077/4.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0077/5.png"
+---
