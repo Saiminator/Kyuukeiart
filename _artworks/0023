@@ -1,0 +1,15 @@
+---
+layout: artwork
+nsfw: false
+title: "Unlikely ping-pong match"
+name: "ping-pong"
+secretGroup: "bunny,meimei"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0023/preview.jpg"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0023/1.jpg"
+artist: "@corpsmanWelt"
+characters:
+  - "Bunny"
+  - "Meimei"
+description: "Bunny absolutely STOMPS Meimei in Ping-Pong"
+---
