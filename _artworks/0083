@@ -1,0 +1,19 @@
+---
+layout: artwork
+nsfw: true
+title: "Memo Figure"
+name: "memo-figure"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0083/preview.png"
+artist: "@takomado2130"
+characters:
+  - "Memo"
+description: "Memo gets her body stolen by a wooden figure, I don't understand the ending either"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0083/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0083/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0083/2.png"
+---
