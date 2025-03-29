@@ -1,0 +1,21 @@
+---
+layout: artwork
+nsfw: false
+title: "Via Dissects Kyuu"
+name: "via-dissecting"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0094/preview.png"
+artist: "@VanillaKlein"
+characters:
+  - "Via"
+  - "Kyuu"
+description: "Via has Kyuu captured and begins to experiement"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0094/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0094/1.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0094/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0094/3.png"
+---
