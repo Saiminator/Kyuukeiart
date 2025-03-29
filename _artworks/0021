@@ -1,0 +1,15 @@
+---
+layout: artwork
+nsfw: true
+title: "Meimei Invasion"
+name: "meimei-invasion"
+secretGroup: "extreme,meimei"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0021/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0021/1.png"
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0021/2.png"
+artist: "@GetGuacamole"
+characters:
+  - "Meimei"
+description: "description"
+---
