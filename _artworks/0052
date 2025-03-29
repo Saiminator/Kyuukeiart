@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: false
+title: "Dreymi's flower"
+name: "dreymi-flower"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0052/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0052/1.png"
+artist: "@__d_m"
+characters:
+  - "Dreymi"
+description: "Dreymi holding a flower"
+---
