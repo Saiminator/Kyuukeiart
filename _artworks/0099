@@ -1,0 +1,20 @@
+---
+layout: artwork
+nsfw: false
+title: "Mummified Kyuu"
+name: "mummy-kyuu"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0099/preview.png"
+artist: "@feat_Akagami"
+characters:
+  - "Kyuu"
+description: "Kyuu gets captured and sealed like a mummy"
+sets:
+  - set_title: "Sequence"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0099/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0099/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0099/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0099/3.png"
+---
