@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
     "WRATH": "wrath",
     "SHIHO": "shiho",
     "EXTREME": "extreme",
-    "TESTING": "testing"
+    "TESTING": "testing",
     "WIP": "wip"
   };
   
