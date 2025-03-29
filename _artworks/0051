@@ -1,0 +1,21 @@
+---
+layout: artwork
+nsfw: true
+title: "Sleeping Beauty"
+name: "sleeping-beauty"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0051/preview.png"
+artist: "@kura_rikko"
+characters:
+  - "Shimi"
+  - "Kyuu"
+description: "who"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0051/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0051/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0051/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0051/3.png"
+---
