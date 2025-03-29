@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: false
+title: "Shimi's Reflection"
+name: "shimi-reflection"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0066/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0066/1.png"
+artist: "@YurusuDelight"
+characters:
+  - "Shimi"
+description: "Shimi admiring herself in a mirror"
+---
