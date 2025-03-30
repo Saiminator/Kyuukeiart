@@ -248,7 +248,8 @@ document.addEventListener('DOMContentLoaded', function() {
     "SHIHO": "shiho",
     "EXTREME": "extreme",
     "TESTING": "testing",
-    "WIP": "wip"
+    "WIP": "wip",
+    "CHELSEA": "chelsea"
   };
   
   const MASTER_SECRET = "ALLSECRETS";
