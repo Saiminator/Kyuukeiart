@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   /*-----------------------------------------------------
     NSFW CONSENT LOGIC
+    (Existing code remains unchanged)
   -----------------------------------------------------*/
   (function() {
     const nsfwModal = document.getElementById('nsfw-modal');
@@ -241,13 +242,12 @@ document.addEventListener('DOMContentLoaded', function() {
   
   /*-----------------------------------------------------
     PANZOOM INITIALIZATION
-    Initialize Panzoom on the container holding the modal image.
   -----------------------------------------------------*/
   let panzoomInstance;
   function initPanzoom() {
     const container = document.getElementById('panzoom-container');
     if (!container) return;
-    // Destroy previous instance if exists.
+    // Destroy previous instance if it exists.
     if (panzoomInstance) {
       panzoomInstance.destroy();
     }
@@ -256,7 +256,6 @@ document.addEventListener('DOMContentLoaded', function() {
       minScale: 1,
       contain: 'outside'
     });
-    // Allow zooming with mouse wheel.
     container.addEventListener('wheel', panzoomInstance.zoomWithWheel);
   }
   
@@ -347,11 +346,8 @@ document.addEventListener('DOMContentLoaded', function() {
         button.textContent = "Turn off " + group.charAt(0).toUpperCase() + group.slice(1);
         button.addEventListener("click", function(){
           localStorage.setItem("secret-" + group, "false");
-          document.querySelectorAll('.secret[data-secret-group]').forEach(function(el){
-            let groups = el.getAttribute("data-secret-group").split(",").map(g => g.trim());
-            if (groups.includes(group)) {
-              el.style.display = "none";
-            }
+          document.querySelectorAll('.secret[data-secret-group="'+group+'"]').forEach(function(el){
+            el.style.display = "none";
           });
           updateSecretToggleButtons();
         });
@@ -360,6 +356,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  hideAllSecretGroups();
+  // Ensure secret items are hidden by default on page load if not unlocked
+  function initialSecretCheck() {
+    document.querySelectorAll('.secret').forEach(function(el) {
+      const group = el.getAttribute("data-secret-group");
+      if (group && localStorage.getItem("secret-" + group) !== "true") {
+        el.style.display = "none";
+      }
+    });
+  }
+  initialSecretCheck();
+  
   updateSecretToggleButtons();
 });
