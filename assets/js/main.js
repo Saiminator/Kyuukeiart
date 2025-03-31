@@ -113,16 +113,19 @@ document.addEventListener('DOMContentLoaded', function() {
     function openArtworkModal() {
       modal.style.display = 'flex';
       modalImg.src = artworkImages[artworkCurrentIndex];
+      initPanzoom();
     }
     
     function showPrevArtwork() {
       artworkCurrentIndex = (artworkCurrentIndex - 1 + artworkImages.length) % artworkImages.length;
       modalImg.src = artworkImages[artworkCurrentIndex];
+      initPanzoom();
     }
     
     function showNextArtwork() {
       artworkCurrentIndex = (artworkCurrentIndex + 1) % artworkImages.length;
       modalImg.src = artworkImages[artworkCurrentIndex];
+      initPanzoom();
     }
     
     modalPrev.addEventListener('click', showPrevArtwork);
@@ -144,16 +147,19 @@ document.addEventListener('DOMContentLoaded', function() {
     function openRefModal() {
       modal.style.display = 'flex';
       modalImg.src = refImages[refCurrentIndex];
+      initPanzoom();
     }
     
     function showPrevRef() {
       refCurrentIndex = (refCurrentIndex - 1 + refImages.length) % refImages.length;
       modalImg.src = refImages[refCurrentIndex];
+      initPanzoom();
     }
     
     function showNextRef() {
       refCurrentIndex = (refCurrentIndex + 1) % refImages.length;
       modalImg.src = refImages[refCurrentIndex];
+      initPanzoom();
     }
     
     modalPrev.addEventListener('click', function() {
@@ -181,6 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
       setCurrentIndex = 0;
       modalImg.src = setModalImages[setCurrentIndex];
       modal.style.display = 'flex';
+      initPanzoom();
     }
   };
   
@@ -188,6 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (setModalImages.length > 0 && setModalImages.includes(modalImg.src)) {
       setCurrentIndex = (setCurrentIndex - 1 + setModalImages.length) % setModalImages.length;
       modalImg.src = setModalImages[setCurrentIndex];
+      initPanzoom();
     }
   };
   
@@ -195,6 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (setModalImages.length > 0 && setModalImages.includes(modalImg.src)) {
       setCurrentIndex = (setCurrentIndex + 1) % setModalImages.length;
       modalImg.src = setModalImages[setCurrentIndex];
+      initPanzoom();
     }
   };
   
@@ -231,30 +240,39 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   /*-----------------------------------------------------
+    PANZOOM INITIALIZATION
+    Initialize Panzoom on the container holding the modal image.
+  -----------------------------------------------------*/
+  let panzoomInstance;
+  function initPanzoom() {
+    const container = document.getElementById('panzoom-container');
+    if (!container) return;
+    // Destroy previous instance if exists.
+    if (panzoomInstance) {
+      panzoomInstance.destroy();
+    }
+    panzoomInstance = Panzoom(container, {
+      maxScale: 5,
+      minScale: 1,
+      contain: 'outside'
+    });
+    // Allow zooming with mouse wheel.
+    container.addEventListener('wheel', panzoomInstance.zoomWithWheel);
+  }
+  
+  /*-----------------------------------------------------
     SECRET GROUP UNLOCK LOGIC
     Map secret codes to group names.
-    Now, items can have multiple secret groups (comma-separated).
-    Also, a master secret ("ALLSECRETS") unlocks all secret groups.
+    Supports multiple secret keywords per item and a master secret to unlock all.
   -----------------------------------------------------*/
   const secretCodes = {
     "MEIMEI": "meimei",
     "BUNNY": "bunny",
-    "RAGNA": "ragna",
-    "ULTIMATIA": "ultimatia",
-    "CLOWNPIECE": "clownpiece",
-    "CIRNO": "cirno",
-    "MEGUMIN": "megumin",
-    "WRATH": "wrath",
-    "SHIHO": "shiho",
-    "EXTREME": "extreme",
-    "TESTING": "testing",
-    "WIP": "wip",
-    "CHELSEA": "chelsea"
+    "RAGNA": "ragna"
   };
   
   const MASTER_SECRET = "ALLSECRETS";
   
-  // Helper: Check if an element's secret groups are all unlocked.
   function isSecretUnlocked(el) {
     let groups = el.getAttribute("data-secret-group");
     if (!groups) return true;
@@ -262,10 +280,10 @@ document.addEventListener('DOMContentLoaded', function() {
     return groups.every(g => localStorage.getItem("secret-" + g) === "true");
   }
   
-  // Hide secret items that aren't unlocked.
   function hideAllSecretGroups() {
     document.querySelectorAll('.secret').forEach(function(el) {
-      if (!isSecretUnlocked(el)) {
+      const group = el.getAttribute("data-secret-group");
+      if (group && localStorage.getItem("secret-" + group) !== "true") {
         el.style.display = "none";
       } else {
         el.style.display = "";
@@ -273,19 +291,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Reveal a specific secret group.
   function revealSecretGroup(group) {
     document.querySelectorAll('.secret').forEach(function(el) {
-      if (el.getAttribute("data-secret-group").split(",").map(g => g.trim()).includes(group)) {
-        if (isSecretUnlocked(el)) {
-          el.style.display = "";
-        }
+      let groups = el.getAttribute("data-secret-group").split(",").map(g => g.trim());
+      if (groups.includes(group) && isSecretUnlocked(el)) {
+        el.style.display = "";
       }
     });
     updateSecretToggleButtons();
   }
   
-  // Master secret: unlock all groups found on the page.
   function revealAllSecrets() {
     const secretElements = document.querySelectorAll('[data-secret-group]');
     let groupsSet = new Set();
@@ -325,7 +340,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const container = document.getElementById("secret-toggle-container");
     if (!container) return;
     container.innerHTML = "";
-    // For each unique secret group present in secretCodes:
     Object.keys(secretCodes).forEach(function(code) {
       const group = secretCodes[code];
       if(localStorage.getItem("secret-" + group) === "true"){
