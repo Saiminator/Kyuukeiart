@@ -57,5 +57,8 @@ layout: default
   <span class="modal-prev" id="modal-prev" onclick="showPrevImage()">&#10094;</span>
   <span class="modal-next" id="modal-next" onclick="showNextImage()">&#10095;</span>
   <span class="modal-close" id="modal-close" onclick="closeModal()">&times;</span>
-  <img class="modal-content" id="modal-img" src="" alt="Enlarged Artwork">
+  <!-- Wrap modal image in a container for Panzoom -->
+  <div id="panzoom-container">
+    <img class="modal-content" id="modal-img" src="" alt="Enlarged Artwork">
+  </div>
 </div>
