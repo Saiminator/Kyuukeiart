@@ -1,0 +1,15 @@
+---
+layout: artwork
+nsfw: false
+title: "Bunny must be droned!"
+name: "bunny-must-be-droned"
+secretGroup: "bunny,chelsea"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0103/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0103/1.png"
+artist: "@4headboiii"
+characters:
+  - "Bunny"
+  - "Chelsea"
+description: "Chelsea, having already been turned into a drone, controls time to ensure Bunny meets a similar fate"
+---
