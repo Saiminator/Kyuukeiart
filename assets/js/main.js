@@ -267,7 +267,17 @@ document.addEventListener('DOMContentLoaded', function() {
   const secretCodes = {
     "MEIMEI": "meimei",
     "BUNNY": "bunny",
-    "RAGNA": "ragna"
+    "RAGNA": "ragna",
+    "ULTIMATIA": "ultimatia",
+    "CLOWNPIECE": "clownpiece",
+    "CIRNO": "cirno",
+    "MEGUMIN": "megumin",
+    "WRATH": "wrath",
+    "SHIHO": "shiho",
+    "EXTREME": "extreme",
+    "TESTING": "testing",
+    "WIP": "wip",
+    "CHELSEA": "chelsea"
   };
   
   const MASTER_SECRET = "ALLSECRETS";
