@@ -4,6 +4,22 @@
   <meta charset="UTF-8">
   <title>{{ page.title }} - {{ site.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://kyuukei.s3.us-east-2.amazonaws.com/icon/artfavicon.png">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="{{ page.title }} - {{ site.title }}">
+  <meta property="og:description" content="{{ page.description | strip_html | truncate: 160 }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ page.preview | default: 'https://kyuukei.s3.us-east-2.amazonaws.com/icon/artfavicon.png' }}">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title }} - {{ site.title }}">
+  <meta name="twitter:description" content="{{ page.description | strip_html | truncate: 160 }}">
+  <meta name="twitter:image" content="{{ page.preview | default: 'https://kyuukei.s3.us-east-2.amazonaws.com/icon/artfavicon.png' }}">
+  
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 </head>
 <body>
