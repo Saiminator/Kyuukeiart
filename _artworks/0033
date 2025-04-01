@@ -1,0 +1,23 @@
+---
+layout: artwork
+nsfw: true
+title: "Meimei' Brainwashing"
+name: "meimeis-brainwashing"
+secretGroup: "meimei"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0033/preview.jpg"
+artist: "@barux_baruda"
+characters:
+  - "Kyuu"
+  - "Meimei"
+description: "Combatant Kyuu infiltrates Meimei's house and brainwashes her into yet another loyal combatant"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0033/1.jpg"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0033/1.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0033/2.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0033/3.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0033/4.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0033/5.jpg"
+---
