@@ -272,7 +272,7 @@ button:hover, .preview-btn:hover {
 
 /* ARTWORK THUMBNAILS */
 .artwork-thumbnail {
-  max-width: 150px;
+  max-width: 250px;
   cursor: pointer;
   transition: transform 0.3s ease;
   margin: 5px;
