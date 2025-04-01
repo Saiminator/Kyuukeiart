@@ -101,7 +101,7 @@ button:hover, .preview-btn:hover {
 /* GALLERY CARD STYLES (for Characters & Collections) */
 .character-card {
   display: inline-block;
-  width: 220px;
+  width: 250px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background: #fff;
