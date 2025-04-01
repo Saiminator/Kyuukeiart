@@ -1,0 +1,19 @@
+---
+layout: artwork
+nsfw: false
+title: "Bunny enemy TF"
+name: "bunny-enemy-tf"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0017/preview.pngg"
+artist: "@Bismaki"
+characters:
+  - "Bunny"
+description: "Bunny finds a "power-up" that transforms her into one of the enemy bunnies from the game"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0017/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0017/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0017/2.png"
+---
