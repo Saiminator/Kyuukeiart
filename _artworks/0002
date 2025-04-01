@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: false
+title: "Captured Panda"
+name: "captured-panda"
+secretGroup: "meimei"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0002/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0002/1.png"
+artist: "@parangsakti"
+characters:
+  - "Meimei"
+description: "Meimei gets captured by a latex containment device and is brought to the highest bidder"
+---
