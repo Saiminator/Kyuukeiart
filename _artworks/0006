@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: true
+title: "Tentacle Forest"
+name: "tentacle-forest"
+secretGroup: "meimei"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0006/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0006/1.png"
+artist: "@tan3charge"
+characters:
+  - "Meimei"
+description: "Meimei gets caught in a jungle of tentacles, happily becoming theirs"
+---
