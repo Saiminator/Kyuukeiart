@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: true
+title: "Panda Dango"
+name: "panda-dango"
+secretGroup: "meimei"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0009/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0009/1.png"
+artist: "@a7777777_a7"
+characters:
+  - "Meimei"
+description: "Meimei's fresh batch of dangos eats her this time!"
+---
