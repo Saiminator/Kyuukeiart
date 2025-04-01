@@ -1,0 +1,15 @@
+---
+layout: artwork
+nsfw: false
+title: "Dreymi hugs Kyuu"
+name: "dreymi-hugs-kyuu"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0041/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0041/1.png"
+artist: "@po_pooch"
+characters:
+  - "Kyuu"
+  - "Dreymi"
+description: "description"
+---
