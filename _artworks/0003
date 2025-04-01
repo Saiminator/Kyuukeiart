@@ -1,0 +1,15 @@
+---
+layout: artwork
+nsfw: false
+title: "Hypnotized Panda"
+name: "hypnotized-panda"
+secretGroup: "meimei"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0003/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0003/1.png"
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0003/2.png"
+artist: "@ni_tamagoEX"
+characters:
+  - "Meimei"
+description: "Meimei gets hypnotized on a bed next to dodu...I mean.. Dodo?"
+---
