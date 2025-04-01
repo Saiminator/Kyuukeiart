@@ -3,7 +3,7 @@ layout: artwork
 nsfw: false
 title: "Bunny enemy TF"
 name: "bunny-enemy-tf"
-secretGroup: ""
+secretGroup: "bunny"
 preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0017/preview.png"
 artist: "@Bismaki"
 characters:
