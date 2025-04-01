@@ -251,6 +251,7 @@ button:hover, .preview-btn:hover {
 }
 
 .profile-pic {
+  max-width: 350px;  /* limit the image to 350px wide */
   width: 100%;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -272,7 +273,7 @@ button:hover, .preview-btn:hover {
 
 /* ARTWORK THUMBNAILS */
 .artwork-thumbnail {
-  max-width: 250px;
+  max-width: 300px;
   cursor: pointer;
   transition: transform 0.3s ease;
   margin: 5px;
