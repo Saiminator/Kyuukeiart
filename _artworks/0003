@@ -6,8 +6,8 @@ name: "hypnotized-panda"
 secretGroup: "meimei"
 preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0003/preview.png"
 images:
-  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0003/1.png"
-  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0003/2.png"
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0003/1.jpg"
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0003/2.jpg"
 artist: "@ni_tamagoEX"
 characters:
   - "Meimei"
