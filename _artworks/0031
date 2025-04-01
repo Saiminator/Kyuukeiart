@@ -1,0 +1,22 @@
+---
+layout: artwork
+nsfw: false
+title: "Dungeon Slime Kyuu"
+name: "dungeon-slime-kyuu"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0031/preview.png"
+artist: "@Yamatom_deepgou"
+characters:
+  - "Kyuu"
+description: "Kyuu gets caught in a slime trap"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0031/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0031/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0031/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0031/3.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0031/4.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0031/5.png"
+---
