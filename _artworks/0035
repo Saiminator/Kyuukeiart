@@ -1,0 +1,19 @@
+---
+layout: artwork
+nsfw: true
+title: "Kyuu Bugs"
+name: "kyuu-bugs"
+secretGroup: "extreme"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0035/preview.png"
+artist: "@ichi_ka0"
+characters:
+  - "Kyuu"
+description: "Kyuu sleeps in a forest getting her orb and herself taken over by a slug monster"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0035/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0035/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0035/2.png"
+---
