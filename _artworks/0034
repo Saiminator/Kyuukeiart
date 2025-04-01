@@ -1,0 +1,37 @@
+---
+layout: artwork
+nsfw: true
+title: "Kyuu vs Slime"
+name: "name"
+secretGroup: "extreme"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/preview.png"
+artist: "@fukami_otoha"
+characters:
+  - "Kyuu"
+description: "Kyuu gets her body hijacked by a parasitic slime entity"
+sets:
+  - set_title: "Japanese"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0078/1.jpg"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/3.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/4.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/5.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/6.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/7.png"
+  - set_title: "English"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0078/8.jpg"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/8.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/9.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/10.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/11.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/12.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/13.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/14.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/bonus.png"
+---
