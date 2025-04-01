@@ -120,14 +120,14 @@ button:hover, .preview-btn:hover {
 /* Character Thumbnail Container */
 .character-thumb {
   width: 100%;
-  height: 220px;
+  height: 250px;
   position: relative;
 }
 
 /* Preview Image */
 .preview-img {
   width: 100%;
-  height: 220px;
+  height: 250px;
   object-fit: cover;
   display: block;
 }
