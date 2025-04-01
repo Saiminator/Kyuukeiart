@@ -186,7 +186,7 @@ button:hover, .preview-btn:hover {
   justify-content: center;
   gap: 20px;
   margin: 0 auto;
-  max-width: 1800px;
+  max-width: 1400px;
 }
 
 /* Collection Sets Container */
@@ -212,7 +212,7 @@ button:hover, .preview-btn:hover {
 #detail-page,
 #artwork-detail-page,
 #character-collections {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   text-align: left;
 }
