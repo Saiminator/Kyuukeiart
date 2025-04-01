@@ -1,0 +1,19 @@
+---
+layout: artwork
+nsfw: true
+title: "Kyuu Doll"
+name: "kyuu-doll"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0036/preview.png"
+artist: "@mrnming"
+characters:
+  - "Kyuu"
+description: "Kyuu gets turned into a featureless, rubber doll"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0036/1.jpg"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0036/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0036/2.png"
+---
