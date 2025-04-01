@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: false
+title: "Meimei Slime Possession"
+name: "meimei-slime-possession"
+secretGroup: "meimei"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0005/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0005/1.png"
+artist: "@metako132"
+characters:
+  - "Meimei"
+description: "Meimei gets attacked by a slime who absorbs and takes over her body"
+---
