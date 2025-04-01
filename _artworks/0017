@@ -4,7 +4,7 @@ nsfw: false
 title: "Bunny enemy TF"
 name: "bunny-enemy-tf"
 secretGroup: ""
-preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0017/preview.pngg"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0017/preview.png"
 artist: "@Bismaki"
 characters:
   - "Bunny"
