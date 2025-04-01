@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: false
+title: "Kyuursor"
+name: "kyuursor"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0102/preview.gif"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0102/1.gif"
+artist: "@FungiWizard"
+characters:
+  - "Kyuu"
+description: "Kyuu cursor!!"
+---
