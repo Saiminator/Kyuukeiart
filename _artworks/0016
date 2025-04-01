@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: true
+title: "Panda Pokemon"
+name: "panda-pokemon"
+secretGroup: "meimei"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0016/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0016/1.png"
+artist: "@mrnming"
+characters:
+  - "Meimei"
+description: "Meimei gets caught in a Pokéball that turns her into the perfect panda, slime type Pokémon"
+---
