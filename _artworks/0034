@@ -2,7 +2,7 @@
 layout: artwork
 nsfw: true
 title: "Kyuu vs Slime"
-name: "name"
+name: "kyuu-vs-slime"
 secretGroup: "extreme"
 preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/preview.png"
 artist: "@fukami_otoha"
@@ -12,7 +12,7 @@ description: "Kyuu gets her body hijacked by a parasitic slime entity"
 sets:
   - set_title: "Japanese"
     set_description: ""
-    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0078/1.jpg"
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/1.png"
     images:
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/1.png"
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/2.png"
@@ -23,7 +23,7 @@ sets:
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/7.png"
   - set_title: "English"
     set_description: ""
-    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0078/8.jpg"
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/8.png"
     images:
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/8.png"
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/9.png"
@@ -32,6 +32,9 @@ sets:
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/12.png"
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/13.png"
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/14.png"
-images:
-  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/bonus.png"
+  - set_title: "Bonus"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/bonus.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0034/bonus.png"
 ---
