@@ -4,7 +4,7 @@ nsfw: false
 title: "Lyn & Ryn"
 name: "lyn-ryn"
 secretGroup: ""
-preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0104/preview.jpg"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0104/preview.png"
 images:
   - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0104/1.jpg"
   - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0104/2.jpg"
