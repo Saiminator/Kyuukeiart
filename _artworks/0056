@@ -1,0 +1,22 @@
+---
+layout: artwork
+nsfw: false
+title: "Slime cats"
+name: "slime-cats"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0056/preview.png"
+artist: "@tsubasa9940"
+characters:
+  - "Kyuu"
+  - "Dreymi"
+description: "Dreymi turns Kyuu into a slime cat, but tragically becomes one herself before enjoying her new pet"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0056/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0056/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0056/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0056/3.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0056/4.png"
+---
