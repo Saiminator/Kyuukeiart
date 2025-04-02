@@ -1,0 +1,16 @@
+---
+layout: artwork
+nsfw: false
+title: "Lyn & Ryn"
+name: "lyn-ryn"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0104/preview.jpg"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0104/1.jpg"
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0104/2.jpg"
+artist: "@1sukaa"
+characters:
+  - "Lyn"
+  - "Ryn"
+description: "Reference sheet commission for Lyn and Ryn"
+---
