@@ -1,0 +1,19 @@
+---
+layout: artwork
+nsfw: true
+title: "Meimei Possessed"
+name: "meimei-possessed"
+secretGroup: "meimei"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0078/preview.jpg"
+artist: "@nekokyuu18"
+characters:
+  - "Meimei"
+description: "Meimei gets hypnotized by the flashes o"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0013/preview.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0013/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0013/2.png"
+---
