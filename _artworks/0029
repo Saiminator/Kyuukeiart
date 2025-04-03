@@ -1,0 +1,19 @@
+---
+layout: artwork
+nsfw: true
+title: "Skinsuit Delivery"
+name: "skinsuit-delivery"
+secretGroup: "meimei,extreme"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0029/1.png"
+artist: "@QZO_"
+characters:
+  - "Meimei"
+description: "Meimei turns herself into a skinsuit only to be taken over by a slime"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0029/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0029/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0029/1.png"
+---
