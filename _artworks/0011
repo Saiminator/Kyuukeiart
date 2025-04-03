@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: false
+title: "Meimei VR"
+name: "meimei-vr"
+secretGroup: "meimei"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0011/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0011/1.png"
+artist: "@aineko_nekoko"
+characters:
+  - "Meimei"
+description: "Meimei plays in VR unknowingly (maybe?) being brainwashed"
+---
