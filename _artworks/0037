@@ -1,0 +1,21 @@
+---
+layout: artwork
+nsfw: true
+title: "Kyuu Slug Possession"
+name: "kyuu-slug-possession"
+secretGroup: "extreme"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0037/preview.png"
+artist: "@GetGuacamole"
+characters:
+  - "Kyuu"
+description: "While sleeping, Kyuu gets attacked by a slime slug which takes over her orb and then her."
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0037/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0037/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0037/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0037/3.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0037/4.png"
+---
