@@ -1,0 +1,15 @@
+---
+layout: artwork
+nsfw: false
+title: "Comforting Dreymi"
+name: "comforting-dreymi"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0039/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0039/1.png"
+artist: "@qule___"
+characters:
+  - "Kyuu"
+  - "Dreymi"
+description: "Kyuu comforts Dreymi in the forest"
+---
