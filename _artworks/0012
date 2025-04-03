@@ -1,0 +1,17 @@
+---
+layout: artwork
+nsfw: false
+title: "Meimei Slime?"
+name: "meimei-slime"
+secretGroup: "meimei"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0012/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0012/1.png"
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0012/2.png"
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0012/3.png"
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0012/4.png"
+artist: "@sirokurge"
+characters:
+  - "Meimei"
+description: "Meimei annoys a slime and it covers her in retaliation"
+---
