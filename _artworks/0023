@@ -4,7 +4,7 @@ nsfw: false
 title: "Unlikely match"
 name: "ping-pong"
 secretGroup: "bunny,meimei"
-preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0023/preview.jpg"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0023/preview.png"
 images:
   - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0023/1.jpg"
 artist: "@corpsmanWelt"
