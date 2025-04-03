@@ -1,0 +1,23 @@
+---
+layout: artwork
+nsfw: true
+title: "Slime Pit"
+name: "slime-pit"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0015/preview.png"
+artist: "@s_u_i_b_a"
+characters:
+  - "Meimei"
+description: "Meimei gets willingly stuck in a slime pit and instantly regrets it"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0015/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0015/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0015/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0015/3.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0015/4.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0015/5.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0015/6.png"
+---
