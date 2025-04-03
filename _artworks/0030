@@ -1,0 +1,19 @@
+---
+layout: artwork
+nsfw: false
+title: "Kyuu Backstory?"
+name: "kyuu-backstory"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0030/preview.png"
+artist: "@yokai_0401"
+characters:
+  - "Kyuu"
+description: "Kyuu backstory? don't look into it too much"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0030/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0030/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0030/2.png"
+---
