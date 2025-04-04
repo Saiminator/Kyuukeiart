@@ -3,7 +3,7 @@ layout: artwork
 nsfw: true
 title: "two for 1"
 name: "two-one"
-secretGroup: ""
+secretGroup: "testing"
 preview: "https://kyuukei.s3.us-east-2.amazonaws.com/wow/image+(4).png"
 images:
   - "https://kyuukei.s3.us-east-2.amazonaws.com/wow/image+(4).png"
