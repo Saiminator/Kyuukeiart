@@ -1,0 +1,22 @@
+---
+layout: artwork
+nsfw: true
+title: "Kyuu Skinsuit"
+name: "kyuu-skinsuit"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0049/preview.png"
+artist: "@yuri_topia"
+characters:
+  - "Kyuu"
+  - "Dreymi"
+description: "Dreymi turns Kyuu into a skinsuit and wears her"
+sets:
+  - set_title: "Sequence"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0049/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0049/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0049/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0049/3.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0049/4.png"
+---
