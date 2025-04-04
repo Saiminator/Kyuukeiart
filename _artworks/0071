@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: false
+title: "Kaji Bishop"
+name: "kaji-bishop"
+secretGroup: "testing,meimei"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0071/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0071/1.png"
+artist: "@entropic_imp"
+characters:
+  - "Kaji"
+description: "Kaji gets a weird plushy thing that eats her up"
+---
