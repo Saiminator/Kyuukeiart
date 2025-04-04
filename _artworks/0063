@@ -1,0 +1,20 @@
+---
+layout: artwork
+nsfw: false
+title: "Shizu Pose"
+name: "shizu-pose"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0063/preview.png"
+artist: "@yuri_topia"
+characters:
+  - "Shizu"
+description: "Shizu poses and shows off Inky"
+sets:
+  - set_title: "Sequence"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0063/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0063/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0063/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0063/3.png"
+---
