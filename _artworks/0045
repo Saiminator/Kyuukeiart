@@ -1,0 +1,25 @@
+---
+layout: artwork
+nsfw: true
+title: "Dreymi = Triplet"
+name: "dreymi-becomes-shimi"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0045/preview.jpg"
+artist: "@seniphahpines"
+characters:
+  - "Dreymi"
+  - "Shimi"
+description: "Dreymi becomes Shimi"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0045/1.jpg"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0045/1.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0045/2.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0045/3.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0045/4.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0045/5.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0045/6.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0045/7.png"
+---
