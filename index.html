@@ -10,3 +10,17 @@ title: Home
 <button id="nsfw-toggle" class="nsfw-toggle">Toggle NSFW On/Off</button>
 
 <p><a href="https://kyuukei.com">Visit the Main Site</a></p>
+
+
+<section id="artist-ranking" style="text-align: center;">
+  <h2>Artist Ranking</h2>
+  {% assign artist_groups = site.artworks | group_by: "artist" %}
+  {% assign sorted_artist_groups = artist_groups | sort: "size" | reverse %}
+  <ul style="list-style: none; padding: 0;">
+    {% for group in sorted_artist_groups %}
+      <li>
+        <strong>{{ group.name }}</strong>: {{ group.items | size }} artworks
+      </li>
+    {% endfor %}
+  </ul>
+</section>
