@@ -3,7 +3,7 @@ layout: artwork
 nsfw: true
 title: "Dreymi + Kyuu"
 name: "dreymi-kyuustacked"
-secretGroup: "testing,meimei"
+secretGroup: ""
 preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0048/preview.png"
 images:
   - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0048/1.png"
