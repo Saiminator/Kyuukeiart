@@ -1,0 +1,19 @@
+---
+layout: artwork
+nsfw: false
+title: "Ditto Kyuu"
+name: "ditto-kyuu"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0091/preview.png"
+artist: "@metako132"
+characters:
+  - "Kyuu"
+description: "Ditto consumes Orby and takes on Kyuu's form after absorbing her as well"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0091/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0091/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0091/2.png"
+---
