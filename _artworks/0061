@@ -1,0 +1,20 @@
+---
+layout: artwork
+nsfw: false
+title: "Kyuu Bodypillow"
+name: "kyuu-bodypillow"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0061/preview.png"
+artist: "@takomado2130"
+characters:
+  - "Kyuu"
+  - "Dreymi"
+description: "Dreymi uses a magical pillow case to transform Kyuu into a body pillow!"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0061/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0061/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0061/2.png"
+---
