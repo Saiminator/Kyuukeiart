@@ -5,6 +5,7 @@ title: "enter name"
 name: "enter-name"
 secretGroup: "testing,meimei"
 preview: "https://i.imgur.com/tzFJTp8.jpeg"
+artist: ""
 images:
   - "https://i.imgur.com/tzFJTp8.jpeg"
 characters:
