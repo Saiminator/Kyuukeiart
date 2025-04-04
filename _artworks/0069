@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: true
+title: "Attack on Orby"
+name: "attack-on-orby"
+secretGroup: "testing,meimei"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0069/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0069/1.png"
+artist: "@wintermute_0000"
+characters:
+  - "Dreymi"
+description: "Dreymi tries drinking from Orby only to be revolted against"
+---
