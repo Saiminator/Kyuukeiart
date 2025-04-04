@@ -1,0 +1,15 @@
+---
+layout: artwork
+nsfw: false
+title: "Dryemi's Plushy"
+name: "dreymis-plushy"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0046/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0046/1.png"
+artist: "@mikoko1"
+characters:
+  - "Dreymi"
+  - "kyuu"
+description: "Dreymi got the ultra rare exclusive one of a kind promotional Kyuu plushy with velcro Orby"
+---
