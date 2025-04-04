@@ -1,0 +1,20 @@
+---
+layout: artwork
+nsfw: true
+title: "Pon Reversal Slime"
+name: "pon-reversal-slime"
+secretGroup: "extreme"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0064/preview.png"
+artist: "@bis_maki"
+characters:
+  - "Pon"
+description: "Pon is sent to capture a strange slime, but ends up being taken over by it instead"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0064/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0064/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0064/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0064/3.png"
+---
