@@ -1,0 +1,28 @@
+---
+layout: artwork
+nsfw: true
+title: "Slime Core Shimi"
+name: "slime-core-shimi"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0088/preview.png"
+artist: "@nijitama_siyu2"
+characters:
+  - "Shimi"
+description: "Shimi uses a corruptive slime core on another Shimi for fun"
+sets:
+  - set_title: "Sequence"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0088/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0088/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0088/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0088/3.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0088/4.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0088/5.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0088/6.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0088/7.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0088/8.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0088/9.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0088/10.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0088/11.png"
+---
