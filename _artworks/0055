@@ -1,0 +1,19 @@
+---
+layout: artwork
+nsfw: true
+title: "Neko Kyuu"
+name: "neko-kyuu"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0055/preview.png"
+artist: "@nekokyuu18"
+characters:
+  - "Kyuu"
+description: "Kyuu is wears cat ears and gets possessed by a horny cat spirit"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0055/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0055/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0055/2.png"
+---
