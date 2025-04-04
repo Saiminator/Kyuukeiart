@@ -1,0 +1,19 @@
+---
+layout: artwork
+nsfw: true
+title: "Pon Brainslime"
+name: "pon-brainslime"
+secretGroup: "extreme"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0068/1.png"
+artist: "@tousyoku"
+characters:
+  - "Pon"
+description: "Pon has a war crime committed against her and has her body stolen as a result"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0068/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0068/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0068/1.png"
+---
