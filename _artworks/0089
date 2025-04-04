@@ -1,0 +1,16 @@
+---
+layout: artwork
+nsfw: true
+title: "Wrath"
+name: "wrath"
+secretGroup: "wrath,extreme"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0089/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0089/1.jpg"
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0089/2.jpg"
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0089/3.jpg"
+artist: "@Senrouk"
+characters:
+  - "Wrath"
+description: "Wrath character reference (undecided concept)"
+---
