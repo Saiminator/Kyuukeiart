@@ -1,0 +1,28 @@
+---
+layout: artwork
+nsfw: true
+title: "Hypno Gym"
+name: "hypno-gym"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0079/preview.png"
+artist: "@Rosvo2"
+characters:
+  - "Kyuu"
+  - "Dreymi"
+description: "Kyuu and Dreymi got invited (kidnapped) and forced to join a hypno gym. Part of a YCH auction"
+sets:
+  - set_title: "Kyuu & Dreymi"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0079/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0079/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0079/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0079/3.png"
+  - set_title: "Whole set"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0079/4.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0079/4.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0079/5.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0079/6.png"
+---
