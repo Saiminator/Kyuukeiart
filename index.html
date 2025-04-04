@@ -21,7 +21,7 @@ title: Home
   <p>{{ total_artworks }} artworks</p>
 </section>
 
-<!-- Artist Ranking Section -->
+
 <section id="artist-ranking" style="text-align: center; margin-top: 40px;">
   <h2>Artist Ranking</h2>
   {% assign artist_groups = site.artworks | group_by: "artist" %}
@@ -33,7 +33,7 @@ title: Home
   {% endfor %}
   {% assign sorted_artist_groups = filtered_artist_groups | sort: "items.size" | reverse %}
   
-  <!-- Artist list is rendered here but hidden initially -->
+  <!-- Artist list is initially hidden -->
   <ul id="artist-list" style="list-style: none; padding: 0; display: none;">
     {% for group in sorted_artist_groups %}
       <li style="margin-bottom: 5px;">
@@ -60,8 +60,6 @@ title: Home
 document.addEventListener("DOMContentLoaded", function(){
   var toggleBtn = document.getElementById("toggle-artist");
   var artistList = document.getElementById("artist-list");
-  
-  // Initially, artist list is hidden.
   toggleBtn.addEventListener("click", function(){
     if (artistList.style.display === "none" || artistList.style.display === "") {
       artistList.style.display = "block";
