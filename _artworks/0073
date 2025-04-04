@@ -1,0 +1,19 @@
+---
+layout: artwork
+nsfw: true
+title: "Memo Brainwashed"
+name: "memo-brainwashed"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0073/preview.png"
+artist: "@barux_baruda"
+characters:
+  - "Memo"
+description: "Memo falls for a brainwashing trap and ends up submitting and becoming a combatant"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0073/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0073/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0073/1.png"
+---
