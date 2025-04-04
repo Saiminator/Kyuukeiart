@@ -3,7 +3,7 @@ layout: artwork
 nsfw: true
 title: "Attack on Orby"
 name: "attack-on-orby"
-secretGroup: "testing,meimei"
+secretGroup: ""
 preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0069/preview.png"
 images:
   - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0069/1.png"
