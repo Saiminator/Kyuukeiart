@@ -12,15 +12,77 @@ title: Home
 <p><a href="https://kyuukei.com">Visit the Main Site</a></p>
 
 
-<section id="artist-ranking" style="text-align: center;">
+
+
+<section id="artist-ranking" style="text-align: center; margin-top: 40px;">
   <h2>Artist Ranking</h2>
+  {% comment %}
+    Group artworks by artist.
+  {% endcomment %}
   {% assign artist_groups = site.artworks | group_by: "artist" %}
-  {% assign sorted_artist_groups = artist_groups | sort: "size" | reverse %}
-  <ul style="list-style: none; padding: 0;">
-    {% for group in sorted_artist_groups %}
-      <li>
-        <strong>{{ group.name }}</strong>: {{ group.items | size }} artworks
+  
+  {% comment %}
+    Adjust the commission count by subtracting 2 from each group's size.
+    Also, ignore any groups with a blank name or an adjusted count less than 1.
+  {% endcomment %}
+  {% assign filtered_artist_groups = "" | split: "" %}
+  {% for group in artist_groups %}
+    {% assign adjusted_count = group.size | minus: 2 %}
+    {% if group.name != "" and adjusted_count > 0 %}
+      {% assign newGroup = group | merge: {"adjusted_count": adjusted_count} %}
+      {% assign filtered_artist_groups = filtered_artist_groups | push: newGroup %}
+    {% endif %}
+  {% endfor %}
+  
+  {% comment %}
+    Sort the groups from most to least (using our adjusted count)
+  {% endcomment %}
+  {% assign sorted_artist_groups = filtered_artist_groups | sort: "adjusted_count" | reverse %}
+  
+  {% comment %}
+    Initially show only the first 5 artists.
+  {% endcomment %}
+  <ul id="artist-list" style="list-style: none; padding: 0;">
+    {% for group in sorted_artist_groups limit:5 %}
+      <li style="margin-bottom: 5px;">
+        <strong>{{ group.name }}</strong>: {{ group.adjusted_count }} commissions
       </li>
     {% endfor %}
   </ul>
+  
+  {% comment %}
+    If there are more than 5, show an expandable button.
+  {% endcomment %}
+  {% if sorted_artist_groups.size > 5 %}
+    <button id="expand-artist" style="
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-top: 10px;
+    ">
+      Show All Artists
+    </button>
+  {% endif %}
 </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  var expandBtn = document.getElementById("expand-artist");
+  if(expandBtn){
+    expandBtn.addEventListener("click", function(){
+      var list = document.getElementById("artist-list");
+      // Clear the existing list
+      list.innerHTML = "";
+      // Render the full sorted list
+      {% for group in sorted_artist_groups %}
+        list.innerHTML += "<li style='margin-bottom: 5px;'><strong>{{ group.name }}</strong>: {{ group.adjusted_count }} commissions</li>";
+      {% endfor %}
+      // Hide the button after expanding
+      expandBtn.style.display = "none";
+    });
+  }
+});
+</script>
