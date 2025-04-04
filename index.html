@@ -21,3 +21,34 @@ title: Home
   <p>{{ total_artworks }} artworks</p>
 </section>
 
+<section id="artist-ranking" style="text-align: center;">
+  <h2>Artist Ranking</h2>
+  <button id="toggle-artist-ranking">Hide Ranking</button>
+  {% assign artist_groups = site.artworks | group_by: "artist" %}
+  {% assign sorted_artist_groups = artist_groups | sort: "size" | reverse %}
+  <ul id="artist-list" style="list-style: none; padding: 0; margin: 0 auto; max-width: 600px;">
+    {% for group in sorted_artist_groups %}
+      <li>
+        <strong>{{ group.name }}</strong>: {{ group.items | size }} artworks
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var toggleBtn = document.getElementById("toggle-artist-ranking");
+  var artistList = document.getElementById("artist-list");
+  // Initially show the list
+  artistList.style.display = "block";
+  toggleBtn.addEventListener("click", function() {
+    if (artistList.style.display === "none") {
+      artistList.style.display = "block";
+      toggleBtn.textContent = "Hide Ranking";
+    } else {
+      artistList.style.display = "none";
+      toggleBtn.textContent = "Show Ranking";
+    }
+  });
+});
+</script>
