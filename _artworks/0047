@@ -1,0 +1,30 @@
+---
+layout: artwork
+nsfw: true
+title: "Kyuu Corrupted"
+name: "kyuu-corrupted-dreymi"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0047/10.png"
+artist: "@nekozenaamatou"
+characters:
+  - "Kyuu"
+  - "Dreymi"
+description: "Dreymi corrupts Kyuu and turns her into her servant"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0047/10.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0047/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0047/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0047/3.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0047/4.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0047/5.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0047/6.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0047/7.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0047/8.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0047/9.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0047/10.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0047/11.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0047/12.png"
+---
