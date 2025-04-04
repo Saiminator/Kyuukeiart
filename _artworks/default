@@ -7,7 +7,6 @@ secretGroup: "testing,meimei"
 preview: "https://i.imgur.com/tzFJTp8.jpeg"
 images:
   - "https://i.imgur.com/tzFJTp8.jpeg"
-artist: "@"
 characters:
   - "who"
 description: "description"
