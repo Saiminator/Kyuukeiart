@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: false
+title: "Shizu's Dip"
+name: "shizus-dip"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0044/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0044/1.png"
+artist: "@yousalbum"
+characters:
+  - "Shizu"
+description: "Shizu reference"
+---
