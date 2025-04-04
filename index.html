@@ -12,58 +12,64 @@ title: Home
 <p><a href="https://kyuukei.com">Visit the Main Site</a></p>
 
 
+
+
+<!-- Total Artworks Section -->
 <section id="total-artworks" style="text-align: center; margin-top: 40px;">
   <h2>Total Artworks</h2>
   {% assign total_artworks = site.artworks | size | minus: 2 %}
   <p>{{ total_artworks }} artworks</p>
 </section>
 
+<!-- Artist Ranking Section -->
 <section id="artist-ranking" style="text-align: center; margin-top: 40px;">
   <h2>Artist Ranking</h2>
   {% assign artist_groups = site.artworks | group_by: "artist" %}
   {% assign filtered_artist_groups = "" | split: "" %}
   {% for group in artist_groups %}
     {% if group.name != "" %}
-      {% assign newGroup = group | merge: {"group_count": group.size} %}
-      {% assign filtered_artist_groups = filtered_artist_groups | push: newGroup %}
+      {% assign filtered_artist_groups = filtered_artist_groups | push: group %}
     {% endif %}
   {% endfor %}
-  {% assign sorted_artist_groups = filtered_artist_groups | sort: "group_count" | reverse %}
+  {% assign sorted_artist_groups = filtered_artist_groups | sort: "items.size" | reverse %}
   
-  <!-- The full artist list is rendered but hidden by default -->
+  <!-- Artist list is rendered here but hidden initially -->
   <ul id="artist-list" style="list-style: none; padding: 0; display: none;">
     {% for group in sorted_artist_groups %}
       <li style="margin-bottom: 5px;">
-        <strong>{{ group.name }}</strong>: {{ group.group_count }} artworks
+        <strong>{{ group.name }}</strong>: {{ group.items | size }} artworks
       </li>
     {% endfor %}
   </ul>
   
-  <!-- Button to reveal the artist ranking list -->
-  {% if sorted_artist_groups.size > 0 %}
-    <button id="expand-artist" style="
-      background: #007BFF;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      padding: 10px 20px;
-      cursor: pointer;
-      margin-top: 10px;
-    ">
-      Show Artist Ranking
-    </button>
-  {% endif %}
+  <!-- Toggle Button to show/hide the artist ranking list -->
+  <button id="toggle-artist" style="
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+  ">
+    Show Artist Ranking
+  </button>
 </section>
 
 <script>
 document.addEventListener("DOMContentLoaded", function(){
-  var expandBtn = document.getElementById("expand-artist");
+  var toggleBtn = document.getElementById("toggle-artist");
   var artistList = document.getElementById("artist-list");
-  if(expandBtn && artistList){
-    expandBtn.addEventListener("click", function(){
+  
+  // Initially, artist list is hidden.
+  toggleBtn.addEventListener("click", function(){
+    if (artistList.style.display === "none" || artistList.style.display === "") {
       artistList.style.display = "block";
-      expandBtn.style.display = "none";
-    });
-  }
+      toggleBtn.textContent = "Hide Artist Ranking";
+    } else {
+      artistList.style.display = "none";
+      toggleBtn.textContent = "Show Artist Ranking";
+    }
+  });
 });
 </script>
