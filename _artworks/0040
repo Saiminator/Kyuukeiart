@@ -1,0 +1,20 @@
+---
+layout: artwork
+nsfw: true
+title: "Kyuu kills Shimis"
+name: "kyuu-kills-shimi"
+secretGroup: "extreme"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0040/preview.png"
+artist: "@tmsn_254"
+characters:
+  - "Kyuu"
+  - "Shimi"
+description: "Kyuu goes around murdering Shimis for some reason"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0040/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0040/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0040/2.png"
+---
