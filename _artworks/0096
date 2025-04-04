@@ -1,0 +1,22 @@
+---
+layout: artwork
+nsfw: true
+title: "Shimi Bathtime"
+name: "shimi-bathtime"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0096/preview.png"
+artist: "@Ytkano"
+characters:
+  - "Kyuu"
+  - "Dreymi"
+  - "Shimi"
+description: "Dreymi gets turned into Shimi"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0096/1.jpg"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0096/1.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0096/2.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0096/3.jpg"
+---
