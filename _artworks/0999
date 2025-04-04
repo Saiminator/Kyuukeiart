@@ -1,0 +1,18 @@
+---
+layout: artwork
+nsfw: true
+title: "two for 1"
+name: "two-one"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/wow/image+(4).png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/wow/image+(4).png"
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/wow/image+(5).png"
+artist: "@BKNK"
+characters:
+  - "Kyuu"
+  - "Dreymi"
+  - "Meimei"
+  - "Bunny"
+description: "i got a two for 1!!!"
+---
