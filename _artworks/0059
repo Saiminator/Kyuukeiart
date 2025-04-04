@@ -1,0 +1,22 @@
+---
+layout: artwork
+nsfw: true
+title: "Kaji Shimi"
+name: "kaji-shimi"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0059/preview.png"
+artist: "@fukami_otoha"
+characters:
+  - "Kaji"
+  - "Shimi"
+description: "Kaji gets the Shimi treatment"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0059/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0059/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0059/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0059/3.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0059/4.png"
+---
