@@ -1,0 +1,33 @@
+---
+layout: artwork
+nsfw: true
+title: "Shimi x Kyuu"
+name: "shimi-x-kyuu"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0090/preview.png"
+artist: "@nonmikan777"
+characters:
+  - "Kyuu"
+  - "Shimi"
+description: "Shimi tranforms an entire town just to have fun time with Kyuu"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0090/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0090/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0090/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0090/3.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0090/4.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0090/5.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0090/6.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0090/7.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0090/8.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0090/9.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0090/10.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0090/11.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0090/12.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0090/13.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0090/14.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0090/15.png"
+---
