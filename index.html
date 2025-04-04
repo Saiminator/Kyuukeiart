@@ -17,15 +17,30 @@ title: Home
   <h2>Total Artworks</h2>
   {% assign total_artworks = site.artworks | size | minus: 2 %}
   <p>{{ total_artworks }} artworks</p>
-  <p>Total Artists: {{ artist_count }}</p>
 </section>
 
 
 <section id="artist-ranking" style="text-align: center;">
   <h2>Artist Ranking</h2>
+  <!-- Button to toggle the ranking list -->
   <button id="toggle-artist-ranking">Show Ranking</button>
+  
   {% assign artist_groups = site.artworks | group_by: "artist" %}
   {% assign sorted_artist_groups = artist_groups | sort: "size" | reverse %}
+  
+  {%- comment -%}
+    Count only groups that have a non-blank name.
+  {%- endcomment -%}
+  {% assign artist_count = 0 %}
+  {% for group in sorted_artist_groups %}
+    {% if group.name != "" %}
+      {% assign artist_count = artist_count | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+  
+  <p>Total Artists: {{ artist_count }}</p>
+  
+  <!-- Ranking list (hidden by default) -->
   <ul id="artist-list" style="list-style: none; padding: 0; margin: 0 auto; max-width: 600px; display: none;">
     {% for group in sorted_artist_groups %}
       {% if group.name != "" %}
@@ -41,6 +56,8 @@ title: Home
 document.addEventListener("DOMContentLoaded", function() {
   var toggleBtn = document.getElementById("toggle-artist-ranking");
   var artistList = document.getElementById("artist-list");
+  
+  // Initially, the list is hidden (display: none) per inline style.
   toggleBtn.addEventListener("click", function() {
     if (artistList.style.display === "none") {
       artistList.style.display = "block";
