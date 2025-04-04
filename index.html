@@ -17,7 +17,9 @@ title: Home
   <h2>Total Artworks</h2>
   {% assign total_artworks = site.artworks | size | minus: 2 %}
   <p>{{ total_artworks }} artworks</p>
+  <p>Total Artists: {{ artist_count }}</p>
 </section>
+
 
 <section id="artist-ranking" style="text-align: center;">
   <h2>Artist Ranking</h2>
