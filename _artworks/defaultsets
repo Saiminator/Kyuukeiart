@@ -5,7 +5,7 @@ title: "name"
 name: "name"
 secretGroup: "testing"
 preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0078/preview.jpg"
-artist: "@"
+artist: ""
 characters:
   - "who"
 description: "who"
