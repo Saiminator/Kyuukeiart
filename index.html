@@ -12,8 +12,6 @@ title: Home
 <p><a href="https://kyuukei.com">Visit the Main Site</a></p>
 
 
-
-
 <!-- Total Artworks Section -->
 <section id="total-artworks" style="text-align: center; margin-top: 40px;">
   <h2>Total Artworks</h2>
@@ -23,14 +21,16 @@ title: Home
 
 <section id="artist-ranking" style="text-align: center;">
   <h2>Artist Ranking</h2>
-  <button id="toggle-artist-ranking">Hide Ranking</button>
+  <button id="toggle-artist-ranking">Show Ranking</button>
   {% assign artist_groups = site.artworks | group_by: "artist" %}
   {% assign sorted_artist_groups = artist_groups | sort: "size" | reverse %}
-  <ul id="artist-list" style="list-style: none; padding: 0; margin: 0 auto; max-width: 600px;">
+  <ul id="artist-list" style="list-style: none; padding: 0; margin: 0 auto; max-width: 600px; display: none;">
     {% for group in sorted_artist_groups %}
-      <li>
-        <strong>{{ group.name }}</strong>: {{ group.items | size }} artworks
-      </li>
+      {% if group.name != "" %}
+        <li>
+          <strong>{{ group.name }}</strong>: {{ group.items | size }} artworks
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
 </section>
@@ -39,8 +39,6 @@ title: Home
 document.addEventListener("DOMContentLoaded", function() {
   var toggleBtn = document.getElementById("toggle-artist-ranking");
   var artistList = document.getElementById("artist-list");
-  // Initially show the list
-  artistList.style.display = "block";
   toggleBtn.addEventListener("click", function() {
     if (artistList.style.display === "none") {
       artistList.style.display = "block";
