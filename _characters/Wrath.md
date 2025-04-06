@@ -1,6 +1,6 @@
 ---
 layout: character
 title: "Wrath"
-image: "https://i.imgur.com/O3ZPyz6.jpeg"
+image: "https://kyuukei.s3.us-east-2.amazonaws.com/character/wrath/pfp.png"
 secretGroup: "wrath"
 ---
