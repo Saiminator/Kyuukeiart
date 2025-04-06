@@ -1,7 +1,7 @@
 ---
 layout: character
 title: "Pon"
-image: "https://i.imgur.com/bVnV9Ak.png"
+image: "https://kyuukei.s3.us-east-2.amazonaws.com/character/pon/pfp.png"
 # Other fields you might want to retain (if needed)
 ---
 Additional info or description if desired.
