@@ -1,7 +1,7 @@
 ---
 layout: character
 title: "Memo"
-image: "https://i.imgur.com/msrtKJd.png"
+image: "https://kyuukei.s3.us-east-2.amazonaws.com/character/memo/pfp.png"
 # Other fields you might want to retain (if needed)
 ---
 Additional info or description if desired.
