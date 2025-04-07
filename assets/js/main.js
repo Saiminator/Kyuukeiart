@@ -237,19 +237,20 @@ document.addEventListener('DOMContentLoaded', function() {
     Also, a master secret ("ALLSECRETS") unlocks all secret groups.
   -----------------------------------------------------*/
   const secretCodes = {
-    "MEIMEI": "meimei",
+    "GIRAFE": "girafe",
     "BUNNY": "bunny",
-    "RAGNA": "ragna",
-    "ULTIMATIA": "ultimatia",
+    "CHELSEA": "chelsea",
+    "MEIMEI": "meimei",
+    "SHIHO": "shiho",
+    "MEGUMIN": "megumin",
     "CLOWNPIECE": "clownpiece",
     "CIRNO": "cirno",
-    "MEGUMIN": "megumin",
+    "RAGNA": "ragna",
+    "ULTIMATIA": "ultimatia",
     "WRATH": "wrath",
-    "SHIHO": "shiho",
     "EXTREME": "extreme",
-    "TESTING": "testing",
     "WIP": "wip",
-    "CHELSEA": "chelsea"
+    "TESTING": "testing",
   };
   
   const MASTER_SECRET = "ALLSECRETS";
