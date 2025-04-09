@@ -357,18 +357,19 @@ document.addEventListener('DOMContentLoaded', function() {
 function tryUnlockSecrets() {
   const params = new URLSearchParams(window.location.search);
   if (params.get("unlock") === "all") {
-    console.log("unlock=all detected; calling revealAllSecrets()");
+    console.log("Attempting to reveal all secrets");
     revealAllSecrets();
   }
 }
 
-// Try unlocking after window load and at several intervals
-window.addEventListener("load", function() {
-  // Try right after the load event
-  tryUnlockSecrets();
-  // Try again after 500ms, 1000ms, and 2000ms
+// Try after DOMContentLoaded with an increased delay
+document.addEventListener("DOMContentLoaded", function() {
+  // Wait a bit for all sorting/hiding to finish
   setTimeout(tryUnlockSecrets, 500);
   setTimeout(tryUnlockSecrets, 1000);
-  setTimeout(tryUnlockSecrets, 2000);
 });
 
+// Also try on window.load in case that fires later
+window.addEventListener("load", function() {
+  tryUnlockSecrets();
+});
