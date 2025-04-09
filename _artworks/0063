@@ -15,6 +15,6 @@ sets:
     preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0063/1.png"
     images:
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0063/1.png"
-      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0063/2.png"
-      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0063/3.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0063/2.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0063/3.jpg"
 ---
