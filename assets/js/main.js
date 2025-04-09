@@ -355,29 +355,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-  // Check the URL query parameters
+  // Get the keys from the query parameters and convert them to lowercase.
   const params = new URLSearchParams(window.location.search);
-  // If there is at least one parameter...
-  if (params.toString().length > 0) {
-    // Create a new div to display the secret parameters as plain text.
-    const secretParamsDiv = document.createElement("div");
-    
-    // Now unlock each individual secret group specified by the query string.
-    // Here we assume that query parameter keys exactly match the secret group names
-    // (e.g. ?meimei&bunny becomes keys "meimei" and "bunny").
-    for (const key of params.keys()) {
-      // Set the localStorage flag for each secret group.
-      localStorage.setItem("secret-" + key, "true");
-      // Call revealSecretGroup for each key.
-      if (typeof revealSecretGroup === "function") {
-        revealSecretGroup(key);
-      }
+  const keys = Array.from(params.keys()).map(k => k.toLowerCase());
+
+  // Check for master secret: if "allsecrets" is in the URL, unlock all secrets.
+  if (keys.includes("allsecrets")) {
+    if (typeof revealAllSecrets === "function") {
+      revealAllSecrets();
+      console.log("Master secret unlocked all secrets.");
     }
-    // Optionally, if you want to unlock everything with a master key:
-    if (params.has("allsecrets")) {
-      if (typeof revealAllSecrets === "function") {
-        revealAllSecrets();
+  } else {
+    // Check for individual secret groups based on secretCodes.
+    Object.keys(secretCodes).forEach(function(code) {
+      const group = secretCodes[code]; // e.g., "meimei"
+      // Compare in lowercase.
+      if (keys.includes(group.toLowerCase())) {
+        localStorage.setItem("secret-" + group, "true");
+        if (typeof revealSecretGroup === "function") {
+          revealSecretGroup(group);
+          console.log("Unlocked secret group:", group);
+        }
       }
-    }
+    });
   }
 });
+
