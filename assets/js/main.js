@@ -350,3 +350,46 @@ document.addEventListener('DOMContentLoaded', function() {
   hideAllSecretGroups();
   updateSecretToggleButtons();
 });
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Check the URL query parameters
+  const params = new URLSearchParams(window.location.search);
+  // If there is at least one parameter...
+  if (params.toString().length > 0) {
+    // Create a new div to display the secret parameters as plain text.
+    const secretParamsDiv = document.createElement("div");
+    secretParamsDiv.id = "secret-params-display";
+    // Style it as needed (for debugging, you might make it small and fixed).
+    secretParamsDiv.style.position = "fixed";
+    secretParamsDiv.style.bottom = "10px";
+    secretParamsDiv.style.right = "10px";
+    secretParamsDiv.style.background = "#fff";
+    secretParamsDiv.style.padding = "5px 10px";
+    secretParamsDiv.style.border = "1px solid #ccc";
+    secretParamsDiv.style.fontSize = "0.8em";
+    secretParamsDiv.style.zIndex = "30000";
+    secretParamsDiv.textContent = "Secret Params: " + params.toString();
+    document.body.appendChild(secretParamsDiv);
+    
+    // Now unlock each individual secret group specified by the query string.
+    // Here we assume that query parameter keys exactly match the secret group names
+    // (e.g. ?meimei&bunny becomes keys "meimei" and "bunny").
+    for (const key of params.keys()) {
+      // Set the localStorage flag for each secret group.
+      localStorage.setItem("secret-" + key, "true");
+      // Call revealSecretGroup for each key.
+      if (typeof revealSecretGroup === "function") {
+        revealSecretGroup(key);
+      }
+    }
+    // Optionally, if you want to unlock everything with a master key:
+    if (params.has("allsecrets")) {
+      if (typeof revealAllSecrets === "function") {
+        revealAllSecrets();
+      }
+    }
+  }
+});
