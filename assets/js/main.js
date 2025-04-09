@@ -351,21 +351,23 @@ document.addEventListener('DOMContentLoaded', function() {
   updateSecretToggleButtons();
 });
 
-// At the very end of main.js, after updateSecretToggleButtons();
-document.addEventListener("DOMContentLoaded", function() {
-  // Slight delay to ensure all secret functions have run
-  setTimeout(function(){
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("unlock") === "all") {
-      revealAllSecrets();
-    }
-  }, 100); // delay 100ms (adjust as needed)
-});
-
-window.addEventListener("load", function() {
+function tryUnlockSecrets() {
   const params = new URLSearchParams(window.location.search);
   if (params.get("unlock") === "all") {
+    console.log("Attempting to reveal all secrets");
     revealAllSecrets();
   }
+}
+
+// Try after DOMContentLoaded with an increased delay
+document.addEventListener("DOMContentLoaded", function() {
+  // Wait a bit for all sorting/hiding to finish
+  setTimeout(tryUnlockSecrets, 500);
+  setTimeout(tryUnlockSecrets, 1000);
+});
+
+// Also try on window.load in case that fires later
+window.addEventListener("load", function() {
+  tryUnlockSecrets();
 });
 
