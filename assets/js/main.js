@@ -362,3 +362,10 @@ document.addEventListener("DOMContentLoaded", function() {
   }, 100); // delay 100ms (adjust as needed)
 });
 
+window.addEventListener("load", function() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("unlock") === "all") {
+    revealAllSecrets();
+  }
+});
+
