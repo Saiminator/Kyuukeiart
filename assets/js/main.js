@@ -350,3 +350,15 @@ document.addEventListener('DOMContentLoaded', function() {
   hideAllSecretGroups();
   updateSecretToggleButtons();
 });
+
+// At the very end of main.js, after updateSecretToggleButtons();
+document.addEventListener("DOMContentLoaded", function() {
+  // Slight delay to ensure all secret functions have run
+  setTimeout(function(){
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("unlock") === "all") {
+      revealAllSecrets();
+    }
+  }, 100); // delay 100ms (adjust as needed)
+});
+
