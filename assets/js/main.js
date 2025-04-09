@@ -354,22 +354,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-function tryUnlockSecrets() {
-  const params = new URLSearchParams(window.location.search);
-  if (params.get("unlock") === "all") {
-    console.log("Attempting to reveal all secrets");
-    revealAllSecrets();
-  }
-}
-
-// Try after DOMContentLoaded with an increased delay
-document.addEventListener("DOMContentLoaded", function() {
-  // Wait a bit for all sorting/hiding to finish
-  setTimeout(tryUnlockSecrets, 500);
-  setTimeout(tryUnlockSecrets, 1000);
-});
-
-// Also try on window.load in case that fires later
 window.addEventListener("load", function() {
-  tryUnlockSecrets();
+  const urlParams = new URLSearchParams(window.location.search);
+  
+  // Loop over each secret code.
+  // secretCodes is an object mapping code strings (as in your existing code)
+  // to secret group values. For example:
+  // const secretCodes = { "MEIMEI": "meimei", "BUNNY": "bunny", ... }
+  Object.keys(secretCodes).forEach(function(key) {
+    const group = secretCodes[key]; // for example, "meimei"
+    // If the URL has a parameter with the same name as the secret group...
+    if (urlParams.has(group)) {
+      localStorage.setItem("secret-" + group, "true");
+      revealSecretGroup(group);
+      console.log("Unlocked secret group:", group);
+    }
+  });
 });
+
