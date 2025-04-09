@@ -4,7 +4,7 @@ nsfw: true
 title: "Pon Brainslime"
 name: "pon-brainslime"
 secretGroup: "extreme"
-preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0068/1.png"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/E0068/preview.png"
 artist: "@tousyoku"
 characters:
   - "Pon"
