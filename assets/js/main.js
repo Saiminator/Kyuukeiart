@@ -355,41 +355,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-  // Check the URL query parameters
-  const params = new URLSearchParams(window.location.search);
-  // If there is at least one parameter...
-  if (params.toString().length > 0) {
-    // Create a new div to display the secret parameters as plain text.
-    const secretParamsDiv = document.createElement("div");
-    secretParamsDiv.id = "secret-params-display";
-    // Style it as needed (for debugging, you might make it small and fixed).
-    secretParamsDiv.style.position = "fixed";
-    secretParamsDiv.style.bottom = "10px";
-    secretParamsDiv.style.right = "10px";
-    secretParamsDiv.style.background = "#fff";
-    secretParamsDiv.style.padding = "5px 10px";
-    secretParamsDiv.style.border = "1px solid #ccc";
-    secretParamsDiv.style.fontSize = "0.8em";
-    secretParamsDiv.style.zIndex = "30000";
-    secretParamsDiv.textContent = "Secret Params: " + params.toString();
-    document.body.appendChild(secretParamsDiv);
-    
-    // Now unlock each individual secret group specified by the query string.
-    // Here we assume that query parameter keys exactly match the secret group names
-    // (e.g. ?meimei&bunny becomes keys "meimei" and "bunny").
-    for (const key of params.keys()) {
-      // Set the localStorage flag for each secret group.
-      localStorage.setItem("secret-" + key, "true");
-      // Call revealSecretGroup for each key.
-      if (typeof revealSecretGroup === "function") {
-        revealSecretGroup(key);
+  // Read all query parameter keys from the URL
+  const urlParams = new URLSearchParams(window.location.search);
+  let secretString = "";
+  // For each key, concatenate its uppercase version (assuming your secret codes are all uppercase)
+  for (const key of urlParams.keys()) {
+    secretString += key.toUpperCase();
+  }
+  // If there is any secret string from the query parameters…
+  if (secretString) {
+    console.log("Simulating secret typing: ", secretString);
+    let index = 0;
+    function simulateTyping() {
+      if (index < secretString.length) {
+        // Append one character to the secretInput global variable
+        secretInput += secretString[index];
+        // Check if secretInput now ends with any secret code
+        for (const code in secretCodes) {
+          if (secretInput.endsWith(code)) {
+            localStorage.setItem("secret-" + secretCodes[code], "true");
+            revealSecretGroup(secretCodes[code]);
+            // Reset the buffer so we can catch the next code independently
+            secretInput = "";
+            break;
+          }
+        }
+        index++;
+        setTimeout(simulateTyping, 100); // 100ms per character (adjust if needed)
       }
     }
-    // Optionally, if you want to unlock everything with a master key:
-    if (params.has("allsecrets")) {
-      if (typeof revealAllSecrets === "function") {
-        revealAllSecrets();
-      }
-    }
+    simulateTyping();
   }
 });
