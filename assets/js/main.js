@@ -361,18 +361,6 @@ document.addEventListener("DOMContentLoaded", function() {
   if (params.toString().length > 0) {
     // Create a new div to display the secret parameters as plain text.
     const secretParamsDiv = document.createElement("div");
-    secretParamsDiv.id = "secret-params-display";
-    // Style it as needed (for debugging, you might make it small and fixed).
-    secretParamsDiv.style.position = "fixed";
-    secretParamsDiv.style.bottom = "10px";
-    secretParamsDiv.style.right = "10px";
-    secretParamsDiv.style.background = "#fff";
-    secretParamsDiv.style.padding = "5px 10px";
-    secretParamsDiv.style.border = "1px solid #ccc";
-    secretParamsDiv.style.fontSize = "0.8em";
-    secretParamsDiv.style.zIndex = "30000";
-    secretParamsDiv.textContent = "Secret Params: " + params.toString();
-    document.body.appendChild(secretParamsDiv);
     
     // Now unlock each individual secret group specified by the query string.
     // Here we assume that query parameter keys exactly match the secret group names
