@@ -1,28 +1,3 @@
-  /*-----------------------------------------------------
-    SECRET GROUP UNLOCK LOGIC
-    Map secret codes to group names.
-    Now, items can have multiple secret groups (comma-separated).
-    Also, a master secret ("ALLSECRETS") unlocks all secret groups.
-  -----------------------------------------------------*/
-const secretCodes = {
-  "GIRAFE": "girafe",
-  "BUNNY": "bunny",
-  "CHELSEA": "chelsea",
-  "MEIMEI": "meimei",
-  "SHIHO": "shiho",
-  "MEGUMIN": "megumin",
-  "CLOWNPIECE": "clownpiece",
-  "CIRNO": "cirno",
-  "RAGNA": "ragna",
-  "ULTIMATIA": "ultimatia",
-  "WRATH": "wrath",
-  "EXTREME": "extreme",
-  "WIP": "wip",
-  "TESTING": "testing",
-};
-  
-const MASTER_SECRET = "ALLSECRETS";
-
 document.addEventListener('DOMContentLoaded', function() {
   /*-----------------------------------------------------
     NSFW CONSENT LOGIC
@@ -255,6 +230,30 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
+  /*-----------------------------------------------------
+    SECRET GROUP UNLOCK LOGIC
+    Map secret codes to group names.
+    Now, items can have multiple secret groups (comma-separated).
+    Also, a master secret ("ALLSECRETS") unlocks all secret groups.
+  -----------------------------------------------------*/
+  const secretCodes = {
+    "GIRAFE": "girafe",
+    "BUNNY": "bunny",
+    "CHELSEA": "chelsea",
+    "MEIMEI": "meimei",
+    "SHIHO": "shiho",
+    "MEGUMIN": "megumin",
+    "CLOWNPIECE": "clownpiece",
+    "CIRNO": "cirno",
+    "RAGNA": "ragna",
+    "ULTIMATIA": "ultimatia",
+    "WRATH": "wrath",
+    "EXTREME": "extreme",
+    "WIP": "wip",
+    "TESTING": "testing",
+  };
+  
+  const MASTER_SECRET = "ALLSECRETS";
   
   // Helper: Check if an element's secret groups are all unlocked.
   function isSecretUnlocked(el) {
@@ -351,25 +350,3 @@ document.addEventListener('DOMContentLoaded', function() {
   hideAllSecretGroups();
   updateSecretToggleButtons();
 });
-
-
-
-
-window.addEventListener("load", function() {
-  const urlParams = new URLSearchParams(window.location.search);
-  
-  // Loop over each secret code.
-  // secretCodes is an object mapping code strings (as in your existing code)
-  // to secret group values. For example:
-  // const secretCodes = { "MEIMEI": "meimei", "BUNNY": "bunny", ... }
-  Object.keys(secretCodes).forEach(function(key) {
-    const group = secretCodes[key]; // for example, "meimei"
-    // If the URL has a parameter with the same name as the secret group...
-    if (urlParams.has(group)) {
-      localStorage.setItem("secret-" + group, "true");
-      revealSecretGroup(group);
-      console.log("Unlocked secret group:", group);
-    }
-  });
-});
-
