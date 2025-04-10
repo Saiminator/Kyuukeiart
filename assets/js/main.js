@@ -245,6 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
     "MEGUMIN": "megumin",
     "CLOWNPIECE": "clownpiece",
     "CIRNO": "cirno",
+    "BISHOP": "bishop",
     "RAGNA": "ragna",
     "ULTIMATIA": "ultimatia",
     "WRATH": "wrath",
