@@ -3,12 +3,13 @@ layout: artwork
 nsfw: false
 title: "Pon = Bishop"
 name: "pon-bishop"
-secretGroup: ""
+secretGroup: "bishop"
 preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0074/preview.png"
 images:
   - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0074/1.png"
 artist: "@entropic_imp"
 characters:
   - "Pon"
+  - "Bishop"
 description: "Pon gets promoted to Bishop"
 ---
