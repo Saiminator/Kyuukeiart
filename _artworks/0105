@@ -1,0 +1,21 @@
+---
+layout: artwork
+nsfw: false
+title: "Stacked Possession"
+name: "stacked-possession"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0105/preview.png"
+artist: "@SinSapphic"
+characters:
+  - "Via"
+  - "Memo"
+description: "Memo tries Via's body out only to accidentlly release one of her experiments!"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0105/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0105/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0105/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0105/3.png"
+---
