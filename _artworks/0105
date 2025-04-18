@@ -13,9 +13,9 @@ description: "Memo tries Via's body out only to accidentlly release one of her e
 sets:
   - set_title: "Comic"
     set_description: ""
-    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0105/1.jpg"
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0105/1.png"
     images:
-      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0105/1.jpg"
-      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0105/2.jpg"
-      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0105/3.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0105/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0105/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0105/3.png"
 ---
