@@ -19,3 +19,10 @@ sets:
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0105/2.png"
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0105/3.png"
 ---
+sets:
+  - set_title: "Bonus"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0105/bonus.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0105/bonus.png"
+---
