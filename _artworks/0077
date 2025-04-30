@@ -21,9 +21,9 @@ sets:
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0077/5.png"
   - set_title: "Bonus"
     set_description: "It was all a dream"
-    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0077/1.png"
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0077/bonus1.png"
     images:
-      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0077/bonus.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0077/bonus1.png"
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0077/bonus2.png"
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0077/bonus3.png"
 ---
