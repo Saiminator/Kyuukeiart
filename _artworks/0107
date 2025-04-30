@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: true
+title: "Elaine Sternbruch"
+name: "elaine-sternbruch"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0107/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0107/1.png"
+artist: "@__mr121_"
+characters:
+  - "Elaine"
+description: "Elaine, in an iconic pose!"
+---
