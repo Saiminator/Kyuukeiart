@@ -19,19 +19,14 @@
   <meta name="twitter:title" content="{{ page.title }} - {{ site.title }}">
   <meta name="twitter:description" content="{{ page.description | strip_html | truncate: 160 }}">
   <meta name="twitter:image" content="{{ page.preview | default: 'https://kyuukei.s3.us-east-2.amazonaws.com/icon/artfavicon.png' }}">
-
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
   
-  <!-- Panzoom (mouse-wheel zoom + drag pan) -->
-  <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 </head>
 <body>
   {% include header.html %}
-  
   <main>
     {{ content }}
   </main>
-  
   {% include footer.html %}
 
   <!-- NSFW Consent Modal -->
