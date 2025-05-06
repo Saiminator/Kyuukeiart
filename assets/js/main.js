@@ -113,24 +113,20 @@ document.addEventListener('DOMContentLoaded', function() {
     function openArtworkModal() {
       modal.style.display = 'flex';
       modalImg.src = artworkImages[artworkCurrentIndex];
-      initPanzoom();
     }
     
     function showPrevArtwork() {
       artworkCurrentIndex = (artworkCurrentIndex - 1 + artworkImages.length) % artworkImages.length;
       modalImg.src = artworkImages[artworkCurrentIndex];
-      initPanzoom();
     }
     
     function showNextArtwork() {
       artworkCurrentIndex = (artworkCurrentIndex + 1) % artworkImages.length;
       modalImg.src = artworkImages[artworkCurrentIndex];
-      initPanzoom();
     }
     
     modalPrev.addEventListener('click', showPrevArtwork);
     modalNext.addEventListener('click', showNextArtwork);
-    initPanzoom();
   }
   
   /*-----------------------------------------------------
@@ -148,19 +144,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function openRefModal() {
       modal.style.display = 'flex';
       modalImg.src = refImages[refCurrentIndex];
-      initPanzoom();
     }
     
     function showPrevRef() {
       refCurrentIndex = (refCurrentIndex - 1 + refImages.length) % refImages.length;
       modalImg.src = refImages[refCurrentIndex];
-      initPanzoom();
     }
     
     function showNextRef() {
       refCurrentIndex = (refCurrentIndex + 1) % refImages.length;
       modalImg.src = refImages[refCurrentIndex];
-      initPanzoom();
     }
     
     modalPrev.addEventListener('click', function() {
@@ -188,7 +181,6 @@ document.addEventListener('DOMContentLoaded', function() {
       setCurrentIndex = 0;
       modalImg.src = setModalImages[setCurrentIndex];
       modal.style.display = 'flex';
-      initPanzoom();
     }
   };
   
@@ -196,7 +188,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (setModalImages.length > 0 && setModalImages.includes(modalImg.src)) {
       setCurrentIndex = (setCurrentIndex - 1 + setModalImages.length) % setModalImages.length;
       modalImg.src = setModalImages[setCurrentIndex];
-      initPanzoom();
     }
   };
   
@@ -204,7 +195,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (setModalImages.length > 0 && setModalImages.includes(modalImg.src)) {
       setCurrentIndex = (setCurrentIndex + 1) % setModalImages.length;
       modalImg.src = setModalImages[setCurrentIndex];
-      initPanzoom();
     }
   };
   
