@@ -1,0 +1,15 @@
+---
+layout: artwork
+nsfw: false
+title: "Kyuu vs Pon"
+name: "kyuuvspon"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0108/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0108/1.png"
+artist: "@naokimineta026"
+characters:
+  - "Kyuu"
+  - "Pon"
+description: "Kyuu fighting Pon! Pon reaches out to grab her while preparing a dagger"
+---
