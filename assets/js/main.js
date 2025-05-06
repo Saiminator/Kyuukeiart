@@ -113,20 +113,24 @@ document.addEventListener('DOMContentLoaded', function() {
     function openArtworkModal() {
       modal.style.display = 'flex';
       modalImg.src = artworkImages[artworkCurrentIndex];
+      initPanzoom();
     }
     
     function showPrevArtwork() {
       artworkCurrentIndex = (artworkCurrentIndex - 1 + artworkImages.length) % artworkImages.length;
       modalImg.src = artworkImages[artworkCurrentIndex];
+      initPanzoom();
     }
     
     function showNextArtwork() {
       artworkCurrentIndex = (artworkCurrentIndex + 1) % artworkImages.length;
       modalImg.src = artworkImages[artworkCurrentIndex];
+      initPanzoom();
     }
     
     modalPrev.addEventListener('click', showPrevArtwork);
     modalNext.addEventListener('click', showNextArtwork);
+    initPanzoom();
   }
   
   /*-----------------------------------------------------
