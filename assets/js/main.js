@@ -4,36 +4,60 @@ document.addEventListener('DOMContentLoaded', function() {
   -----------------------------------------------------*/
   (function() {
     const nsfwModal = document.getElementById('nsfw-modal');
-    const nsfwYes   = document.getElementById('nsfw-yes');
-    const nsfwNo    = document.getElementById('nsfw-no');
+    const nsfwYes = document.getElementById('nsfw-yes');
+    const nsfwNo = document.getElementById('nsfw-no');
     const toggleBtn = document.getElementById('nsfw-toggle');
-    const existing  = localStorage.getItem('nsfwConsent');
+    const existingConsent = localStorage.getItem('nsfwConsent');
     
-    if (existing === null) {
+    if (existingConsent === null) {
       nsfwModal.style.display = 'flex';
-    } else if (existing === 'yes') {
-      document.querySelectorAll('.nsfw-blurred').forEach(el => el.classList.remove('nsfw-blurred'));
-      toggleBtn && toggleBtn.classList.replace('toggle-off','toggle-on');
+    } else if (existingConsent === 'yes') {
+      document.querySelectorAll('.nsfw-blurred').forEach(function(el) {
+        el.classList.remove('nsfw-blurred');
+      });
+      if (toggleBtn) {
+        toggleBtn.classList.remove('toggle-off');
+        toggleBtn.classList.add('toggle-on');
+      }
     } else {
-      document.querySelectorAll('.nsfw').forEach(el => el.classList.add('nsfw-blurred'));
-      toggleBtn && toggleBtn.classList.replace('toggle-on','toggle-off');
+      document.querySelectorAll('.nsfw').forEach(function(el) {
+        if (!el.classList.contains('nsfw-blurred')) {
+          el.classList.add('nsfw-blurred');
+        }
+      });
+      if (toggleBtn) {
+        toggleBtn.classList.remove('toggle-on');
+        toggleBtn.classList.add('toggle-off');
+      }
     }
     
     if (nsfwYes) {
       nsfwYes.addEventListener('click', function() {
-        localStorage.setItem('nsfwConsent','yes');
+        localStorage.setItem('nsfwConsent', 'yes');
         nsfwModal.style.display = 'none';
-        document.querySelectorAll('.nsfw-blurred').forEach(el => el.classList.remove('nsfw-blurred'));
-        toggleBtn && toggleBtn.classList.replace('toggle-off','toggle-on');
+        document.querySelectorAll('.nsfw-blurred').forEach(function(el) {
+          el.classList.remove('nsfw-blurred');
+        });
+        if (toggleBtn) {
+          toggleBtn.classList.remove('toggle-off');
+          toggleBtn.classList.add('toggle-on');
+        }
       });
     }
     
     if (nsfwNo) {
       nsfwNo.addEventListener('click', function() {
-        localStorage.setItem('nsfwConsent','no');
+        localStorage.setItem('nsfwConsent', 'no');
         nsfwModal.style.display = 'none';
-        document.querySelectorAll('.nsfw').forEach(el => el.classList.add('nsfw-blurred'));
-        toggleBtn && toggleBtn.classList.replace('toggle-on','toggle-off');
+        document.querySelectorAll('.nsfw').forEach(function(el) {
+          if (!el.classList.contains('nsfw-blurred')) {
+            el.classList.add('nsfw-blurred');
+          }
+        });
+        if (toggleBtn) {
+          toggleBtn.classList.remove('toggle-on');
+          toggleBtn.classList.add('toggle-off');
+        }
       });
     }
   })();
@@ -44,15 +68,23 @@ document.addEventListener('DOMContentLoaded', function() {
   const toggleBtnHome = document.getElementById('nsfw-toggle');
   if (toggleBtnHome) {
     toggleBtnHome.addEventListener('click', function() {
-      const curr = localStorage.getItem('nsfwConsent');
-      if (curr === 'yes') {
-        localStorage.setItem('nsfwConsent','no');
-        document.querySelectorAll('.nsfw').forEach(el=>el.classList.add('nsfw-blurred'));
-        toggleBtnHome.classList.replace('toggle-on','toggle-off');
+      const current = localStorage.getItem('nsfwConsent');
+      if (current === 'yes') {
+        localStorage.setItem('nsfwConsent', 'no');
+        document.querySelectorAll('.nsfw').forEach(function(el) {
+          if (!el.classList.contains('nsfw-blurred')) {
+            el.classList.add('nsfw-blurred');
+          }
+        });
+        toggleBtnHome.classList.remove('toggle-on');
+        toggleBtnHome.classList.add('toggle-off');
       } else {
-        localStorage.setItem('nsfwConsent','yes');
-        document.querySelectorAll('.nsfw-blurred').forEach(el=>el.classList.remove('nsfw-blurred'));
-        toggleBtnHome.classList.replace('toggle-off','toggle-on');
+        localStorage.setItem('nsfwConsent', 'yes');
+        document.querySelectorAll('.nsfw-blurred').forEach(function(el) {
+          el.classList.remove('nsfw-blurred');
+        });
+        toggleBtnHome.classList.remove('toggle-off');
+        toggleBtnHome.classList.add('toggle-on');
       }
     });
   }
@@ -60,140 +92,149 @@ document.addEventListener('DOMContentLoaded', function() {
   /*-----------------------------------------------------
     ARTWORK PAGE MODAL (Thumbnails)
   -----------------------------------------------------*/
-  const modal       = document.getElementById('modal');
-  const modalImg    = document.getElementById('modal-img');
-  const modalPrev   = document.getElementById('modal-prev');
-  const modalNext   = document.getElementById('modal-next');
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  const modalPrev = document.getElementById('modal-prev');
+  const modalNext = document.getElementById('modal-next');
   
-  let artworkIndex  = 0;
-  const artworkImages = [];
-  document.querySelectorAll('.artwork-thumbnail').forEach((thumb, i) => {
-    artworkImages.push(thumb.src);
-    thumb.addEventListener('click', () => {
-      artworkIndex = i;
-      openArtworkModal();
+  let artworkCurrentIndex = 0;
+  let artworkImages = [];
+  const artworkThumbnails = document.querySelectorAll('.artwork-thumbnail');
+  
+  if (artworkThumbnails.length > 0) {
+    artworkThumbnails.forEach((thumb, index) => {
+      artworkImages.push(thumb.src);
+      thumb.addEventListener('click', function() {
+        artworkCurrentIndex = index;
+        openArtworkModal();
+      });
     });
-  });
+    
+    function openArtworkModal() {
+      modal.style.display = 'flex';
+      modalImg.src = artworkImages[artworkCurrentIndex];
+    }
+    
+    function showPrevArtwork() {
+      artworkCurrentIndex = (artworkCurrentIndex - 1 + artworkImages.length) % artworkImages.length;
+      modalImg.src = artworkImages[artworkCurrentIndex];
+    }
+    
+    function showNextArtwork() {
+      artworkCurrentIndex = (artworkCurrentIndex + 1) % artworkImages.length;
+      modalImg.src = artworkImages[artworkCurrentIndex];
+    }
+    
+    modalPrev.addEventListener('click', showPrevArtwork);
+    modalNext.addEventListener('click', showNextArtwork);
+  }
   
-  function openArtworkModal() {
-    modal.style.display = 'flex';
-    modalImg.src        = artworkImages[artworkIndex];
-    initPanzoom();
-  }
-  function showPrevArtwork() {
-    artworkIndex = (artworkIndex - 1 + artworkImages.length) % artworkImages.length;
-    modalImg.src = artworkImages[artworkIndex];
-    initPanzoom();
-  }
-  function showNextArtwork() {
-    artworkIndex = (artworkIndex + 1) % artworkImages.length;
-    modalImg.src = artworkImages[artworkIndex];
-    initPanzoom();
-  }
-  modalPrev && modalPrev.addEventListener('click', showPrevArtwork);
-  modalNext && modalNext.addEventListener('click', showNextArtwork);
-
   /*-----------------------------------------------------
     CHARACTER PAGE REFERENCE MODAL
   -----------------------------------------------------*/
-  let refIndex     = 0;
-  let refImagesArr = [];
-  if (typeof refImages !== 'undefined' && Array.isArray(refImages) && refImages.length) {
-    refImagesArr = refImages.slice();
-    document.getElementById('ref-preview').addEventListener('click', () => {
-      refIndex = 0;
+  let refCurrentIndex = 0;
+  if (document.getElementById('ref-preview') && typeof refImages !== 'undefined' && Array.isArray(refImages) && refImages.length > 0) {
+    const refButton = document.getElementById('ref-preview');
+    
+    refButton.addEventListener('click', function() {
+      refCurrentIndex = 0;
       openRefModal();
     });
+    
     function openRefModal() {
       modal.style.display = 'flex';
-      modalImg.src        = refImagesArr[refIndex];
-      initPanzoom();
+      modalImg.src = refImages[refCurrentIndex];
     }
+    
     function showPrevRef() {
-      refIndex = (refIndex - 1 + refImagesArr.length) % refImagesArr.length;
-      modalImg.src = refImagesArr[refIndex];
-      initPanzoom();
+      refCurrentIndex = (refCurrentIndex - 1 + refImages.length) % refImages.length;
+      modalImg.src = refImages[refCurrentIndex];
     }
+    
     function showNextRef() {
-      refIndex = (refIndex + 1) % refImagesArr.length;
-      modalImg.src = refImagesArr[refIndex];
-      initPanzoom();
+      refCurrentIndex = (refCurrentIndex + 1) % refImages.length;
+      modalImg.src = refImages[refCurrentIndex];
     }
-    modalPrev.addEventListener('click', () => {
-      if (refImagesArr.includes(modalImg.src)) showPrevRef();
+    
+    modalPrev.addEventListener('click', function() {
+      if (modal.style.display === 'flex' && refImages.includes(modalImg.src)) {
+        showPrevRef();
+      }
     });
-    modalNext.addEventListener('click', () => {
-      if (refImagesArr.includes(modalImg.src)) showNextRef();
+    modalNext.addEventListener('click', function() {
+      if (modal.style.display === 'flex' && refImages.includes(modalImg.src)) {
+        showNextRef();
+      }
     });
   }
-
+  
   /*-----------------------------------------------------
     ARTWORK SET MODAL (Multiple Sets)
   -----------------------------------------------------*/
-  let setImagesArr = [];
-  let setIndex     = 0;
-  window.openSetModal = function(el) {
-    const data = el.parentElement.getAttribute('data-set-images');
-    if (!data) return;
-    setImagesArr = JSON.parse(data);
-    setIndex     = 0;
-    modalImg.src = setImagesArr[0];
-    modal.style.display = 'flex';
-    initPanzoom();
+  let setModalImages = [];
+  let setCurrentIndex = 0;
+  
+  window.openSetModal = function(element) {
+    var data = element.parentElement.getAttribute('data-set-images');
+    if (data) {
+      setModalImages = JSON.parse(data);
+      setCurrentIndex = 0;
+      modalImg.src = setModalImages[setCurrentIndex];
+      modal.style.display = 'flex';
+    }
   };
+  
   window.showPrevImage = function() {
-    if (!setImagesArr.includes(modalImg.src)) return;
-    setIndex = (setIndex - 1 + setImagesArr.length) % setImagesArr.length;
-    modalImg.src = setImagesArr[setIndex];
-    initPanzoom();
+    if (setModalImages.length > 0 && setModalImages.includes(modalImg.src)) {
+      setCurrentIndex = (setCurrentIndex - 1 + setModalImages.length) % setModalImages.length;
+      modalImg.src = setModalImages[setCurrentIndex];
+    }
   };
+  
   window.showNextImage = function() {
-    if (!setImagesArr.includes(modalImg.src)) return;
-    setIndex = (setIndex + 1) % setImagesArr.length;
-    modalImg.src = setImagesArr[setIndex];
-    initPanzoom();
+    if (setModalImages.length > 0 && setModalImages.includes(modalImg.src)) {
+      setCurrentIndex = (setCurrentIndex + 1) % setModalImages.length;
+      modalImg.src = setModalImages[setCurrentIndex];
+    }
   };
-
+  
   /*-----------------------------------------------------
-    KEYBOARD + CLICK OUTSIDE MODAL
+    GLOBAL KEYDOWN HANDLER (for modal navigation)
   -----------------------------------------------------*/
-  window.addEventListener('keydown', e => {
+  window.addEventListener('keydown', function(event) {
     if (modal.style.display === 'flex') {
-      if      (e.key === 'ArrowLeft')  {
-        if (setImagesArr.includes(modalImg.src)) showPrevImage();
-        else showPrevArtwork();
-      }
-      else if (e.key === 'ArrowRight') {
-        if (setImagesArr.includes(modalImg.src)) showNextImage();
-        else showNextArtwork();
-      }
-      else if (e.key === 'Escape') {
+      if (event.key === 'ArrowLeft') {
+        if (setModalImages.length > 0 && setModalImages.includes(modalImg.src)) {
+          showPrevImage();
+        } else if (artworkImages.length > 0 && artworkImages.includes(modalImg.src)) {
+          showPrevArtwork();
+        }
+      } else if (event.key === 'ArrowRight') {
+        if (setModalImages.length > 0 && setModalImages.includes(modalImg.src)) {
+          showNextImage();
+        } else if (artworkImages.length > 0 && artworkImages.includes(modalImg.src)) {
+          showNextArtwork();
+        }
+      } else if (event.key === 'Escape') {
         modal.style.display = 'none';
       }
     }
   });
-  window.addEventListener('click', e => {
-    if (e.target === modal) modal.style.display = 'none';
-  });
-
+  
   /*-----------------------------------------------------
-    PANZOOM INITIALIZATION FUNCTION
+    Close modal when clicking outside the image
   -----------------------------------------------------*/
-  let panzoomInstance;
-  function initPanzoom() {
-    const container = document.getElementById('panzoom-container');
-    if (!container) return;
-    if (panzoomInstance) panzoomInstance.destroy();
-    panzoomInstance = Panzoom(container, {
-      maxScale: 5,
-      minScale: 1,
-      contain: 'outside'
-    });
-    container.addEventListener('wheel', panzoomInstance.zoomWithWheel);
-  }
-
+  window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+  
   /*-----------------------------------------------------
-    SECRET GROUP LOGIC (unchanged from yours)
+    SECRET GROUP UNLOCK LOGIC
+    Map secret codes to group names.
+    Now, items can have multiple secret groups (comma-separated).
+    Also, a master secret ("ALLSECRETS") unlocks all secret groups.
   -----------------------------------------------------*/
   const secretCodes = {
     "GIRAFE": "girafe",
@@ -204,99 +245,140 @@ document.addEventListener('DOMContentLoaded', function() {
     "MEGUMIN": "megumin",
     "CLOWNPIECE": "clownpiece",
     "CIRNO": "cirno",
+    "BISHOP": "bishop",
     "RAGNA": "ragna",
     "ULTIMATIA": "ultimatia",
     "WRATH": "wrath",
     "EXTREME": "extreme",
     "WIP": "wip",
-    "TESTING": "testing"
+    "TESTING": "testing",
   };
+  
   const MASTER_SECRET = "ALLSECRETS";
-
+  
+  // Helper: Check if an element's secret groups are all unlocked.
   function isSecretUnlocked(el) {
-    const groups = el.getAttribute("data-secret-group");
+    let groups = el.getAttribute("data-secret-group");
     if (!groups) return true;
-    return groups.split(",").map(g=>g.trim()).every(g=> localStorage.getItem("secret-"+g) === "true");
+    groups = groups.split(",").map(g => g.trim());
+    return groups.every(g => localStorage.getItem("secret-" + g) === "true");
   }
+  
+  // Hide secret items that aren't unlocked.
   function hideAllSecretGroups() {
-    document.querySelectorAll('.secret').forEach(el=>{
-      el.style.display = isSecretUnlocked(el) ? "" : "none";
+    document.querySelectorAll('.secret').forEach(function(el) {
+      if (!isSecretUnlocked(el)) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "";
+      }
     });
   }
+  
+  // Reveal a specific secret group.
   function revealSecretGroup(group) {
-    localStorage.setItem("secret-"+group,"true");
-    document.querySelectorAll(`.secret[data-secret-group*="${group}"]`).forEach(el=>{
-      if (isSecretUnlocked(el)) el.style.display="";
+    document.querySelectorAll('.secret').forEach(function(el) {
+      if (el.getAttribute("data-secret-group").split(",").map(g => g.trim()).includes(group)) {
+        if (isSecretUnlocked(el)) {
+          el.style.display = "";
+        }
+      }
     });
     updateSecretToggleButtons();
   }
+  
+  // Master secret: unlock all groups found on the page.
   function revealAllSecrets() {
-    document.querySelectorAll('[data-secret-group]').forEach(el=>{
-      el.getAttribute("data-secret-group").split(",").forEach(g=>{
-        localStorage.setItem("secret-"+g.trim(),"true");
-      });
+    const secretElements = document.querySelectorAll('[data-secret-group]');
+    let groupsSet = new Set();
+    secretElements.forEach(el => {
+      let groups = el.getAttribute("data-secret-group").split(",");
+      groups.forEach(g => groupsSet.add(g.trim()));
+    });
+    groupsSet.forEach(group => {
+      localStorage.setItem("secret-" + group, "true");
     });
     hideAllSecretGroups();
     updateSecretToggleButtons();
   }
+  
   let secretInput = "";
-  document.addEventListener("keydown", e=>{
+  document.addEventListener("keydown", function(e) {
     secretInput += e.key.toUpperCase();
     if (secretInput.endsWith(MASTER_SECRET)) {
       revealAllSecrets();
       secretInput = "";
       return;
     }
-    Object.keys(secretCodes).forEach(code=>{
+    for (const code in secretCodes) {
       if (secretInput.endsWith(code)) {
+        localStorage.setItem("secret-" + secretCodes[code], "true");
         revealSecretGroup(secretCodes[code]);
         secretInput = "";
+        break;
       }
-    });
-    if (secretInput.length > 15) secretInput = secretInput.slice(-15);
+    }
+    if (secretInput.length > 10) {
+      secretInput = secretInput.slice(-10);
+    }
   });
+  
   function updateSecretToggleButtons(){
     const container = document.getElementById("secret-toggle-container");
     if (!container) return;
-    container.innerHTML="";
-    Object.values(secretCodes).forEach(group=>{
-      if (localStorage.getItem("secret-"+group)==="true") {
-        const btn = document.createElement("button");
-        btn.textContent = `Turn off ${group.charAt(0).toUpperCase()+group.slice(1)}`;
-        btn.addEventListener("click",()=>{
-          localStorage.setItem("secret-"+group,"false");
-          hideAllSecretGroups();
+    container.innerHTML = "";
+    // For each unique secret group present in secretCodes:
+    Object.keys(secretCodes).forEach(function(code) {
+      const group = secretCodes[code];
+      if(localStorage.getItem("secret-" + group) === "true"){
+        const button = document.createElement("button");
+        button.textContent = "Turn off " + group.charAt(0).toUpperCase() + group.slice(1);
+        button.addEventListener("click", function(){
+          localStorage.setItem("secret-" + group, "false");
+          document.querySelectorAll('.secret[data-secret-group]').forEach(function(el){
+            let groups = el.getAttribute("data-secret-group").split(",").map(g => g.trim());
+            if (groups.includes(group)) {
+              el.style.display = "none";
+            }
+          });
           updateSecretToggleButtons();
         });
-        container.appendChild(btn);
+        container.appendChild(button);
       }
     });
   }
+  
   hideAllSecretGroups();
   updateSecretToggleButtons();
-  
-  /*-----------------------------------------------------
-    URL‐BASED UNLOCK DISPLAY (for mobile)
-  -----------------------------------------------------*/
-  document.addEventListener("DOMContentLoaded", function() {
-    const params = new URLSearchParams(window.location.search);
-    const keys = Array.from(params.keys()).map(k=>k.toLowerCase());
-    if (keys.length) {
-      const div = document.createElement("div");
-      div.id = "secret-params-display";
-      Object.assign(div.style, {
-        position:"fixed", bottom:"10px", right:"10px",
-        background:"#fff", padding:"5px 10px", border:"1px solid #ccc",
-        fontSize:"0.8em", zIndex:"30000"
-      });
-      div.textContent = "Secret Params: "+keys.join("&");
-      document.body.appendChild(div);
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Check the URL query parameters
+  const params = new URLSearchParams(window.location.search);
+  // If there is at least one parameter...
+  if (params.toString().length > 0) {
+    // Create a new div to display the secret parameters as plain text.
+    const secretParamsDiv = document.createElement("div");
+    
+    // Now unlock each individual secret group specified by the query string.
+    // Here we assume that query parameter keys exactly match the secret group names
+    // (e.g. ?meimei&bunny becomes keys "meimei" and "bunny").
+    for (const key of params.keys()) {
+      // Set the localStorage flag for each secret group.
+      localStorage.setItem("secret-" + key, "true");
+      // Call revealSecretGroup for each key.
+      if (typeof revealSecretGroup === "function") {
+        revealSecretGroup(key);
+      }
     }
-    if (keys.includes("allsecrets")) revealAllSecrets();
-    else {
-      keys.forEach(key=>{
-        if (Object.values(secretCodes).includes(key)) revealSecretGroup(key);
-      });
+    // Optionally, if you want to unlock everything with a master key:
+    if (params.has("allsecrets")) {
+      if (typeof revealAllSecrets === "function") {
+        revealAllSecrets();
+      }
     }
-  });
+  }
 });
