@@ -390,3 +390,19 @@ button:hover, .preview-btn:hover {
     bottom: 10px;
   }
 }
+/* ─── Panzoom container ───────────────────────────────────────── */
+#panzoom-container {
+  overflow: hidden;
+  max-width: 95%;
+  max-height: 95%;
+  margin: auto;
+}
+#panzoom-container img {
+  display: block;
+  max-width: none;    /* allow scaling beyond container */
+  cursor: grab;
+  user-select: none;
+}
+#panzoom-container img:active {
+  cursor: grabbing;
+}
