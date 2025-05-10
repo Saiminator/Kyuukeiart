@@ -8,10 +8,10 @@ artist: "@Ytkano"
 characters:
   - "Mika"
   - "Shimi"
-description: "First comic test on the site"
+description: "Mika uses her foresight to avoid a 'terrible' fate"
 sets:
   - set_title: "Comic"
-    set_description: "More testing ignore."
+    set_description: "Comic"
     preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0078/1.jpg"
     images:
       - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0078/1.jpg"
