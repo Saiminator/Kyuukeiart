@@ -1,0 +1,19 @@
+---
+layout: artwork
+nsfw: true
+title: "Lyna Drone Maid"
+name: "lynadronemaid"
+secretGroup: "nikki"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0109/preview.png"
+artist: "@4headboiii"
+characters:
+  - "Kyuu"
+  - "Lyna"
+description: "Kyuu donates to a homeless women, giving her the option of drone or maid."
+sets:
+  - set_title: "Comic"
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0109/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0109/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0109/2.png"
+---
