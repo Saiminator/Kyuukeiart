@@ -252,6 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
     "EXTREME": "extreme",
     "WIP": "wip",
     "TESTING": "testing",
+    "LYNA": "lyna"
   };
   
   const MASTER_SECRET = "ALLSECRETS";
