@@ -1,0 +1,14 @@
+---
+layout: artwork
+nsfw: false
+title: "Sera"
+name: "sera"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0111/preview.png"
+images:
+  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0111/1.png"
+artist: "@4headboiii"
+characters:
+  - "Sera"
+description: "Sera posing with her sword!"
+---
