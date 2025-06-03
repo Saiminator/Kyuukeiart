@@ -1,0 +1,20 @@
+---
+layout: artwork
+nsfw: true
+title: "Inky Takeover"
+name: "inky-takeover"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0112/preview.png"
+artist: "@barux_baruda"
+characters:
+  - "Shizu"
+description: "Shizu gets transported to an anti mana zone and Inky claims her body for itself"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0112/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0112/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0112/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0112/3.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0112/4.png"
+---
