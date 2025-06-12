@@ -1,15 +1,25 @@
 ---
 layout: artwork
-nsfw: false
-title: "Yura & Mizue"
-name: "yuraandmizue"
+nsfw: true
+title: "Kyuu Droned"
+name: "kyuudroned"
 secretGroup: ""
 preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0113/preview.png"
-images:
-  - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0113/1.png"
-artist: "@4headboiii"
+artist: "@rokosanalt"
 characters:
-  - "Yura"
-  - "Mizue"
-description: "Mizue grabs yura with her iconic mage hand."
+  - "Kyuu"
+description: "Orby eats a suspicious chip, causing Kyuu to be corrupted and wrapped up from within"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0113/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0113/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0113/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0113/3.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0113/4.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0113/5.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0113/6.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0113/7.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0113/8.png"
 ---
