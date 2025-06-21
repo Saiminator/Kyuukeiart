@@ -1,6 +1,6 @@
 ---
 layout: artwork
-nsfw: false
+nsfw: true
 title: "Ditto Bocchi"
 name: "ditto-bocchi"
 secretGroup: "bocchi"
