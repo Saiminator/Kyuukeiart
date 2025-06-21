@@ -1,0 +1,20 @@
+---
+layout: artwork
+nsfw: false
+title: "Ditto Bocchi"
+name: "ditto-bocchi"
+secretGroup: "bocchi"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0115/preview.png"
+artist: "@4headboiii"
+characters:
+  - "Bocchi"
+description: "Bocchi fails as a trainer, so Ditto takes over"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0115/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0115/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0115/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0115/3.png"
+---
