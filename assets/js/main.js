@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
     "EXTREME": "extreme",
     "WIP": "wip",
     "TESTING": "testing",
-    "LYNA": "lyna"
+    "LYNA": "lyna",
     "BOCCHI": "bocchi"
   };
   
