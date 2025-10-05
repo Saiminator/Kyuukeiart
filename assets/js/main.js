@@ -134,44 +134,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  function clampModalTranslation() {
-    if (!modalImg || !modalImageContainer) {
-      return;
-    }
-
-    const containerRect = modalImageContainer.getBoundingClientRect();
-    const containerWidth = containerRect.width;
-    const containerHeight = containerRect.height;
-
-    if (containerWidth === 0 || containerHeight === 0) {
-      return;
-    }
-
-    const naturalWidth = modalImg.naturalWidth || 0;
-    const naturalHeight = modalImg.naturalHeight || 0;
-    const imageRect = modalImg.getBoundingClientRect();
-
-    const scaledWidth = naturalWidth > 0 ? naturalWidth * modalScale : imageRect.width;
-    const scaledHeight = naturalHeight > 0 ? naturalHeight * modalScale : imageRect.height;
-
-    const halfOverflowX = Math.max(0, (scaledWidth - containerWidth) / 2);
-    const halfOverflowY = Math.max(0, (scaledHeight - containerHeight) / 2);
-
-    if (halfOverflowX === 0) {
-      modalTranslateX = 0;
-    } else {
-      const maxTranslateX = halfOverflowX / modalScale;
-      modalTranslateX = Math.min(Math.max(modalTranslateX, -maxTranslateX), maxTranslateX);
-    }
-
-    if (halfOverflowY === 0) {
-      modalTranslateY = 0;
-    } else {
-      const maxTranslateY = halfOverflowY / modalScale;
-      modalTranslateY = Math.min(Math.max(modalTranslateY, -maxTranslateY), maxTranslateY);
-    }
-  }
-
   function clearPointerState() {
     if (modalImageContainer && typeof modalImageContainer.releasePointerCapture === 'function') {
       pointerPositions.forEach(function(_, pointerId) {
@@ -226,42 +188,25 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!modalImageContainer || !modalImg) {
       return;
     }
-    const clampedScale = clampScale(targetScale);
     const rect = modalImageContainer.getBoundingClientRect();
     if (rect.width === 0 || rect.height === 0) {
-      modalScale = clampedScale;
-      if (Math.abs(modalScale - modalMinScale) < 0.0001) {
-        modalTranslateX = 0;
-        modalTranslateY = 0;
-      } else {
-        clampModalTranslation();
-      }
+      modalScale = clampScale(targetScale);
       applyModalTransform();
       return;
     }
+    const clampedScale = clampScale(targetScale);
     const offsetX = clientX - rect.left;
     const offsetY = clientY - rect.top;
     const currentScale = modalScale;
-    modalScale = clampedScale;
-    if (Math.abs(clampedScale - currentScale) < 0.000001) {
-      if (Math.abs(modalScale - modalMinScale) < 0.0001) {
-        modalTranslateX = 0;
-        modalTranslateY = 0;
-      } else {
-        clampModalTranslation();
-      }
+    if (clampedScale === currentScale) {
       applyModalTransform();
       return;
     }
     const imageX = offsetX / currentScale - modalTranslateX;
     const imageY = offsetY / currentScale - modalTranslateY;
+    modalScale = clampedScale;
     modalTranslateX = offsetX / modalScale - imageX;
     modalTranslateY = offsetY / modalScale - imageY;
-    clampModalTranslation();
-    if (Math.abs(modalScale - modalMinScale) < 0.0001) {
-      modalTranslateX = 0;
-      modalTranslateY = 0;
-    }
     applyModalTransform();
   }
 
@@ -369,8 +314,8 @@ document.addEventListener('DOMContentLoaded', function() {
       pointerPositions.set(event.pointerId, { clientX: event.clientX, clientY: event.clientY });
       if (pointerPositions.size === 1) {
         panPointerId = event.pointerId;
-        isPanning = modalScale > modalMinScale + 0.001;
-        setWrapperCursor(isPanning);
+        isPanning = true;
+        setWrapperCursor(true);
         updatePanPosition(event);
       } else if (pointerPositions.size === 2) {
         isPanning = false;
@@ -399,23 +344,13 @@ document.addEventListener('DOMContentLoaded', function() {
           const newScale = pinchInitialScale * (distance / pinchInitialDistance);
           performZoom(midpointX, midpointY, newScale);
         }
-      } else if (event.pointerId === panPointerId) {
-        const canPan = modalScale > modalMinScale + 0.001;
-        if (!canPan && isPanning) {
-          isPanning = false;
-          setWrapperCursor(false);
-        }
-        if (canPan && isPanning) {
-          const deltaX = event.clientX - lastPanPosition.x;
-          const deltaY = event.clientY - lastPanPosition.y;
-          modalTranslateX += deltaX / modalScale;
-          modalTranslateY += deltaY / modalScale;
-          updatePanPosition(event);
-          clampModalTranslation();
-          applyModalTransform();
-        } else {
-          updatePanPosition(event);
-        }
+      } else if (isPanning && event.pointerId === panPointerId) {
+        const deltaX = event.clientX - lastPanPosition.x;
+        const deltaY = event.clientY - lastPanPosition.y;
+        modalTranslateX += deltaX / modalScale;
+        modalTranslateY += deltaY / modalScale;
+        updatePanPosition(event);
+        applyModalTransform();
       }
     });
 
