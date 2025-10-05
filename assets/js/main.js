@@ -99,115 +99,51 @@ document.addEventListener('DOMContentLoaded', function() {
   const modalCloseButton = document.getElementById('modal-close');
   const modalCounter = document.getElementById('modal-counter');
   const modalImageWrapper = document.getElementById('modal-image-wrapper');
-  const modalImageContainer = document.getElementById('modal-image-container');
 
   let activeImageList = [];
   let activeImageSource = '';
   let activeImageIndex = 0;
   let modalScale = 1;
-  let modalMinScale = 1;
+  const MODAL_MIN_SCALE = 1;
   const MODAL_MAX_SCALE = 4;
   let modalTranslateX = 0;
   let modalTranslateY = 0;
-  const pointerPositions = new Map();
-  let panPointerId = null;
   let isPanning = false;
-  let pinchInitialDistance = 0;
-  let pinchInitialScale = 1;
+  let panPointerId = null;
   const lastPanPosition = { x: 0, y: 0 };
 
-  function clampScale(value) {
-    return Math.min(MODAL_MAX_SCALE, Math.max(modalMinScale, value));
-  }
-
   function setWrapperCursor(isGrabbing) {
-    if (!modalImageContainer) return;
-    modalImageContainer.classList.toggle('is-grabbing', Boolean(isGrabbing));
+    if (!modalImageWrapper) return;
+    modalImageWrapper.classList.toggle('is-grabbing', Boolean(isGrabbing));
   }
 
   function applyModalTransform() {
     if (!modalImg) return;
-    if (Math.abs(modalScale - 1) < 0.0001 && Math.abs(modalTranslateX) < 0.0001 && Math.abs(modalTranslateY) < 0.0001) {
+    if (modalScale === 1 && modalTranslateX === 0 && modalTranslateY === 0) {
       modalImg.style.transform = '';
     } else {
       modalImg.style.transform = `translate(${modalTranslateX}px, ${modalTranslateY}px) scale(${modalScale})`;
     }
   }
 
-  function clearPointerState() {
-    if (modalImageContainer && typeof modalImageContainer.releasePointerCapture === 'function') {
-      pointerPositions.forEach(function(_, pointerId) {
-        try {
-          modalImageContainer.releasePointerCapture(pointerId);
-        } catch (error) {
-          /* Ignore release errors */
-        }
-      });
-    }
-    pointerPositions.clear();
-    isPanning = false;
-    panPointerId = null;
-    pinchInitialDistance = 0;
-    pinchInitialScale = modalScale;
-    setWrapperCursor(false);
-  }
-
   function resetModalTransform() {
-    clearPointerState();
-    if (!modalImg || !modalImageWrapper) {
-      modalScale = 1;
-      modalMinScale = 1;
-      modalTranslateX = 0;
-      modalTranslateY = 0;
-      applyModalTransform();
-      return;
-    }
-    const rect = modalImageWrapper.getBoundingClientRect();
-    const naturalWidth = modalImg.naturalWidth || 0;
-    const naturalHeight = modalImg.naturalHeight || 0;
-    if (rect.width > 0 && rect.height > 0 && naturalWidth > 0 && naturalHeight > 0) {
-      const scaleX = rect.width / naturalWidth;
-      const scaleY = rect.height / naturalHeight;
-      const containedScale = Math.min(scaleX, scaleY, 1);
-      modalMinScale = containedScale > 0 ? containedScale : 1;
-    } else {
-      modalMinScale = 1;
-    }
-    modalScale = modalMinScale;
+    modalScale = 1;
     modalTranslateX = 0;
     modalTranslateY = 0;
+    isPanning = false;
+    if (panPointerId !== null && modalImageWrapper && typeof modalImageWrapper.releasePointerCapture === 'function') {
+      if (!modalImageWrapper.hasPointerCapture || modalImageWrapper.hasPointerCapture(panPointerId)) {
+        modalImageWrapper.releasePointerCapture(panPointerId);
+      }
+    }
+    panPointerId = null;
+    setWrapperCursor(false);
     applyModalTransform();
   }
 
   function updatePanPosition(event) {
     lastPanPosition.x = event.clientX;
     lastPanPosition.y = event.clientY;
-  }
-
-  function performZoom(clientX, clientY, targetScale) {
-    if (!modalImageContainer || !modalImg) {
-      return;
-    }
-    const rect = modalImageContainer.getBoundingClientRect();
-    if (rect.width === 0 || rect.height === 0) {
-      modalScale = clampScale(targetScale);
-      applyModalTransform();
-      return;
-    }
-    const clampedScale = clampScale(targetScale);
-    const offsetX = clientX - rect.left;
-    const offsetY = clientY - rect.top;
-    const currentScale = modalScale;
-    if (clampedScale === currentScale) {
-      applyModalTransform();
-      return;
-    }
-    const imageX = offsetX / currentScale - modalTranslateX;
-    const imageY = offsetY / currentScale - modalTranslateY;
-    modalScale = clampedScale;
-    modalTranslateX = offsetX / modalScale - imageX;
-    modalTranslateY = offsetY / modalScale - imageY;
-    applyModalTransform();
   }
 
   function updateModalCounter() {
@@ -299,109 +235,62 @@ document.addEventListener('DOMContentLoaded', function() {
     modalImg.addEventListener('load', resetModalTransform);
   }
 
-  if (modalImageContainer) {
-    modalImageContainer.addEventListener('wheel', function(event) {
+  if (modalImageWrapper) {
+    modalImageWrapper.addEventListener('wheel', function(event) {
       event.preventDefault();
-      const zoomFactor = Math.exp(-event.deltaY / 300);
-      const newScale = modalScale * zoomFactor;
-      performZoom(event.clientX, event.clientY, newScale);
-    }, { passive: false });
-
-    modalImageContainer.addEventListener('pointerdown', function(event) {
-      if (typeof modalImageContainer.setPointerCapture === 'function') {
-        modalImageContainer.setPointerCapture(event.pointerId);
-      }
-      pointerPositions.set(event.pointerId, { clientX: event.clientX, clientY: event.clientY });
-      if (pointerPositions.size === 1) {
-        panPointerId = event.pointerId;
-        isPanning = true;
-        setWrapperCursor(true);
-        updatePanPosition(event);
-      } else if (pointerPositions.size === 2) {
-        isPanning = false;
-        setWrapperCursor(false);
-        const points = Array.from(pointerPositions.values());
-        pinchInitialDistance = Math.hypot(points[0].clientX - points[1].clientX, points[0].clientY - points[1].clientY);
-        pinchInitialScale = modalScale;
-      }
-    });
-
-    modalImageContainer.addEventListener('pointermove', function(event) {
-      if (!pointerPositions.has(event.pointerId)) {
-        return;
-      }
-      pointerPositions.set(event.pointerId, { clientX: event.clientX, clientY: event.clientY });
-      if (pointerPositions.size >= 2) {
-        const points = Array.from(pointerPositions.values()).slice(0, 2);
-        const distance = Math.hypot(points[0].clientX - points[1].clientX, points[0].clientY - points[1].clientY);
-        if (pinchInitialDistance === 0) {
-          pinchInitialDistance = distance;
-          pinchInitialScale = modalScale;
-        }
-        if (distance > 0 && pinchInitialDistance > 0) {
-          const midpointX = (points[0].clientX + points[1].clientX) / 2;
-          const midpointY = (points[0].clientY + points[1].clientY) / 2;
-          const newScale = pinchInitialScale * (distance / pinchInitialDistance);
-          performZoom(midpointX, midpointY, newScale);
-        }
-      } else if (isPanning && event.pointerId === panPointerId) {
-        const deltaX = event.clientX - lastPanPosition.x;
-        const deltaY = event.clientY - lastPanPosition.y;
-        modalTranslateX += deltaX / modalScale;
-        modalTranslateY += deltaY / modalScale;
-        updatePanPosition(event);
+      const direction = event.deltaY < 0 ? 1 : -1;
+      const newScale = Math.min(MODAL_MAX_SCALE, Math.max(MODAL_MIN_SCALE, modalScale + direction * 0.1));
+      if (newScale !== modalScale) {
+        modalScale = parseFloat(newScale.toFixed(2));
         applyModalTransform();
       }
+    }, { passive: false });
+
+    modalImageWrapper.addEventListener('pointerdown', function(event) {
+      panPointerId = event.pointerId;
+      isPanning = true;
+      setWrapperCursor(true);
+      updatePanPosition(event);
+      if (typeof modalImageWrapper.setPointerCapture === 'function') {
+        modalImageWrapper.setPointerCapture(panPointerId);
+      }
     });
 
-    function handlePointerEnd(event) {
-      if (pointerPositions.has(event.pointerId)) {
-        pointerPositions.delete(event.pointerId);
+    modalImageWrapper.addEventListener('pointermove', function(event) {
+      if (!isPanning || event.pointerId !== panPointerId) {
+        return;
       }
-      if (typeof modalImageContainer.releasePointerCapture === 'function') {
-        try {
-          modalImageContainer.releasePointerCapture(event.pointerId);
-        } catch (error) {
-          /* Ignore release errors */
+      const deltaX = event.clientX - lastPanPosition.x;
+      const deltaY = event.clientY - lastPanPosition.y;
+      modalTranslateX += deltaX;
+      modalTranslateY += deltaY;
+      updatePanPosition(event);
+      applyModalTransform();
+    });
+
+    function endPan(event) {
+      if (!isPanning || (event.pointerId !== panPointerId && panPointerId !== null)) {
+        return;
+      }
+      isPanning = false;
+      setWrapperCursor(false);
+      if (typeof modalImageWrapper.releasePointerCapture === 'function' && panPointerId !== null) {
+        if (!modalImageWrapper.hasPointerCapture || modalImageWrapper.hasPointerCapture(panPointerId)) {
+          modalImageWrapper.releasePointerCapture(panPointerId);
         }
       }
-      if (pointerPositions.size === 1) {
-        const remainingId = pointerPositions.keys().next().value;
-        const remainingPos = pointerPositions.get(remainingId);
-        if (remainingPos) {
-          panPointerId = remainingId;
-          isPanning = true;
-          setWrapperCursor(true);
-          lastPanPosition.x = remainingPos.clientX;
-          lastPanPosition.y = remainingPos.clientY;
-        }
-        pinchInitialDistance = 0;
-        pinchInitialScale = modalScale;
-      } else if (pointerPositions.size === 0) {
-        clearPointerState();
-      } else {
-        isPanning = false;
-        setWrapperCursor(false);
-        pinchInitialDistance = 0;
-        pinchInitialScale = modalScale;
-      }
+      panPointerId = null;
     }
 
-    modalImageContainer.addEventListener('pointerup', handlePointerEnd);
-    modalImageContainer.addEventListener('pointerleave', handlePointerEnd);
-    modalImageContainer.addEventListener('pointercancel', handlePointerEnd);
+    modalImageWrapper.addEventListener('pointerup', endPan);
+    modalImageWrapper.addEventListener('pointerleave', endPan);
+    modalImageWrapper.addEventListener('pointercancel', endPan);
 
-    modalImageContainer.addEventListener('dblclick', function(event) {
+    modalImageWrapper.addEventListener('dblclick', function(event) {
       event.preventDefault();
       resetModalTransform();
     });
   }
-
-  window.addEventListener('resize', function() {
-    if (modal && modal.style.display === 'flex') {
-      resetModalTransform();
-    }
-  });
 
   const artworkThumbnails = document.querySelectorAll('.artwork-thumbnail');
   const artworkImages = Array.from(artworkThumbnails).map((thumb) => thumb.getAttribute('src') || thumb.src);
