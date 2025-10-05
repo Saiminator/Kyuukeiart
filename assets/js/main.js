@@ -96,132 +96,105 @@ document.addEventListener('DOMContentLoaded', function() {
   const modalImg = document.getElementById('modal-img');
   const modalPrev = document.getElementById('modal-prev');
   const modalNext = document.getElementById('modal-next');
-  const modalCloseButton = document.getElementById('modal-close');
-  const modalCounter = document.getElementById('modal-counter');
-
-  let activeImageList = [];
-  let activeImageSource = '';
-  let activeImageIndex = 0;
-
-  function updateModalCounter() {
-    if (!modalCounter) return;
-    if (Array.isArray(activeImageList) && activeImageList.length > 0) {
-      modalCounter.textContent = (activeImageIndex + 1) + ' / ' + activeImageList.length;
-      modalCounter.style.display = 'block';
-    } else {
-      modalCounter.textContent = '';
-      modalCounter.style.display = 'none';
-    }
-  }
-
-  function updateModalImage() {
-    if (!modalImg || !Array.isArray(activeImageList) || activeImageList.length === 0) {
-      return;
-    }
-    const currentSrc = activeImageList[activeImageIndex];
-    if (currentSrc) {
-      modalImg.src = currentSrc;
-    }
-    updateModalCounter();
-  }
-
-  function openModal(images, startIndex = 0, source = '') {
-    if (!modal || !modalImg || !Array.isArray(images)) {
-      return;
-    }
-    const filteredImages = images.filter(Boolean);
-    if (filteredImages.length === 0) {
-      return;
-    }
-    activeImageList = filteredImages;
-    activeImageSource = source;
-    activeImageIndex = Math.min(Math.max(startIndex, 0), activeImageList.length - 1);
-    modal.style.display = 'flex';
-    if (activeImageSource) {
-      modal.setAttribute('data-active-source', activeImageSource);
-    } else {
-      modal.removeAttribute('data-active-source');
-    }
-    updateModalImage();
-  }
-
-  function closeModalInternal() {
-    if (!modal) return;
-    modal.style.display = 'none';
-    modalImg.src = '';
-    activeImageList = [];
-    activeImageSource = '';
-    activeImageIndex = 0;
-    modal.removeAttribute('data-active-source');
-    updateModalCounter();
-  }
-
-  function showPrevImageInternal() {
-    if (!Array.isArray(activeImageList) || activeImageList.length === 0) {
-      return;
-    }
-    activeImageIndex = (activeImageIndex - 1 + activeImageList.length) % activeImageList.length;
-    updateModalImage();
-  }
-
-  function showNextImageInternal() {
-    if (!Array.isArray(activeImageList) || activeImageList.length === 0) {
-      return;
-    }
-    activeImageIndex = (activeImageIndex + 1) % activeImageList.length;
-    updateModalImage();
-  }
-
-  window.closeModal = closeModalInternal;
-  window.showPrevImage = showPrevImageInternal;
-  window.showNextImage = showNextImageInternal;
-
-  if (modalPrev) {
-    modalPrev.addEventListener('click', showPrevImageInternal);
-  }
-  if (modalNext) {
-    modalNext.addEventListener('click', showNextImageInternal);
-  }
-  if (modalCloseButton) {
-    modalCloseButton.addEventListener('click', closeModalInternal);
-  }
-
+  
+  let artworkCurrentIndex = 0;
+  let artworkImages = [];
   const artworkThumbnails = document.querySelectorAll('.artwork-thumbnail');
-  const artworkImages = Array.from(artworkThumbnails).map((thumb) => thumb.getAttribute('src') || thumb.src);
-
+  
   if (artworkThumbnails.length > 0) {
     artworkThumbnails.forEach((thumb, index) => {
+      artworkImages.push(thumb.src);
       thumb.addEventListener('click', function() {
-        openModal(artworkImages, index, 'artwork');
+        artworkCurrentIndex = index;
+        openArtworkModal();
       });
     });
+    
+    function openArtworkModal() {
+      modal.style.display = 'flex';
+      modalImg.src = artworkImages[artworkCurrentIndex];
+    }
+    
+    function showPrevArtwork() {
+      artworkCurrentIndex = (artworkCurrentIndex - 1 + artworkImages.length) % artworkImages.length;
+      modalImg.src = artworkImages[artworkCurrentIndex];
+    }
+    
+    function showNextArtwork() {
+      artworkCurrentIndex = (artworkCurrentIndex + 1) % artworkImages.length;
+      modalImg.src = artworkImages[artworkCurrentIndex];
+    }
+    
+    modalPrev.addEventListener('click', showPrevArtwork);
+    modalNext.addEventListener('click', showNextArtwork);
   }
   
   /*-----------------------------------------------------
     CHARACTER PAGE REFERENCE MODAL
   -----------------------------------------------------*/
+  let refCurrentIndex = 0;
   if (document.getElementById('ref-preview') && typeof refImages !== 'undefined' && Array.isArray(refImages) && refImages.length > 0) {
     const refButton = document.getElementById('ref-preview');
-
+    
     refButton.addEventListener('click', function() {
-      openModal(refImages, 0, 'reference');
+      refCurrentIndex = 0;
+      openRefModal();
+    });
+    
+    function openRefModal() {
+      modal.style.display = 'flex';
+      modalImg.src = refImages[refCurrentIndex];
+    }
+    
+    function showPrevRef() {
+      refCurrentIndex = (refCurrentIndex - 1 + refImages.length) % refImages.length;
+      modalImg.src = refImages[refCurrentIndex];
+    }
+    
+    function showNextRef() {
+      refCurrentIndex = (refCurrentIndex + 1) % refImages.length;
+      modalImg.src = refImages[refCurrentIndex];
+    }
+    
+    modalPrev.addEventListener('click', function() {
+      if (modal.style.display === 'flex' && refImages.includes(modalImg.src)) {
+        showPrevRef();
+      }
+    });
+    modalNext.addEventListener('click', function() {
+      if (modal.style.display === 'flex' && refImages.includes(modalImg.src)) {
+        showNextRef();
+      }
     });
   }
   
   /*-----------------------------------------------------
     ARTWORK SET MODAL (Multiple Sets)
   -----------------------------------------------------*/
+  let setModalImages = [];
+  let setCurrentIndex = 0;
+  
   window.openSetModal = function(element) {
     var data = element.parentElement.getAttribute('data-set-images');
     if (data) {
-      try {
-        const parsedImages = JSON.parse(data);
-        if (Array.isArray(parsedImages) && parsedImages.length > 0) {
-          openModal(parsedImages, 0, 'set');
-        }
-      } catch (error) {
-        console.error('Failed to parse set images', error);
-      }
+      setModalImages = JSON.parse(data);
+      setCurrentIndex = 0;
+      modalImg.src = setModalImages[setCurrentIndex];
+      modal.style.display = 'flex';
+    }
+  };
+  
+  window.showPrevImage = function() {
+    if (setModalImages.length > 0 && setModalImages.includes(modalImg.src)) {
+      setCurrentIndex = (setCurrentIndex - 1 + setModalImages.length) % setModalImages.length;
+      modalImg.src = setModalImages[setCurrentIndex];
+    }
+  };
+  
+  window.showNextImage = function() {
+    if (setModalImages.length > 0 && setModalImages.includes(modalImg.src)) {
+      setCurrentIndex = (setCurrentIndex + 1) % setModalImages.length;
+      modalImg.src = setModalImages[setCurrentIndex];
     }
   };
   
@@ -229,13 +202,21 @@ document.addEventListener('DOMContentLoaded', function() {
     GLOBAL KEYDOWN HANDLER (for modal navigation)
   -----------------------------------------------------*/
   window.addEventListener('keydown', function(event) {
-    if (modal && modal.style.display === 'flex') {
+    if (modal.style.display === 'flex') {
       if (event.key === 'ArrowLeft') {
-        showPrevImageInternal();
+        if (setModalImages.length > 0 && setModalImages.includes(modalImg.src)) {
+          showPrevImage();
+        } else if (artworkImages.length > 0 && artworkImages.includes(modalImg.src)) {
+          showPrevArtwork();
+        }
       } else if (event.key === 'ArrowRight') {
-        showNextImageInternal();
+        if (setModalImages.length > 0 && setModalImages.includes(modalImg.src)) {
+          showNextImage();
+        } else if (artworkImages.length > 0 && artworkImages.includes(modalImg.src)) {
+          showNextArtwork();
+        }
       } else if (event.key === 'Escape') {
-        closeModalInternal();
+        modal.style.display = 'none';
       }
     }
   });
@@ -245,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
   -----------------------------------------------------*/
   window.addEventListener('click', function(event) {
     if (event.target === modal) {
-      closeModalInternal();
+      modal.style.display = 'none';
     }
   });
   
