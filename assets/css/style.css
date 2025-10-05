@@ -312,28 +312,11 @@ button:hover, .preview-btn:hover {
   pointer-events: none;
 }
 
-#modal-image-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 95%;
-  max-height: 95%;
-  overflow: hidden;
-  cursor: grab;
-  touch-action: none;
-}
-
-#modal-image-wrapper.is-grabbing {
-  cursor: grabbing;
-}
-
 .modal-content {
   display: block;
-  max-width: 100%;
-  max-height: 100%;
-  margin: 0;
-  transition: transform 0.1s ease-out;
-  will-change: transform;
+  max-width: 95%;
+  max-height: 95%;
+  margin: auto;
 }
 
 /* Modal controls */
