@@ -98,10 +98,53 @@ document.addEventListener('DOMContentLoaded', function() {
   const modalNext = document.getElementById('modal-next');
   const modalCloseButton = document.getElementById('modal-close');
   const modalCounter = document.getElementById('modal-counter');
+  const modalImageWrapper = document.getElementById('modal-image-wrapper');
 
   let activeImageList = [];
   let activeImageSource = '';
   let activeImageIndex = 0;
+  let modalScale = 1;
+  const MODAL_MIN_SCALE = 1;
+  const MODAL_MAX_SCALE = 4;
+  let modalTranslateX = 0;
+  let modalTranslateY = 0;
+  let isPanning = false;
+  let panPointerId = null;
+  const lastPanPosition = { x: 0, y: 0 };
+
+  function setWrapperCursor(isGrabbing) {
+    if (!modalImageWrapper) return;
+    modalImageWrapper.classList.toggle('is-grabbing', Boolean(isGrabbing));
+  }
+
+  function applyModalTransform() {
+    if (!modalImg) return;
+    if (modalScale === 1 && modalTranslateX === 0 && modalTranslateY === 0) {
+      modalImg.style.transform = '';
+    } else {
+      modalImg.style.transform = `translate(${modalTranslateX}px, ${modalTranslateY}px) scale(${modalScale})`;
+    }
+  }
+
+  function resetModalTransform() {
+    modalScale = 1;
+    modalTranslateX = 0;
+    modalTranslateY = 0;
+    isPanning = false;
+    if (panPointerId !== null && modalImageWrapper && typeof modalImageWrapper.releasePointerCapture === 'function') {
+      if (!modalImageWrapper.hasPointerCapture || modalImageWrapper.hasPointerCapture(panPointerId)) {
+        modalImageWrapper.releasePointerCapture(panPointerId);
+      }
+    }
+    panPointerId = null;
+    setWrapperCursor(false);
+    applyModalTransform();
+  }
+
+  function updatePanPosition(event) {
+    lastPanPosition.x = event.clientX;
+    lastPanPosition.y = event.clientY;
+  }
 
   function updateModalCounter() {
     if (!modalCounter) return;
@@ -120,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     const currentSrc = activeImageList[activeImageIndex];
     if (currentSrc) {
+      resetModalTransform();
       modalImg.src = currentSrc;
     }
     updateModalCounter();
@@ -153,6 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
     activeImageSource = '';
     activeImageIndex = 0;
     modal.removeAttribute('data-active-source');
+    resetModalTransform();
     updateModalCounter();
   }
 
@@ -184,6 +229,67 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   if (modalCloseButton) {
     modalCloseButton.addEventListener('click', closeModalInternal);
+  }
+
+  if (modalImg) {
+    modalImg.addEventListener('load', resetModalTransform);
+  }
+
+  if (modalImageWrapper) {
+    modalImageWrapper.addEventListener('wheel', function(event) {
+      event.preventDefault();
+      const direction = event.deltaY < 0 ? 1 : -1;
+      const newScale = Math.min(MODAL_MAX_SCALE, Math.max(MODAL_MIN_SCALE, modalScale + direction * 0.1));
+      if (newScale !== modalScale) {
+        modalScale = parseFloat(newScale.toFixed(2));
+        applyModalTransform();
+      }
+    }, { passive: false });
+
+    modalImageWrapper.addEventListener('pointerdown', function(event) {
+      panPointerId = event.pointerId;
+      isPanning = true;
+      setWrapperCursor(true);
+      updatePanPosition(event);
+      if (typeof modalImageWrapper.setPointerCapture === 'function') {
+        modalImageWrapper.setPointerCapture(panPointerId);
+      }
+    });
+
+    modalImageWrapper.addEventListener('pointermove', function(event) {
+      if (!isPanning || event.pointerId !== panPointerId) {
+        return;
+      }
+      const deltaX = event.clientX - lastPanPosition.x;
+      const deltaY = event.clientY - lastPanPosition.y;
+      modalTranslateX += deltaX;
+      modalTranslateY += deltaY;
+      updatePanPosition(event);
+      applyModalTransform();
+    });
+
+    function endPan(event) {
+      if (!isPanning || (event.pointerId !== panPointerId && panPointerId !== null)) {
+        return;
+      }
+      isPanning = false;
+      setWrapperCursor(false);
+      if (typeof modalImageWrapper.releasePointerCapture === 'function' && panPointerId !== null) {
+        if (!modalImageWrapper.hasPointerCapture || modalImageWrapper.hasPointerCapture(panPointerId)) {
+          modalImageWrapper.releasePointerCapture(panPointerId);
+        }
+      }
+      panPointerId = null;
+    }
+
+    modalImageWrapper.addEventListener('pointerup', endPan);
+    modalImageWrapper.addEventListener('pointerleave', endPan);
+    modalImageWrapper.addEventListener('pointercancel', endPan);
+
+    modalImageWrapper.addEventListener('dblclick', function(event) {
+      event.preventDefault();
+      resetModalTransform();
+    });
   }
 
   const artworkThumbnails = document.querySelectorAll('.artwork-thumbnail');
