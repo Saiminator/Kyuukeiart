@@ -4,7 +4,7 @@ nsfw: true
 title: "Ditto Bocchi"
 name: "ditto-bocchi"
 secretGroup: "bocchi"
-preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0115/preview.png"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0115/preview.png"
 artist: "@4headboiii"
 characters:
   - "Bocchi"
