@@ -1,0 +1,21 @@
+---
+layout: artwork
+nsfw: true
+title: "Kaji x Shimi"
+name: "kaji-shimi"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0116/preview.png"
+artist: "@bis_maki"
+characters:
+  - "Kaji"
+  - "Shimi"
+description: "Kaji gets falls for Shimi's trap and becomes the newest Shimi"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0116/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0116/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0116/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0116/3.png"
+---
