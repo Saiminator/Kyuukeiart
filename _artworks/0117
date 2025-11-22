@@ -1,0 +1,40 @@
+---
+layout: artwork
+nsfw: true
+title: "Bunny & Chelsea Absorbed"
+name: "bunny-chelsea-absorbed"
+secretGroup: "bunny,chelsea"
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/preview.png"
+artist: "@Khear987"
+characters:
+  - "Bunny"
+  - "Chelsea"
+description: "Alternate ending, Dechronos is able to invade Bunny's body, absorbing her and Chelsea"
+sets:
+  - set_title: "Comic"
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/3.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/4.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/5.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/6.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/7.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/8.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/9.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/10.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/11.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/12.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/13.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/14.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/15.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/16.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/17.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/18.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/19.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/20.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/21.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/22.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/F0117/23.png"
+---
