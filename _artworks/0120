@@ -1,0 +1,22 @@
+---
+layout: artwork
+nsfw: false
+title: "Shimi Via'rus"
+name: "via-becomes-shimi"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0120/preview.png"
+artist: "@4headboiii"
+characters:
+  - "Shimi"
+  - "Via"
+  - "Yura"
+description: "Via watches as Yura becomes a Shimi, only to succumb to the same fate moments later"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0120/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0120/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0120/2.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0120/3.png"
+---
