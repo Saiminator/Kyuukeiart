@@ -1,0 +1,20 @@
+---
+layout: artwork
+nsfw: true
+title: "Shizu x Inky Elaine"
+name: "shizu-inky-elaine"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0119/preview.png"
+artist: "@rokosanalt"
+characters:
+  - "Shizu"
+  - "Elaine"
+description: "Presumably in a dream, Inky takes Elaine's form to molest Shizu"
+sets:
+  - set_title: "Alt Version"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0119/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0119/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0119/2.png"
+---
