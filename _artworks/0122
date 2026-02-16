@@ -1,0 +1,19 @@
+---
+layout: artwork
+nsfw: true
+title: "Year of the Shizu"
+name: "year-of-shizu"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0122/preview.png"
+artist: "@rokosanAlt"
+characters:
+  - "Shizu"
+description: "2026 is the Kyuukei year of the Shizu!"
+sets:
+  - set_title: "Alt Version"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0122/1.png"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0122/1.png"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0122/2.png"
+---
