@@ -1,0 +1,33 @@
+---
+layout: artwork
+nsfw: true
+title: "Kyuu Double Brainwashed"
+name: "kyuu-double-brainwashed"
+secretGroup: ""
+preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0123/preview.jpg"
+artist: ""
+characters:
+  - "kyuu"
+description: "Kyuu gets captured by the Cult of Shackles and falls under brainwashing a second time!"
+sets:
+  - set_title: "Comic"
+    set_description: ""
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0123/1.jpg"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0123/1.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0123/2.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0123/3.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0123/4.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0123/5.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0123/6.jpg"
+  - set_title: "Textless"
+    set_description: "Textless"
+    preview: "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0123/1.jpg"
+    images:
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0123/7.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0123/8.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0123/9.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0123/10.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0123/11.jpg"
+      - "https://kyuukei.s3.us-east-2.amazonaws.com/collection/0123/12.jpg"
+---
